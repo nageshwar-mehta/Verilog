@@ -2,3 +2,6 @@ Running: xsim.dir/NOR_using_AND_behav/xsimk.exe -simmode gui -wdb NOR_using_AND_
 Design successfully loaded
 Design Loading Memory Usage: 8544 KB (Peak: 8544 KB)
 Design Loading CPU Usage: 61 ms
+Simulation completed
+Simulation Memory Usage: 9176 KB (Peak: 9176 KB)
+Simulation CPU Usage: 108 ms

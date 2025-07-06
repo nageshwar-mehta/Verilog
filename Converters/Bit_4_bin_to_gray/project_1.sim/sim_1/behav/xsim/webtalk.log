@@ -2,12 +2,12 @@
 # Webtalk v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Mon Jul  7 03:14:54 2025
-# Process ID: 39508
-# Current directory: C:/Users/nages/verilog_projects/Converters/project_1/project_1.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source C:/Users/nages/verilog_projects/Converters/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/bit_4_BIN_to_GRAY_behav/webtalk/xsim_webtalk.tcl -notrace
-# Log file: C:/Users/nages/verilog_projects/Converters/project_1/project_1.sim/sim_1/behav/xsim/webtalk.log
-# Journal file: C:/Users/nages/verilog_projects/Converters/project_1/project_1.sim/sim_1/behav/xsim\webtalk.jou
+# Start of session at: Mon Jul  7 03:23:06 2025
+# Process ID: 26964
+# Current directory: C:/Users/nages/verilog_projects/Converters/Bit_4_bin_to_gray/project_1.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/nages/verilog_projects/Converters/Bit_4_bin_to_gray/project_1.sim/sim_1/behav/xsim/xsim.dir/bit_4_behavioural_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/nages/verilog_projects/Converters/Bit_4_bin_to_gray/project_1.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/nages/verilog_projects/Converters/Bit_4_bin_to_gray/project_1.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
-source C:/Users/nages/verilog_projects/Converters/project_1/project_1.sim/sim_1/behav/xsim/xsim.dir/bit_4_BIN_to_GRAY_behav/webtalk/xsim_webtalk.tcl -notrace
-INFO: [Common 17-206] Exiting Webtalk at Mon Jul  7 03:14:57 2025...
+source C:/Users/nages/verilog_projects/Converters/Bit_4_bin_to_gray/project_1.sim/sim_1/behav/xsim/xsim.dir/bit_4_behavioural_behav/webtalk/xsim_webtalk.tcl -notrace
+INFO: [Common 17-206] Exiting Webtalk at Mon Jul  7 03:23:09 2025...

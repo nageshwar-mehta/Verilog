@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jul  3 23:26:00 2025
+# Process ID: 35328
+# Current directory: C:/Users/nages/verilog_projects/tutorial projects/NAND_using_OR/NAND_using_OR.runs/synth_1
+# Command line: vivado.exe -log NAND.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source NAND.tcl
+# Log file: C:/Users/nages/verilog_projects/tutorial projects/NAND_using_OR/NAND_using_OR.runs/synth_1/NAND.vds
+# Journal file: C:/Users/nages/verilog_projects/tutorial projects/NAND_using_OR/NAND_using_OR.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source NAND.tcl -notrace

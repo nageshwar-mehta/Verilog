@@ -2,3 +2,6 @@ Running: xsim.dir/bit_4_gray_to_bin_behav/xsimk.exe -simmode gui -wdb bit_4_gray
 Design successfully loaded
 Design Loading Memory Usage: 8532 KB (Peak: 8532 KB)
 Design Loading CPU Usage: 31 ms
+Simulation completed
+Simulation Memory Usage: 9244 KB (Peak: 9244 KB)
+Simulation CPU Usage: 61 ms

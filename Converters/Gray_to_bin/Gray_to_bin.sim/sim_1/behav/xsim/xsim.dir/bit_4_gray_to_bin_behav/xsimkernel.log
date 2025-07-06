@@ -1,0 +1,4 @@
+Running: xsim.dir/bit_4_gray_to_bin_behav/xsimk.exe -simmode gui -wdb bit_4_gray_to_bin_behav.wdb -simrunnum 0 -socket 57039
+Design successfully loaded
+Design Loading Memory Usage: 8532 KB (Peak: 8532 KB)
+Design Loading CPU Usage: 31 ms

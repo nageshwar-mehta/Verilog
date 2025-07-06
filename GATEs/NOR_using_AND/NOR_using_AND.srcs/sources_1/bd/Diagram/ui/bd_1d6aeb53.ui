@@ -1,0 +1,32 @@
+{
+   "ActiveEmotionalView":"Default View",
+   "Default View_ScaleFactor":"0.130086",
+   "Default View_TopLeft":"-3382,-1115",
+   "ExpandedHierarchyInLayout":"",
+   "guistr":"# # String gsaved with Nlview 7.0r6  2020-01-29 bk=1.5227 VDI=41 GEI=36 GUI=JA:10.0 non-TLS
+#  -string -flagsOSRD
+preplace port sfp_rtl_0 -pg 1 -lvl 3 -x 520 -y 300 -defaultsOSRD
+preplace inst gig_ethernet_pcs_pma_0 -pg 1 -lvl 1 -x 250 -y 380 -defaultsOSRD
+preplace inst clk_wiz -pg 1 -lvl 1 -x 250 -y -100 -defaultsOSRD
+preplace inst clk_wiz_1 -pg 1 -lvl 1 -x 250 -y -220 -defaultsOSRD
+preplace inst clk_wiz_2 -pg 1 -lvl 1 -x 250 -y 810 -defaultsOSRD
+preplace inst clk_wiz_3 -pg 1 -lvl 1 -x 250 -y 930 -defaultsOSRD
+preplace inst clk_wiz_4 -pg 1 -lvl 1 -x 250 -y 1050 -defaultsOSRD
+preplace inst clk_wiz_5 -pg 1 -lvl 1 -x 250 -y 70 -defaultsOSRD
+preplace inst clk_wiz_6 -pg 1 -lvl 1 -x 250 -y 690 -defaultsOSRD
+preplace netloc clk_wiz_clk_out1 1 0 2 50 -300 420J
+preplace netloc clk_wiz_1_clk_out1 1 0 2 40 -310 450J
+preplace netloc clk_wiz_2_clk_out1 1 0 2 60 -30 440J
+preplace netloc clk_wiz_3_clk_out1 1 0 2 20 -290 460J
+preplace netloc clk_wiz_4_clk_out1 1 0 2 30 -20 450J
+preplace netloc clk_wiz_5_clk_out1 1 0 2 70 -10 430J
+preplace netloc clk_wiz_6_clk_out1 1 0 2 80 0 420J
+preplace netloc gig_ethernet_pcs_pma_0_sfp 1 1 2 NJ 300 N
+levelinfo -pg 1 0 250 480 520
+pagesize -pg 1 -db -bbox -sgen 0 -330 630 1120
+"
+}
+{
+   "da_board_cnt":"1",
+   "da_clkrst_cnt":"7"
+}

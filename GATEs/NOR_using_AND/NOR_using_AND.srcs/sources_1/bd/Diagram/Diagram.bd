@@ -1,0 +1,131 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7vx485tffg1157-1",
+      "gen_directory": "../../../../NOR_using_AND.gen/sources_1/bd/Diagram",
+      "name": "Diagram",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2020.2"
+    },
+    "design_tree": {
+      "gig_ethernet_pcs_pma_0": "",
+      "clk_wiz": "",
+      "clk_wiz_1": "",
+      "clk_wiz_2": "",
+      "clk_wiz_3": "",
+      "clk_wiz_4": "",
+      "clk_wiz_5": "",
+      "clk_wiz_6": ""
+    },
+    "interface_ports": {
+      "sfp_rtl_0": {
+        "mode": "Master",
+        "vlnv": "xilinx.com:interface:sfp_rtl:1.0"
+      }
+    },
+    "components": {
+      "gig_ethernet_pcs_pma_0": {
+        "vlnv": "xilinx.com:ip:gig_ethernet_pcs_pma:16.2",
+        "xci_name": "Diagram_gig_ethernet_pcs_pma_0_0",
+        "xci_path": "ip\\Diagram_gig_ethernet_pcs_pma_0_0\\Diagram_gig_ethernet_pcs_pma_0_0.xci",
+        "inst_hier_path": "gig_ethernet_pcs_pma_0"
+      },
+      "clk_wiz": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "Diagram_clk_wiz_0",
+        "xci_path": "ip\\Diagram_clk_wiz_0\\Diagram_clk_wiz_0.xci",
+        "inst_hier_path": "clk_wiz"
+      },
+      "clk_wiz_1": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "Diagram_clk_wiz_1_0",
+        "xci_path": "ip\\Diagram_clk_wiz_1_0\\Diagram_clk_wiz_1_0.xci",
+        "inst_hier_path": "clk_wiz_1"
+      },
+      "clk_wiz_2": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "Diagram_clk_wiz_2_0",
+        "xci_path": "ip\\Diagram_clk_wiz_2_0\\Diagram_clk_wiz_2_0.xci",
+        "inst_hier_path": "clk_wiz_2"
+      },
+      "clk_wiz_3": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "Diagram_clk_wiz_3_0",
+        "xci_path": "ip\\Diagram_clk_wiz_3_0\\Diagram_clk_wiz_3_0.xci",
+        "inst_hier_path": "clk_wiz_3"
+      },
+      "clk_wiz_4": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "Diagram_clk_wiz_4_0",
+        "xci_path": "ip\\Diagram_clk_wiz_4_0\\Diagram_clk_wiz_4_0.xci",
+        "inst_hier_path": "clk_wiz_4"
+      },
+      "clk_wiz_5": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "Diagram_clk_wiz_5_0",
+        "xci_path": "ip\\Diagram_clk_wiz_5_0\\Diagram_clk_wiz_5_0.xci",
+        "inst_hier_path": "clk_wiz_5"
+      },
+      "clk_wiz_6": {
+        "vlnv": "xilinx.com:ip:clk_wiz:6.0",
+        "xci_name": "Diagram_clk_wiz_6_0",
+        "xci_path": "ip\\Diagram_clk_wiz_6_0\\Diagram_clk_wiz_6_0.xci",
+        "inst_hier_path": "clk_wiz_6"
+      }
+    },
+    "interface_nets": {
+      "gig_ethernet_pcs_pma_0_sfp": {
+        "interface_ports": [
+          "sfp_rtl_0",
+          "gig_ethernet_pcs_pma_0/sfp"
+        ]
+      }
+    },
+    "nets": {
+      "clk_wiz_clk_out1": {
+        "ports": [
+          "clk_wiz/clk_out1",
+          "gig_ethernet_pcs_pma_0/gtrefclk"
+        ]
+      },
+      "clk_wiz_1_clk_out1": {
+        "ports": [
+          "clk_wiz_1/clk_out1",
+          "gig_ethernet_pcs_pma_0/gtrefclk_bufg"
+        ]
+      },
+      "clk_wiz_2_clk_out1": {
+        "ports": [
+          "clk_wiz_2/clk_out1",
+          "gig_ethernet_pcs_pma_0/independent_clock_bufg"
+        ]
+      },
+      "clk_wiz_3_clk_out1": {
+        "ports": [
+          "clk_wiz_3/clk_out1",
+          "gig_ethernet_pcs_pma_0/rxuserclk"
+        ]
+      },
+      "clk_wiz_4_clk_out1": {
+        "ports": [
+          "clk_wiz_4/clk_out1",
+          "gig_ethernet_pcs_pma_0/rxuserclk2"
+        ]
+      },
+      "clk_wiz_5_clk_out1": {
+        "ports": [
+          "clk_wiz_5/clk_out1",
+          "gig_ethernet_pcs_pma_0/userclk"
+        ]
+      },
+      "clk_wiz_6_clk_out1": {
+        "ports": [
+          "clk_wiz_6/clk_out1",
+          "gig_ethernet_pcs_pma_0/userclk2"
+        ]
+      }
+    }
+  }
+}

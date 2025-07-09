@@ -1,6 +1,6 @@
 
 { 
-    crc :  4523598768537030099  , 
+    crc :  9567082655158112485  , 
     ccp_crc :  0  , 
     cmdline : " -wto 0bb379bc240e42a1972310d2aa33574e --incr --debug typical --relax --mt 2 -L xil_defaultlib -L unisims_ver -L unimacro_ver -L secureip --snapshot bit_2_comparator_behav xil_defaultlib.bit_2_comparator xil_defaultlib.glbl" , 
     buildDate : "Nov 18 2020" , 

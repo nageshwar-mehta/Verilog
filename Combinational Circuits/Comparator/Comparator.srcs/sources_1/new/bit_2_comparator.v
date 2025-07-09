@@ -21,9 +21,12 @@
 
 
 module bit_2_comparator(greater,lesser,equal,a,b);
-input a,b;
+input [1:0]a,b;
 output greater,lesser,equal;
-assign greater = a&(~b); 
-assign lesser = (~a)&b;
-assign equal  = ~(a^b);
+wire mid1, mid2;
+assign mid1 = ~(a[0]^b[0]);
+assign mid2 = ~(a[1]^b[1]); 
+assign greater = ( a[1] & (~b[1]) ) | ( mid2 & a[0] & (~b[0]) ); 
+assign lesser = ( (~a[1]) & b[1] ) | ( mid2 & (~a[0]) & b[0] );
+assign equal  = mid1 & mid2 ;
 endmodule

@@ -2,3 +2,6 @@ Running: xsim.dir/bit_2_comparator_behav/xsimk.exe -simmode gui -wdb bit_2_compa
 Design successfully loaded
 Design Loading Memory Usage: 7912 KB (Peak: 7912 KB)
 Design Loading CPU Usage: 62 ms
+Simulation completed
+Simulation Memory Usage: 8600 KB (Peak: 8600 KB)
+Simulation CPU Usage: 124 ms

@@ -2,3 +2,6 @@ Running: xsim.dir/full_adder_behav/xsimk.exe -simmode gui -wdb full_adder_behav.
 Design successfully loaded
 Design Loading Memory Usage: 8564 KB (Peak: 8564 KB)
 Design Loading CPU Usage: 92 ms
+Simulation completed
+Simulation Memory Usage: 9252 KB (Peak: 9252 KB)
+Simulation CPU Usage: 108 ms

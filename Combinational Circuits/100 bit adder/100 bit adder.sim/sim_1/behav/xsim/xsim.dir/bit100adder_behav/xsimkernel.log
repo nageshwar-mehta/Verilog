@@ -1,0 +1,4 @@
+Running: xsim.dir/bit100adder_behav/xsimk.exe -simmode gui -wdb bit100adder_behav.wdb -simrunnum 0 -socket 54943
+Design successfully loaded
+Design Loading Memory Usage: 8564 KB (Peak: 8564 KB)
+Design Loading CPU Usage: 62 ms

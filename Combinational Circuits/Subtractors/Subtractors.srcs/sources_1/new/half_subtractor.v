@@ -20,7 +20,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module half_subtractor(
-
-    );
+module half_subtractor(x,y,diff,borrow);
+input x,y;
+output diff, borrow;
+assign diff = x^y;
+assign borrow = ~x & y;
 endmodule

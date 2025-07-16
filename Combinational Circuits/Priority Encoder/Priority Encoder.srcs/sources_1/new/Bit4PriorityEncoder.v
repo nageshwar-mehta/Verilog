@@ -1,5 +1,5 @@
 
-module top_module (
+module bit4PE (
     input [3:0] in,
     output reg [1:0] pos  );
     always @(*) begin 

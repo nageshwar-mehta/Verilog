@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jul 17 02:53:23 2025
+# Process ID: 1740
+# Current directory: C:/Users/nages/verilog_projects/diff bw combinational and sequential/diff bw combinational and sequential.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/nages/verilog_projects/diff bw combinational and sequential/diff bw combinational and sequential.sim/sim_1/behav/xsim/xsim.dir/top_module_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/nages/verilog_projects/diff bw combinational and sequential/diff bw combinational and sequential.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/nages/verilog_projects/diff bw combinational and sequential/diff bw combinational and sequential.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/nages/verilog_projects/diff -notrace

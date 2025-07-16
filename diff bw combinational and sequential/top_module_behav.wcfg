@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="top_module_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="top_module" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="1475000fs"></ZoomStartTime>
+      <ZoomEndTime time="1865001fs"></ZoomEndTime>
+      <Cursor1Time time="1800000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="138"></NameColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="6" />
+   <wvobject fp_name="/top_module/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_module/a" type="logic">
+      <obj_property name="ElementShortName">a</obj_property>
+      <obj_property name="ObjectShortName">a</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_module/b" type="logic">
+      <obj_property name="ElementShortName">b</obj_property>
+      <obj_property name="ObjectShortName">b</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_module/out_assign" type="logic">
+      <obj_property name="ElementShortName">out_assign</obj_property>
+      <obj_property name="ObjectShortName">out_assign</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_module/out_always_comb" type="logic">
+      <obj_property name="ElementShortName">out_always_comb</obj_property>
+      <obj_property name="ObjectShortName">out_always_comb</obj_property>
+   </wvobject>
+   <wvobject fp_name="/top_module/out_always_ff" type="logic">
+      <obj_property name="ElementShortName">out_always_ff</obj_property>
+      <obj_property name="ObjectShortName">out_always_ff</obj_property>
+   </wvobject>
+</wave_config>

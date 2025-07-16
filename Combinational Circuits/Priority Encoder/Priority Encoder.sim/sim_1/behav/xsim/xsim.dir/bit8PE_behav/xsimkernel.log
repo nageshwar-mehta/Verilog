@@ -2,3 +2,6 @@ Running: xsim.dir/bit8PE_behav/xsimk.exe -simmode gui -wdb bit8PE_behav.wdb -sim
 Design successfully loaded
 Design Loading Memory Usage: 8592 KB (Peak: 8592 KB)
 Design Loading CPU Usage: 61 ms
+Simulation completed
+Simulation Memory Usage: 9268 KB (Peak: 9268 KB)
+Simulation CPU Usage: 92 ms

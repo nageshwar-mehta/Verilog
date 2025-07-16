@@ -2,8 +2,8 @@
 # Webtalk v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Thu Jul 17 04:37:24 2025
-# Process ID: 33736
+# Start of session at: Thu Jul 17 03:45:48 2025
+# Process ID: 10472
 # Current directory: C:/Users/nages/verilog_projects/Combinational Circuits/Priority Encoder/Priority Encoder.sim/sim_1/behav/xsim
 # Command line: wbtcv.exe -mode batch -source C:/Users/nages/verilog_projects/Combinational Circuits/Priority Encoder/Priority Encoder.sim/sim_1/behav/xsim/xsim.dir/bit8PE_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/nages/verilog_projects/Combinational Circuits/Priority Encoder/Priority Encoder.sim/sim_1/behav/xsim/webtalk.log

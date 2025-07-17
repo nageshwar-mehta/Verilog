@@ -1,26 +1,15 @@
-`timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 18.07.2025 05:07:55
-// Design Name: 
-// Module Name: JK1
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+module JK1 (
+    input clk,
+    input j,
+    input k,
+    output reg Q); 
+    always @(posedge clk)begin
+        case ({j,k})
+            2'b00: Q<=Q;
+            2'b01: Q<=1'b0;
+            2'b10: Q<=1'b1;
+            2'b11: Q<=~Q;
+        endcase
+    end
 
-
-module JK1(
-
-    );
 endmodule

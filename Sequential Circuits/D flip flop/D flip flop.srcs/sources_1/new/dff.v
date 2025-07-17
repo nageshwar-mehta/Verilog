@@ -1,4 +1,4 @@
-module top_module (
+module dff (
     input clk,    // Clocks are used in sequential circuits
     input d,
     output reg q );//

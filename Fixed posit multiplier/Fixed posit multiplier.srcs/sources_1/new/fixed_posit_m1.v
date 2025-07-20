@@ -13,21 +13,21 @@ output [5:0]ec;
 output [1:0] rc;
 output [22:0] fc;
 //wires to store intermidiate values 
-wire signed[1:0] ka,kb; //values of ra and rb after passing it throug decoder [-2,1]
+wire signed[1:0] ka,kb,kc; //values of ra and rb after passing it throug decoder [-2,1]
 wire signed[8:0] ka_shifted,kb_shifted,kc_shifted;//shifted values of decoder output,shift by es, length = len{max(-2*2^6,1*2^6)} = len{max(-128,64)} = 8+1 signed bit
 wire carry; //carry from fraction multiplication
 wire [10:0]posit_sum;
 assign sc = sa^sb;
 decode d1(ra,ka);//input ra => output ka
 decode d2(rb,kb);//input rab => output kb
-assign ka_shifted = ka<<<6;//left shifted by es
-assign kb_shifted = kb<<<6;//left shifted by es
+assign ka_shifted = ka<<<6;//left shifted by es = ka*2^6
+assign kb_shifted = kb<<<6;//left shifted by es = kb*2^6
 frac_mult f1(fa,fb,fc,carry);
 //Posit adder
 assign posit_sum = ka_shifted+kb_shifted+$signed(ea)+$signed(eb)+carry; //total bits = 9+9+6+6+1 can be stored in maximum 11 bits
-assign kc_shifted = posit_sum[9:2];
-assign kc = kc>>>6;
-assign ec = posit_sum[2:0];
+//posit sum = (ka+kb)*64 + (ea+eb+carry)
+assign kc = posit_sum>>>6;//posit_sum/64 = ka+kb
+assign ec = posit_sum[5:0]; //posit sum %64 = ea + eb + carry = ec
 //encoding
 encode e1(kc,rc);
 endmodule
@@ -42,6 +42,7 @@ always@(*)begin
         2'b01: k = -2'sd1;
         2'b10: k = 2'sd0;
         2'b11: k = 2'sd1;
+        default: k = 2'sd0;
     endcase
 end
 endmodule
@@ -56,6 +57,7 @@ always@(*) begin
         -2'b01: rc = 2'b01; 
         2'b00 : rc = 2'b10;
         2'b01 : rc = 2'b11;
+        default: rc = 2'b00;
     endcase
 end
 endmodule

@@ -2,3 +2,6 @@ Running: xsim.dir/fixed_posit_m1_behav/xsimk.exe -simmode gui -wdb fixed_posit_m
 Design successfully loaded
 Design Loading Memory Usage: 8580 KB (Peak: 8580 KB)
 Design Loading CPU Usage: 77 ms
+Simulation completed
+Simulation Memory Usage: 9260 KB (Peak: 9260 KB)
+Simulation CPU Usage: 109 ms

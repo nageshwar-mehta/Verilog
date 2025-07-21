@@ -3,7 +3,7 @@
 module JK_2_tb();
     reg clk, j, k;
     wire Q;
-    reg prev_Q; // ? Declare prev_Q at module level using reg
+    reg prev_Q; // Declare prev_Q at module level using reg
 
     JK2 uut(
         .clk(clk),
@@ -40,7 +40,7 @@ module JK_2_tb();
 
         // Test 3: Toggle
         j = 1; k = 1;
-        prev_Q = Q; // ? capture initial Q value before toggling
+        prev_Q = Q; // capture initial Q value before toggling
         repeat(4) begin
             @(posedge clk);
             #1;
@@ -48,7 +48,7 @@ module JK_2_tb();
                 $display("Test 3 FAILED: Expected Q=%b, Got Q=%b", ~prev_Q, Q);
             else
                 $display("Test 3 PASSED (Toggled Correctly)");
-            prev_Q = Q; // ? update prev_Q for next toggle comparison
+            prev_Q = Q; // update prev_Q for next toggle comparison
         end
 
         $display("=== JK2 Self-Checking Testbench Completed ===");

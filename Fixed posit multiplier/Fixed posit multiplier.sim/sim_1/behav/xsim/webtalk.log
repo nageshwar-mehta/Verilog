@@ -2,13 +2,13 @@
 # Webtalk v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Mon Jul 21 13:07:31 2025
-# Process ID: 30628
+# Start of session at: Tue Jul 22 12:28:59 2025
+# Process ID: 24028
 # Current directory: C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.sim/sim_1/behav/xsim/xsim.dir/fixed_posit_m1_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.sim/sim_1/behav/xsim/xsim.dir/fixed_posit_m1_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------
 source C:/Users/nages/verilog_projects/Fixed -notrace
 couldn't read file "C:/Users/nages/verilog_projects/Fixed": permission denied
-INFO: [Common 17-206] Exiting Webtalk at Mon Jul 21 13:07:32 2025...
+INFO: [Common 17-206] Exiting Webtalk at Tue Jul 22 12:29:00 2025...

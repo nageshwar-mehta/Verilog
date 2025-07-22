@@ -3,5 +3,5 @@
 Nov 18 2020
 09:47:47
 C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
-C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.srcs/sources_1/new/fixed_posit_m1.v,1753007431,verilog,,C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.srcs/sources_1/new/fixed_posit_m1_tb.v,,decode;encode;fixed_posit_m1;frac_mult,,,,,,,,
-C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.srcs/sources_1/new/fixed_posit_m1_tb.v,1753168718,verilog,,,,fixed_posit_m1_tb,,,,,,,,
+C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.srcs/sources_1/new/fixed_posit_m1.v,1753177190,verilog,,C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.srcs/sources_1/new/fixed_posit_m1_tb.v,,decode;encode;fixed_posit_m1;frac_mult,,,,,,,,
+C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.srcs/sources_1/new/fixed_posit_m1_tb.v,1753172506,verilog,,,,fixed_posit_m1_tb,,,,,,,,

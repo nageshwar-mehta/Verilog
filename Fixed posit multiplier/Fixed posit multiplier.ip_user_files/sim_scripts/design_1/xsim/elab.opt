@@ -1,0 +1,1 @@
+--relax --debug typical --mt auto -L xilinx_vip -L axi_infrastructure_v1_1_0 -L xil_defaultlib -L axi_vip_v1_1_8 -L xilinx_vip -L unisims_ver -L unimacro_ver -L secureip --snapshot design_1 xil_defaultlib.design_1 xil_defaultlib.glbl -log elaborate.log

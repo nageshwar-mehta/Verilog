@@ -40,4 +40,4 @@ EAStep()
      fi
 }
 
-EAStep vivado -log fixed_posit_m1.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fixed_posit_m1.tcl
+EAStep vivado -log fixed_posit_m1_tb.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source fixed_posit_m1_tb.tcl

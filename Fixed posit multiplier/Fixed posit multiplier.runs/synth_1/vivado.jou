@@ -2,11 +2,11 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Tue Jul 22 03:23:32 2025
-# Process ID: 29540
+# Start of session at: Tue Jul 22 15:33:26 2025
+# Process ID: 13528
 # Current directory: C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.runs/synth_1
-# Command line: vivado.exe -log fixed_posit_m1.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fixed_posit_m1.tcl
-# Log file: C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.runs/synth_1/fixed_posit_m1.vds
+# Command line: vivado.exe -log fixed_posit_m1_tb.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fixed_posit_m1_tb.tcl
+# Log file: C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.runs/synth_1/fixed_posit_m1_tb.vds
 # Journal file: C:/Users/nages/verilog_projects/Fixed posit multiplier/Fixed posit multiplier.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
-source fixed_posit_m1.tcl -notrace
+source fixed_posit_m1_tb.tcl -notrace

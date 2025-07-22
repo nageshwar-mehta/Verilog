@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1753134805">
-  <File Type="PA-TCL" Name="fixed_posit_m1.tcl"/>
-  <File Type="RDS-PROPCONSTRS" Name="fixed_posit_m1_drc_synth.rpt"/>
-  <File Type="REPORTS-TCL" Name="fixed_posit_m1_reports.tcl"/>
-  <File Type="RDS-RDS" Name="fixed_posit_m1.vds"/>
-  <File Type="RDS-UTIL" Name="fixed_posit_m1_utilization_synth.rpt"/>
-  <File Type="RDS-UTIL-PB" Name="fixed_posit_m1_utilization_synth.pb"/>
-  <File Type="RDS-DCP" Name="fixed_posit_m1.dcp"/>
-  <File Type="VDS-TIMINGSUMMARY" Name="fixed_posit_m1_timing_summary_synth.rpt"/>
-  <File Type="VDS-TIMING-PB" Name="fixed_posit_m1_timing_summary_synth.pb"/>
+<GenRun Id="synth_1" LaunchPart="xc7vx485tffg1157-1" LaunchTime="1753178600">
+  <File Type="PA-TCL" Name="fixed_posit_m1_tb.tcl"/>
+  <File Type="RDS-PROPCONSTRS" Name="fixed_posit_m1_tb_drc_synth.rpt"/>
+  <File Type="REPORTS-TCL" Name="fixed_posit_m1_tb_reports.tcl"/>
+  <File Type="RDS-RDS" Name="fixed_posit_m1_tb.vds"/>
+  <File Type="RDS-UTIL" Name="fixed_posit_m1_tb_utilization_synth.rpt"/>
+  <File Type="RDS-UTIL-PB" Name="fixed_posit_m1_tb_utilization_synth.pb"/>
+  <File Type="RDS-DCP" Name="fixed_posit_m1_tb.dcp"/>
+  <File Type="VDS-TIMINGSUMMARY" Name="fixed_posit_m1_tb_timing_summary_synth.rpt"/>
+  <File Type="VDS-TIMING-PB" Name="fixed_posit_m1_tb_timing_summary_synth.pb"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/fixed_posit_m1.v">
@@ -18,10 +18,16 @@
         <Attr Name="UsedIn" Val="simulation"/>
       </FileInfo>
     </File>
+    <File Path="$PSRCDIR/sources_1/new/fixed_posit_m1_tb.v">
+      <FileInfo>
+        <Attr Name="UsedIn" Val="synthesis"/>
+        <Attr Name="UsedIn" Val="implementation"/>
+        <Attr Name="UsedIn" Val="simulation"/>
+      </FileInfo>
+    </File>
     <Config>
       <Option Name="DesignMode" Val="RTL"/>
-      <Option Name="TopModule" Val="fixed_posit_m1"/>
-      <Option Name="TopAutoSet" Val="TRUE"/>
+      <Option Name="TopModule" Val="fixed_posit_m1_tb"/>
     </Config>
   </FileSet>
   <FileSet Name="constrs_in" Type="Constrs" RelSrcDir="$PSRCDIR/constrs_1">

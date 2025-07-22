@@ -1,4 +1,4 @@
-Running: xsim.dir/fixed_posit_m1_tb_behav/xsimk.exe -simmode gui -wdb fixed_posit_m1_tb_behav.wdb -simrunnum 0 -socket 58988
+Running: xsim.dir/fixed_posit_m1_tb_behav/xsimk.exe -simmode gui -wdb fixed_posit_m1_tb_behav.wdb -simrunnum 0 -socket 60335
 Design successfully loaded
-Design Loading Memory Usage: 8576 KB (Peak: 8576 KB)
-Design Loading CPU Usage: 61 ms
+Design Loading Memory Usage: 7884 KB (Peak: 7884 KB)
+Design Loading CPU Usage: 0 ms

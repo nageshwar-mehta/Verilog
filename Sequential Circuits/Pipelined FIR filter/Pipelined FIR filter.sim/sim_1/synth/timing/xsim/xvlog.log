@@ -1,0 +1,3 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/Sequential Circuits/Pipelined FIR filter/Pipelined FIR filter.sim/sim_1/synth/timing/xsim/stage_4_FIR_Filter_tb_time_synth.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module stage_4_FIR_Filter_tb
+INFO: [VRFC 10-311] analyzing module glbl

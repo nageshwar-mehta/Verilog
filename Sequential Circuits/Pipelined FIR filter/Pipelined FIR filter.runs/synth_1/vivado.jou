@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Thu Jul 24 21:42:34 2025
+# Process ID: 5864
+# Current directory: C:/Users/nages/verilog_projects/Sequential Circuits/Pipelined FIR filter/Pipelined FIR filter.runs/synth_1
+# Command line: vivado.exe -log stage_4_FIR_Filter_tb.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source stage_4_FIR_Filter_tb.tcl
+# Log file: C:/Users/nages/verilog_projects/Sequential Circuits/Pipelined FIR filter/Pipelined FIR filter.runs/synth_1/stage_4_FIR_Filter_tb.vds
+# Journal file: C:/Users/nages/verilog_projects/Sequential Circuits/Pipelined FIR filter/Pipelined FIR filter.runs/synth_1\vivado.jou
+#-----------------------------------------------------------
+source stage_4_FIR_Filter_tb.tcl -notrace

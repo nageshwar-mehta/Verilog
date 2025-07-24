@@ -3,6 +3,7 @@
 //x: input
 //y: output
 //h: coefficents
+//Note : posedge reset used instead of level reset becoz i wanted to to see it's schematic and Vivado doesn't allow level triggering of reset inside always block to generate schematic
 module stage_4_FIR_Filter(clk,reset,x_in,y_out);
 input clk,reset;
 input signed[7:0]x_in;
@@ -20,7 +21,7 @@ reg signed[15:0]p0,p1,p2,p3;
 reg signed[15:0] out_sum1,out_sum2;
 
 //stage 1 : delay inputs assignment
-always@(posedge clk or reset)begin
+always@(posedge clk or posedge reset)begin
     if(reset)begin
         xn1<=0;
         xn2<=0;
@@ -33,7 +34,7 @@ always@(posedge clk or reset)begin
     end
 end
 //stage 2 : product 
-always@(posedge clk or reset)begin
+always@(posedge clk or posedge reset)begin
     if(reset)begin
         p0<=0;
         p1<=0;
@@ -48,7 +49,7 @@ always@(posedge clk or reset)begin
     end
 end
 //stage 3  sum
-always@(posedge clk or reset)begin
+always@(posedge clk or posedge reset)begin
     if(reset)begin
         out_sum1<=0;
         out_sum2<=0;
@@ -59,7 +60,7 @@ always@(posedge clk or reset)begin
     end
 end
 //stage 4  final sum
-always@(posedge clk or reset)begin
+always@(posedge clk or posedge reset)begin
     if(reset)begin
         y_out<=0;
     end

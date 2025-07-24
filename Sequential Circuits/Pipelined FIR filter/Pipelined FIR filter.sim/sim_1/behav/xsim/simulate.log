@@ -1,0 +1,27 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+Time:0, clk:0, reset:1, x_in:   x, y_out:      0
+Time:5000, clk:1, reset:1, x_in:   x, y_out:      0
+Time:10000, clk:0, reset:0, x_in:   x, y_out:      0
+Time:15000, clk:1, reset:0, x_in:   x, y_out:      0
+Time:20000, clk:0, reset:0, x_in:   0, y_out:      0
+Time:25000, clk:1, reset:0, x_in:   0, y_out:      0
+Time:30000, clk:0, reset:0, x_in:   1, y_out:      0
+Time:35000, clk:1, reset:0, x_in:   1, y_out:      x
+Time:40000, clk:0, reset:0, x_in:   0, y_out:      x
+Time:45000, clk:1, reset:0, x_in:   0, y_out:      x
+Time:50000, clk:0, reset:0, x_in:   1, y_out:      x
+Time:55000, clk:1, reset:0, x_in:   1, y_out:      x
+Time:60000, clk:0, reset:0, x_in:  -1, y_out:      x
+Time:65000, clk:1, reset:0, x_in:  -1, y_out:      x
+Time:70000, clk:0, reset:0, x_in:   2, y_out:      x
+Time:75000, clk:1, reset:0, x_in:   2, y_out:      1
+Time:80000, clk:0, reset:0, x_in:   3, y_out:      1
+Time:85000, clk:1, reset:0, x_in:   3, y_out:      0
+Time:90000, clk:0, reset:0, x_in:   1, y_out:      0
+Time:95000, clk:1, reset:0, x_in:   1, y_out:      3
+Time:100000, clk:0, reset:0, x_in:  -2, y_out:      3
+Time:105000, clk:1, reset:0, x_in:  -2, y_out:      3
+Time:110000, clk:0, reset:0, x_in:   4, y_out:      3
+Time:115000, clk:1, reset:0, x_in:   4, y_out:     -4
+$finish called at time : 120 ns : File "C:/Users/nages/verilog_projects/Sequential Circuits/Pipelined FIR filter/Pipelined FIR filter.srcs/sources_1/new/stage_4_FIR_Filter_tb.v" Line 43

@@ -2,3 +2,6 @@ Running: xsim.dir/stage_4_FIR_Filter_behav/xsimk.exe -simmode gui -wdb stage_4_F
 Design successfully loaded
 Design Loading Memory Usage: 8576 KB (Peak: 8576 KB)
 Design Loading CPU Usage: 30 ms
+Simulation completed
+Simulation Memory Usage: 9240 KB (Peak: 9240 KB)
+Simulation CPU Usage: 124 ms

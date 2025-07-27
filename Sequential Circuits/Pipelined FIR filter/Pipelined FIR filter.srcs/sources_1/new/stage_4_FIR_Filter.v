@@ -1,3 +1,6 @@
+//Project Name: 4-tap FIR Filter
+// Nagesh____
+
 `timescale 1ns / 1ps
 // y[n] = h0.x[n] + h1.x[n-1] + h2.x[n-2] + h3.x[n-3]
 //x: input

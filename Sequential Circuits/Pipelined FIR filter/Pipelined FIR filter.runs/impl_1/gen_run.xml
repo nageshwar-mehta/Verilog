@@ -1,81 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1753375288">
-  <File Type="OPT-HWDEF" Name="stage_4_FIR_Filter_tb.hwdef"/>
-  <File Type="ROUTE-BUS-SKEW" Name="stage_4_FIR_Filter_tb_bus_skew_routed.rpt"/>
-  <File Type="PA-DCP" Name="stage_4_FIR_Filter_tb.dcp"/>
-  <File Type="BITSTR-BMM" Name="stage_4_FIR_Filter_tb_bd.bmm"/>
-  <File Type="OPT-METHODOLOGY-DRC" Name="stage_4_FIR_Filter_tb_methodology_drc_opted.rpt"/>
-  <File Type="INIT-TIMING" Name="stage_4_FIR_Filter_tb_timing_summary_init.rpt"/>
-  <File Type="ROUTE-PWR" Name="stage_4_FIR_Filter_tb_power_routed.rpt"/>
+<GenRun Id="impl_1" LaunchPart="xc7a35tcpg236-1" LaunchTime="1753399061">
   <File Type="PA-TCL" Name="stage_4_FIR_Filter_tb.tcl"/>
-  <File Type="OPT-TIMING" Name="stage_4_FIR_Filter_tb_timing_summary_opted.rpt"/>
-  <File Type="OPT-DCP" Name="stage_4_FIR_Filter_tb_opt.dcp"/>
-  <File Type="ROUTE-PWR-SUM" Name="stage_4_FIR_Filter_tb_power_summary_routed.pb"/>
   <File Type="REPORTS-TCL" Name="stage_4_FIR_Filter_tb_reports.tcl"/>
-  <File Type="OPT-DRC" Name="stage_4_FIR_Filter_tb_drc_opted.rpt"/>
-  <File Type="PWROPT-DCP" Name="stage_4_FIR_Filter_tb_pwropt.dcp"/>
-  <File Type="PWROPT-DRC" Name="stage_4_FIR_Filter_tb_drc_pwropted.rpt"/>
-  <File Type="PWROPT-TIMING" Name="stage_4_FIR_Filter_tb_timing_summary_pwropted.rpt"/>
-  <File Type="PLACE-DCP" Name="stage_4_FIR_Filter_tb_placed.dcp"/>
-  <File Type="PLACE-IO" Name="stage_4_FIR_Filter_tb_io_placed.rpt"/>
-  <File Type="PLACE-CLK" Name="stage_4_FIR_Filter_tb_clock_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL" Name="stage_4_FIR_Filter_tb_utilization_placed.rpt"/>
-  <File Type="PLACE-UTIL-PB" Name="stage_4_FIR_Filter_tb_utilization_placed.pb"/>
-  <File Type="PLACE-CTRL" Name="stage_4_FIR_Filter_tb_control_sets_placed.rpt"/>
-  <File Type="PLACE-SIMILARITY" Name="stage_4_FIR_Filter_tb_incremental_reuse_placed.rpt"/>
-  <File Type="PLACE-PRE-SIMILARITY" Name="stage_4_FIR_Filter_tb_incremental_reuse_pre_placed.rpt"/>
-  <File Type="PLACE-TIMING" Name="stage_4_FIR_Filter_tb_timing_summary_placed.rpt"/>
-  <File Type="POSTPLACE-PWROPT-DCP" Name="stage_4_FIR_Filter_tb_postplace_pwropt.dcp"/>
-  <File Type="BG-BIN" Name="stage_4_FIR_Filter_tb.bin"/>
-  <File Type="POSTPLACE-PWROPT-TIMING" Name="stage_4_FIR_Filter_tb_timing_summary_postplace_pwropted.rpt"/>
-  <File Type="PHYSOPT-DCP" Name="stage_4_FIR_Filter_tb_physopt.dcp"/>
-  <File Type="PHYSOPT-DRC" Name="stage_4_FIR_Filter_tb_drc_physopted.rpt"/>
   <File Type="BITSTR-MSK" Name="stage_4_FIR_Filter_tb.msk"/>
-  <File Type="PHYSOPT-TIMING" Name="stage_4_FIR_Filter_tb_timing_summary_physopted.rpt"/>
-  <File Type="ROUTE-ERROR-DCP" Name="stage_4_FIR_Filter_tb_routed_error.dcp"/>
-  <File Type="ROUTE-DCP" Name="stage_4_FIR_Filter_tb_routed.dcp"/>
-  <File Type="ROUTE-BLACKBOX-DCP" Name="stage_4_FIR_Filter_tb_routed_bb.dcp"/>
-  <File Type="ROUTE-DRC" Name="stage_4_FIR_Filter_tb_drc_routed.rpt"/>
-  <File Type="ROUTE-DRC-PB" Name="stage_4_FIR_Filter_tb_drc_routed.pb"/>
-  <File Type="ROUTE-DRC-RPX" Name="stage_4_FIR_Filter_tb_drc_routed.rpx"/>
-  <File Type="BITSTR-MMI" Name="stage_4_FIR_Filter_tb.mmi"/>
-  <File Type="ROUTE-METHODOLOGY-DRC" Name="stage_4_FIR_Filter_tb_methodology_drc_routed.rpt"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-RPX" Name="stage_4_FIR_Filter_tb_methodology_drc_routed.rpx"/>
-  <File Type="ROUTE-METHODOLOGY-DRC-PB" Name="stage_4_FIR_Filter_tb_methodology_drc_routed.pb"/>
-  <File Type="ROUTE-PWR-RPX" Name="stage_4_FIR_Filter_tb_power_routed.rpx"/>
-  <File Type="ROUTE-STATUS" Name="stage_4_FIR_Filter_tb_route_status.rpt"/>
-  <File Type="ROUTE-STATUS-PB" Name="stage_4_FIR_Filter_tb_route_status.pb"/>
-  <File Type="ROUTE-TIMINGSUMMARY" Name="stage_4_FIR_Filter_tb_timing_summary_routed.rpt"/>
-  <File Type="ROUTE-TIMING-PB" Name="stage_4_FIR_Filter_tb_timing_summary_routed.pb"/>
-  <File Type="ROUTE-TIMING-RPX" Name="stage_4_FIR_Filter_tb_timing_summary_routed.rpx"/>
-  <File Type="ROUTE-SIMILARITY" Name="stage_4_FIR_Filter_tb_incremental_reuse_routed.rpt"/>
-  <File Type="ROUTE-CLK" Name="stage_4_FIR_Filter_tb_clock_utilization_routed.rpt"/>
-  <File Type="ROUTE-BUS-SKEW-PB" Name="stage_4_FIR_Filter_tb_bus_skew_routed.pb"/>
-  <File Type="ROUTE-BUS-SKEW-RPX" Name="stage_4_FIR_Filter_tb_bus_skew_routed.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-DCP" Name="stage_4_FIR_Filter_tb_postroute_physopt.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="stage_4_FIR_Filter_tb_postroute_physopt_bb.dcp"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING" Name="stage_4_FIR_Filter_tb_timing_summary_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-PB" Name="stage_4_FIR_Filter_tb_timing_summary_postroute_physopted.pb"/>
-  <File Type="POSTROUTE-PHYSOPT-TIMING-RPX" Name="stage_4_FIR_Filter_tb_timing_summary_postroute_physopted.rpx"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW" Name="stage_4_FIR_Filter_tb_bus_skew_postroute_physopted.rpt"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-PB" Name="stage_4_FIR_Filter_tb_bus_skew_postroute_physopted.pb"/>
+  <File Type="RDI-RDI" Name="stage_4_FIR_Filter_tb.vdi"/>
+  <File Type="PA-DCP" Name="stage_4_FIR_Filter_tb.dcp"/>
   <File Type="BG-BIT" Name="stage_4_FIR_Filter_tb.bit"/>
-  <File Type="POSTROUTE-PHYSOPT-BUS-SKEW-RPX" Name="stage_4_FIR_Filter_tb_bus_skew_postroute_physopted.rpx"/>
+  <File Type="BG-DRC" Name="stage_4_FIR_Filter_tb.drc"/>
+  <File Type="BG-BGN" Name="stage_4_FIR_Filter_tb.bgn"/>
+  <File Type="BG-BIN" Name="stage_4_FIR_Filter_tb.bin"/>
   <File Type="BITSTR-RBT" Name="stage_4_FIR_Filter_tb.rbt"/>
   <File Type="BITSTR-NKY" Name="stage_4_FIR_Filter_tb.nky"/>
+  <File Type="BITSTR-BMM" Name="stage_4_FIR_Filter_tb_bd.bmm"/>
+  <File Type="BITSTR-MMI" Name="stage_4_FIR_Filter_tb.mmi"/>
+  <File Type="BITSTR-SYSDEF" Name="stage_4_FIR_Filter_tb.sysdef"/>
+  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
+  <File Type="BITSTR-LTX" Name="stage_4_FIR_Filter_tb.ltx"/>
+  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
+  <File Type="OPT-DRC" Name="stage_4_FIR_Filter_tb_drc_opted.rpt"/>
+  <File Type="OPT-HWDEF" Name="stage_4_FIR_Filter_tb.hwdef"/>
+  <File Type="PLACE-PRE-SIMILARITY" Name="stage_4_FIR_Filter_tb_incremental_reuse_pre_placed.rpt"/>
+  <File Type="ROUTE-DCP" Name="stage_4_FIR_Filter_tb_routed.dcp"/>
+  <File Type="ROUTE-ERROR-DCP" Name="stage_4_FIR_Filter_tb_routed_error.dcp"/>
+  <File Type="ROUTE-BLACKBOX-DCP" Name="stage_4_FIR_Filter_tb_routed_bb.dcp"/>
+  <File Type="ROUTE-TIMING-PB" Name="stage_4_FIR_Filter_tb_timing_summary_routed.pb"/>
+  <File Type="OPT-DCP" Name="stage_4_FIR_Filter_tb_opt.dcp"/>
+  <File Type="PLACE-DCP" Name="stage_4_FIR_Filter_tb_placed.dcp"/>
+  <File Type="PWROPT-DCP" Name="stage_4_FIR_Filter_tb_pwropt.dcp"/>
+  <File Type="POSTPLACE-PWROPT-DCP" Name="stage_4_FIR_Filter_tb_postplace_pwropt.dcp"/>
+  <File Type="PHYSOPT-DCP" Name="stage_4_FIR_Filter_tb_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-DCP" Name="stage_4_FIR_Filter_tb_postroute_physopt.dcp"/>
+  <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="stage_4_FIR_Filter_tb_postroute_physopt_bb.dcp"/>
   <File Type="PDI-FILE" Name="stage_4_FIR_Filter_tb.pdi"/>
   <File Type="RCFI_FILE" Name="stage_4_FIR_Filter_tb.rcfi"/>
   <File Type="CFI_FILE" Name="stage_4_FIR_Filter_tb.cfi"/>
   <File Type="RNPI_FILE" Name="stage_4_FIR_Filter_tb.rnpi"/>
   <File Type="NPI_FILE" Name="stage_4_FIR_Filter_tb.npi"/>
   <File Type="RBD_FILE" Name="stage_4_FIR_Filter_tb.rbd"/>
-  <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
-  <File Type="BITSTR-LTX" Name="stage_4_FIR_Filter_tb.ltx"/>
-  <File Type="BITSTR-SYSDEF" Name="stage_4_FIR_Filter_tb.sysdef"/>
-  <File Type="BG-BGN" Name="stage_4_FIR_Filter_tb.bgn"/>
-  <File Type="BG-DRC" Name="stage_4_FIR_Filter_tb.drc"/>
-  <File Type="RDI-RDI" Name="stage_4_FIR_Filter_tb.vdi"/>
-  <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <FileSet Name="sources" Type="DesignSrcs" RelSrcDir="$PSRCDIR/sources_1" RelGenDir="$PGENDIR/sources_1">
     <Filter Type="Srcs"/>
     <File Path="$PSRCDIR/sources_1/new/stage_4_FIR_Filter.v">
@@ -119,9 +80,7 @@
     </Config>
   </FileSet>
   <Strategy Version="1" Minor="2">
-    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020">
-      <Desc>Default settings for Implementation.</Desc>
-    </StratHandle>
+    <StratHandle Name="Vivado Implementation Defaults" Flow="Vivado Implementation 2020"/>
     <Step Id="init_design"/>
     <Step Id="opt_design"/>
     <Step Id="power_opt_design"/>

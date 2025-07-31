@@ -1,0 +1,11 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+time: 0, a = x, b = x, en = x, y1 = x, y2 = x
+time: 10000, a = 0, b = 0, en = 0, y1 = 0, y2 = 0
+time: 20000, a = 0, b = 0, en = 1, y1 = 0, y2 = 0
+time: 30000, a = 0, b = 1, en = 0, y1 = 0, y2 = 0
+time: 40000, a = 0, b = 1, en = 1, y1 = 0, y2 = 0
+time: 50000, a = 1, b = 0, en = 0, y1 = 0, y2 = 0
+time: 60000, a = 1, b = 0, en = 1, y1 = 0, y2 = 0
+time: 70000, a = 1, b = 1, en = 0, y1 = 1, y2 = 0
+$finish called at time : 80 ns : File "C:/Users/nages/verilog_projects/classworks/Lab1_gates/Lab1_gates.srcs/sim_1/new/my_gates_tb.v" Line 25

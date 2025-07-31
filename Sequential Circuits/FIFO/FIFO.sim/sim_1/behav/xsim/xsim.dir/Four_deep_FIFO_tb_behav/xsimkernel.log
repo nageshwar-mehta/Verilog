@@ -2,3 +2,6 @@ Running: xsim.dir/Four_deep_FIFO_tb_behav/xsimk.exe -simmode gui -wdb Four_deep_
 Design successfully loaded
 Design Loading Memory Usage: 7908 KB (Peak: 7908 KB)
 Design Loading CPU Usage: 61 ms
+Simulation completed
+Simulation Memory Usage: 8656 KB (Peak: 8656 KB)
+Simulation CPU Usage: 61 ms

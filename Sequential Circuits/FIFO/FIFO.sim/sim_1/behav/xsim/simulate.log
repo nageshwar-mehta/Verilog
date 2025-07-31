@@ -1,0 +1,46 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+time: 0, data_in:  x, push: x, pop: x, data_out:  x, fifo_empty: x, fifo_full: x
+time: 5000, data_in:  x, push: x, pop: x, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 10000, data_in:  0, push: x, pop: x, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 20000, data_in:  0, push: 1, pop: x, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 35000, data_in:  0, push: 1, pop: x, data_out:  0, fifo_empty: 0, fifo_full: 0
+time: 65000, data_in:  0, push: 1, pop: x, data_out:  0, fifo_empty: 0, fifo_full: 1
+time: 75000, data_in:  0, push: 1, pop: x, data_out:  x, fifo_empty: 0, fifo_full: 0
+time: 105000, data_in:  0, push: 1, pop: x, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 115000, data_in:  0, push: 1, pop: x, data_out:  0, fifo_empty: 0, fifo_full: 0
+time: 130000, data_in:  3, push: 1, pop: x, data_out:  0, fifo_empty: 0, fifo_full: 0
+time: 140000, data_in:  3, push: 0, pop: x, data_out:  0, fifo_empty: 0, fifo_full: 0
+time: 145000, data_in:  3, push: 0, pop: x, data_out:  0, fifo_empty: 0, fifo_full: 1
+time: 150000, data_in:  9, push: 1, pop: x, data_out:  0, fifo_empty: 0, fifo_full: 1
+time: 160000, data_in:  9, push: 0, pop: x, data_out:  0, fifo_empty: 0, fifo_full: 1
+time: 165000, data_in:  9, push: 0, pop: x, data_out:  x, fifo_empty: 0, fifo_full: 0
+time: 170000, data_in:  8, push: 1, pop: x, data_out:  x, fifo_empty: 0, fifo_full: 0
+time: 180000, data_in:  8, push: 0, pop: x, data_out:  x, fifo_empty: 0, fifo_full: 0
+time: 190000, data_in:  6, push: 1, pop: x, data_out:  x, fifo_empty: 0, fifo_full: 0
+time: 200000, data_in:  6, push: 0, pop: x, data_out:  x, fifo_empty: 0, fifo_full: 0
+time: 210000, data_in:  1, push: 1, pop: x, data_out:  x, fifo_empty: 0, fifo_full: 0
+time: 220000, data_in:  1, push: 0, pop: x, data_out:  x, fifo_empty: 0, fifo_full: 0
+time: 225000, data_in:  1, push: 0, pop: x, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 230000, data_in:  1, push: 0, pop: 1, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 240000, data_in:  1, push: 0, pop: 0, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 250000, data_in:  1, push: 0, pop: 1, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 260000, data_in:  1, push: 0, pop: 0, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 270000, data_in:  6, push: 1, pop: 0, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 280000, data_in:  6, push: 0, pop: 0, data_out:  x, fifo_empty: 1, fifo_full: 0
+time: 285000, data_in:  6, push: 0, pop: 0, data_out:  6, fifo_empty: 0, fifo_full: 0
+time: 290000, data_in:  1, push: 1, pop: 0, data_out:  6, fifo_empty: 0, fifo_full: 0
+time: 300000, data_in:  1, push: 0, pop: 0, data_out:  6, fifo_empty: 0, fifo_full: 0
+time: 310000, data_in:  1, push: 0, pop: 1, data_out:  6, fifo_empty: 0, fifo_full: 0
+time: 320000, data_in:  1, push: 0, pop: 0, data_out:  6, fifo_empty: 0, fifo_full: 0
+time: 325000, data_in:  1, push: 0, pop: 0, data_out:  1, fifo_empty: 0, fifo_full: 0
+time: 330000, data_in:  8, push: 1, pop: 0, data_out:  1, fifo_empty: 0, fifo_full: 0
+time: 340000, data_in:  8, push: 0, pop: 0, data_out:  1, fifo_empty: 0, fifo_full: 0
+time: 350000, data_in:  8, push: 0, pop: 1, data_out:  1, fifo_empty: 0, fifo_full: 0
+time: 360000, data_in:  8, push: 0, pop: 0, data_out:  1, fifo_empty: 0, fifo_full: 0
+time: 365000, data_in:  8, push: 0, pop: 0, data_out:  8, fifo_empty: 0, fifo_full: 0
+time: 370000, data_in:  8, push: 0, pop: 1, data_out:  8, fifo_empty: 0, fifo_full: 0
+time: 380000, data_in:  8, push: 0, pop: 0, data_out:  8, fifo_empty: 0, fifo_full: 0
+time: 385000, data_in:  8, push: 0, pop: 0, data_out:  8, fifo_empty: 1, fifo_full: 0
+time: 390000, data_in:  8, push: 0, pop: 1, data_out:  8, fifo_empty: 1, fifo_full: 0
+$finish called at time : 400 ns : File "C:/Users/nages/verilog_projects/Sequential Circuits/FIFO/FIFO.srcs/sources_1/new/Four_deep_FIFO_tb.v" Line 112

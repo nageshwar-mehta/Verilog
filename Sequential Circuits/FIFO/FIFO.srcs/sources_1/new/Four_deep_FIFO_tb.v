@@ -16,8 +16,12 @@ Four_deep_FIFO uut(
     .data_in(data_in),
     .push(push),
     .pop(pop),
-    .clk(clk)
+    .clk(clk),
+    .fifo_empty(fifo_empty),
+    .fifo_full(fifo_full),
+    .data_out(data_out)
 );
+
 
 //clk initialization
 initial begin
@@ -25,17 +29,16 @@ initial begin
     forever #5 clk=~clk;//time period = 10s
 end
 
-//settle down test
-initial begin
-#10;
-    repeat(6)begin
-        #10 data_in = 0;
-        #10 push = 1;  
-    end
-end
 
 //Tests
 initial begin 
+
+    //out settling
+    repeat(6) begin
+        #10 data_in = 0;
+        #10 push = 1;
+//        push = 0;
+    end
 //=================PUSH==================//
     //test 1
     #10;

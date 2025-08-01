@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Synchronous_FIFO_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Synchronous_FIFO_tb" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="242601fs"></ZoomEndTime>
+      <Cursor1Time time="158000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="164"></NameColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="10" />
+   <wvobject fp_name="/Synchronous_FIFO_tb/data_in" type="array">
+      <obj_property name="ElementShortName">data_in[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_in[3:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Synchronous_FIFO_tb/w_in" type="logic">
+      <obj_property name="ElementShortName">w_in</obj_property>
+      <obj_property name="ObjectShortName">w_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Synchronous_FIFO_tb/r_in" type="logic">
+      <obj_property name="ElementShortName">r_in</obj_property>
+      <obj_property name="ObjectShortName">r_in</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Synchronous_FIFO_tb/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Synchronous_FIFO_tb/rst" type="logic">
+      <obj_property name="ElementShortName">rst</obj_property>
+      <obj_property name="ObjectShortName">rst</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Synchronous_FIFO_tb/data_out" type="array">
+      <obj_property name="ElementShortName">data_out[3:0]</obj_property>
+      <obj_property name="ObjectShortName">data_out[3:0]</obj_property>
+      <obj_property name="Radix">SIGNEDDECRADIX</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Synchronous_FIFO_tb/fifo_empty" type="logic">
+      <obj_property name="ElementShortName">fifo_empty</obj_property>
+      <obj_property name="ObjectShortName">fifo_empty</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Synchronous_FIFO_tb/fifo_full" type="logic">
+      <obj_property name="ElementShortName">fifo_full</obj_property>
+      <obj_property name="ObjectShortName">fifo_full</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Synchronous_FIFO_tb/width" type="array">
+      <obj_property name="ElementShortName">width[31:0]</obj_property>
+      <obj_property name="ObjectShortName">width[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Synchronous_FIFO_tb/depth" type="array">
+      <obj_property name="ElementShortName">depth[31:0]</obj_property>
+      <obj_property name="ObjectShortName">depth[31:0]</obj_property>
+   </wvobject>
+</wave_config>

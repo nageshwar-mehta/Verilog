@@ -3,5 +3,7 @@
 Nov 18 2020
 09:47:47
 C:/Users/nages/verilog_projects/ADDERS/ADDERS.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+C:/Users/nages/verilog_projects/ADDERS/ADDERS.srcs/sim_1/new/full_adder_tb.v,1754923390,verilog,,,,full_adder_tb,,,,,,,,
+C:/Users/nages/verilog_projects/ADDERS/ADDERS.srcs/sources_1/new/full_adder.v,1754922625,verilog,,C:/Users/nages/verilog_projects/ADDERS/ADDERS.srcs/sim_1/new/full_adder_tb.v,,full_adder,,,,,,,,
 C:/Users/nages/verilog_projects/ADDERS/ADDERS.srcs/sources_1/new/half_adder.v,1754907336,verilog,,C:/Users/nages/verilog_projects/ADDERS/ADDERS.srcs/sources_1/new/half_adder_tb.v,,half_adder,,,,,,,,
-C:/Users/nages/verilog_projects/ADDERS/ADDERS.srcs/sources_1/new/half_adder_tb.v,1754908065,verilog,,,,half_adder_tb,,,,,,,,
+C:/Users/nages/verilog_projects/ADDERS/ADDERS.srcs/sources_1/new/half_adder_tb.v,1754908065,verilog,,C:/Users/nages/verilog_projects/ADDERS/ADDERS.srcs/sources_1/new/full_adder.v,,half_adder_tb,,,,,,,,

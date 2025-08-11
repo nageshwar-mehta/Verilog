@@ -1,0 +1,12 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+a = x | b = x | cin = x | sum = x | carry = x
+a = 0 | b = 0 | cin = 0 | sum = 0 | carry = 0
+a = 0 | b = 0 | cin = 1 | sum = 1 | carry = 0
+a = 0 | b = 1 | cin = 0 | sum = 1 | carry = 0
+a = 0 | b = 1 | cin = 1 | sum = 0 | carry = 1
+a = 1 | b = 0 | cin = 0 | sum = 1 | carry = 0
+a = 1 | b = 0 | cin = 1 | sum = 0 | carry = 1
+a = 1 | b = 1 | cin = 0 | sum = 0 | carry = 1
+a = 1 | b = 1 | cin = 1 | sum = 1 | carry = 1
+$finish called at time : 90 ns : File "C:/Users/nages/verilog_projects/ADDERS/ADDERS.srcs/sim_1/new/full_adder_tb.v" Line 36

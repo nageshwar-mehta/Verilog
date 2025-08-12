@@ -2,3 +2,6 @@ Running: xsim.dir/ripple_carry_adder_behav/xsimk.exe -simmode gui -wdb ripple_ca
 Design successfully loaded
 Design Loading Memory Usage: 7892 KB (Peak: 7892 KB)
 Design Loading CPU Usage: 46 ms
+Simulation completed
+Simulation Memory Usage: 8528 KB (Peak: 8528 KB)
+Simulation CPU Usage: 46 ms

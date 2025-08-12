@@ -8,7 +8,7 @@ wire carry;
 reg [3:0]a,b;
 reg cin;
 
-ripple_carry_adder RPA(
+ripple_carry_adder_HW RPA(
     .sum(sum),
     .carry(carry),
     .a(a), 
@@ -209,7 +209,7 @@ initial begin
 end
 
 initial begin
-    $monitor("a = %b | b = %b | cin = %b || sum = %d | carry = %b",a,b,cin,sum,carry);
+    $monitor("a = %d | b = %d | cin = %b || sum = %d | carry = %b || total sum = %d ",a,b,cin,sum,carry, {carry,sum});
 end
 
 endmodule

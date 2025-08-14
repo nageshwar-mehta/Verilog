@@ -1,0 +1,8 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+select : x, input : x || output : s0 = x , s1 = x
+select : 0, input : 0 || output : s0 = 0 , s1 = x
+select : 0, input : 1 || output : s0 = 1 , s1 = x
+select : 1, input : 0 || output : s0 = 1 , s1 = 0
+select : 1, input : 1 || output : s0 = 1 , s1 = 1
+$finish called at time : 60 ns : File "C:/Users/nages/verilog_projects/FPGA/mux/mux.srcs/sim_1/new/demux_tb.v" Line 29

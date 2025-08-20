@@ -1,0 +1,6 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+time : 0 | data = 5 | y = 3 | r_value = 3.140000 | i_value = 4
+time : 2000 | data = 6 | y = 3 | r_value = 3.140000 | i_value = 4
+time : 5000 | data = 7 | y = 3 | r_value = 3.140000 | i_value = 6
+$finish called at time : 6 ns : File "C:/Users/nages/verilog_projects/classworks/blocking_non_blocking/blocking_non_blocking.srcs/sources_1/new/blocking.v" Line 40

@@ -1,0 +1,24 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+time = 10000, x = 11001111, shift = 12, | y = 11110000
+time = 20000, x = 01010110, shift = 12, | y = 01100000
+time = 30000, x = 00110111, shift = 15, | y = 01101110
+time = 40000, x = 10010001, shift =  6, | y = 11111110
+time = 50000, x = 01111100, shift =  7, | y = 00000000
+time = 60000, x = 00110010, shift =  3, | y = 00000110
+time = 70000, x = 10010111, shift =  3, | y = 11110010
+time = 80000, x = 10111001, shift =  3, | y = 11110111
+time = 90000, x = 10101011, shift = 11, | y = 01100000
+time = 100000, x = 11000110, shift =  2, | y = 11110001
+time = 110000, x = 10101111, shift = 15, | y = 01011110
+time = 120000, x = 01010101, shift = 10, | y = 01000000
+time = 130000, x = 01101010, shift = 11, | y = 01000000
+time = 140000, x = 10011100, shift =  9, | y = 00000000
+time = 150000, x = 10011010, shift =  1, | y = 11001101
+time = 160000, x = 01110011, shift =  4, | y = 00000111
+time = 170000, x = 00001100, shift = 15, | y = 00011000
+time = 180000, x = 00011110, shift =  6, | y = 00000000
+time = 190000, x = 00000000, shift =  1, | y = 00000000
+time = 200000, x = 10101010, shift = 12, | y = 10100000
+---- Testbench Completed ----
+$finish called at time : 200 ns : File "C:/Users/nages/verilog_projects/Shifters/Shifters.srcs/sim_1/new/LogicShifter8bit_tb.sv" Line 32

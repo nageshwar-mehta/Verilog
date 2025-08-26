@@ -98,4 +98,7 @@ Time resolution is 1 ps
 <<Correct>> time=960000 a=16396 b=33782 cin=1 | DUT Total sum =  50179, REF= 50179
 <<Correct>> time=970000 a=46140 b=25556 cin=0 | DUT Total sum =  71696, REF= 71696
 <<Correct>> time=980000 a=55211 b=41952 cin=0 | DUT Total sum =  97163, REF= 97163
-<<Correct>> time=99
+<<Correct>> time=990000 a= 4551 b=22556 cin=0 | DUT Total sum =  27107, REF= 27107
+<<Correct>> time=1000000 a=22029 b=12232 cin=1 | DUT Total sum =  34262, REF= 34262
+---- Testbench Completed ----
+$finish called at time : 1 us : File "C:/Users/nages/verilog_projects/ADDERS/ADDERS.srcs/sim_1/new/CarrySelectAdder16bit_tb.sv" Line 55

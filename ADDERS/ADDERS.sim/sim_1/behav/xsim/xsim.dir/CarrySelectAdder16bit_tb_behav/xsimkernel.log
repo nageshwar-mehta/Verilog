@@ -2,3 +2,6 @@ Running: xsim.dir/CarrySelectAdder16bit_tb_behav/xsimk.exe -simmode gui -wdb Car
 Design successfully loaded
 Design Loading Memory Usage: 8048 KB (Peak: 8048 KB)
 Design Loading CPU Usage: 0 ms
+Simulation completed
+Simulation Memory Usage: 8932 KB (Peak: 8932 KB)
+Simulation CPU Usage: 15 ms

@@ -1,0 +1,101 @@
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+<<Correct>> time=10000 a=38351 b=38604 cin=0 | DUT Total sum =  76955, REF= 76955
+<<Correct>> time=20000 a=32044 b= 4919 cin=1 | DUT Total sum =  36964, REF= 36964
+<<Correct>> time=30000 a=31633 b=43270 cin=0 | DUT Total sum =  74903, REF= 74903
+<<Correct>> time=40000 a=  487 b= 9778 cin=1 | DUT Total sum =  10266, REF= 10266
+<<Correct>> time=50000 a=33431 b=41411 cin=1 | DUT Total sum =  74843, REF= 74843
+<<Correct>> time=60000 a=39443 b=41899 cin=1 | DUT Total sum =  81343, REF= 81343
+<<Correct>> time=70000 a=50374 b= 9794 cin=1 | DUT Total sum =  60169, REF= 60169
+<<Correct>> time=80000 a=39039 b=49237 cin=0 | DUT Total sum =  88276, REF= 88276
+<<Correct>> time=90000 a=37482 b=34075 cin=0 | DUT Total sum =  71557, REF= 71557
+<<Correct>> time=100000 a=11801 b= 7578 cin=1 | DUT Total sum =  19380, REF= 19380
+<<Correct>> time=110000 a=28019 b=45060 cin=0 | DUT Total sum =  73079, REF= 73079
+<<Correct>> time=120000 a=54031 b=56862 cin=0 | DUT Total sum = 110893, REF=110893
+<<Correct>> time=130000 a=63744 b=19345 cin=0 | DUT Total sum =  83089, REF= 83089
+<<Correct>> time=140000 a=41996 b= 7841 cin=0 | DUT Total sum =  49837, REF= 49837
+<<Correct>> time=150000 a=27826 b= 6049 cin=0 | DUT Total sum =  33875, REF= 33875
+<<Correct>> time=160000 a=58717 b=48046 cin=1 | DUT Total sum = 106764, REF=106764
+<<Correct>> time=170000 a=15397 b=10336 cin=0 | DUT Total sum =  25733, REF= 25733
+<<Correct>> time=180000 a=56959 b= 3517 cin=0 | DUT Total sum =  60476, REF= 60476
+<<Correct>> time=190000 a=40826 b=18915 cin=1 | DUT Total sum =  59742, REF= 59742
+<<Correct>> time=200000 a=30743 b=10338 cin=0 | DUT Total sum =  41081, REF= 41081
+<<Correct>> time=210000 a= 3169 b=51165 cin=1 | DUT Total sum =  54335, REF= 54335
+<<Correct>> time=220000 a=51468 b=16372 cin=0 | DUT Total sum =  67840, REF= 67840
+<<Correct>> time=230000 a=37749 b=19541 cin=1 | DUT Total sum =  57291, REF= 57291
+<<Correct>> time=240000 a=42944 b= 5474 cin=1 | DUT Total sum =  48419, REF= 48419
+<<Correct>> time=250000 a=58478 b=43223 cin=0 | DUT Total sum = 101701, REF=101701
+<<Correct>> time=260000 a=59641 b=20631 cin=0 | DUT Total sum =  80272, REF= 80272
+<<Correct>> time=270000 a=11640 b=13574 cin=1 | DUT Total sum =  25215, REF= 25215
+<<Correct>> time=280000 a=48717 b= 7679 cin=1 | DUT Total sum =  56397, REF= 56397
+<<Correct>> time=290000 a=25731 b=19320 cin=1 | DUT Total sum =  45052, REF= 45052
+<<Correct>> time=300000 a=45969 b= 2501 cin=0 | DUT Total sum =  48470, REF= 48470
+<<Correct>> time=310000 a=21302 b=28232 cin=0 | DUT Total sum =  49534, REF= 49534
+<<Correct>> time=320000 a=10209 b= 8665 cin=1 | DUT Total sum =  18875, REF= 18875
+<<Correct>> time=330000 a= 6795 b=29967 cin=0 | DUT Total sum =  36762, REF= 36762
+<<Correct>> time=340000 a=22702 b=40176 cin=1 | DUT Total sum =  62879, REF= 62879
+<<Correct>> time=350000 a=41109 b=46972 cin=1 | DUT Total sum =  88082, REF= 88082
+<<Correct>> time=360000 a=22213 b= 4138 cin=1 | DUT Total sum =  26352, REF= 26352
+<<Correct>> time=370000 a=11983 b=45247 cin=1 | DUT Total sum =  57231, REF= 57231
+<<Correct>> time=380000 a=31720 b= 1925 cin=1 | DUT Total sum =  33646, REF= 33646
+<<Correct>> time=390000 a=26097 b=13908 cin=1 | DUT Total sum =  40006, REF= 40006
+<<Correct>> time=400000 a= 1911 b=45628 cin=0 | DUT Total sum =  47539, REF= 47539
+<<Correct>> time=410000 a=47398 b= 6189 cin=0 | DUT Total sum =  53587, REF= 53587
+<<Correct>> time=420000 a= 7061 b= 8100 cin=0 | DUT Total sum =  15161, REF= 15161
+<<Correct>> time=430000 a=34185 b=55499 cin=1 | DUT Total sum =  89685, REF= 89685
+<<Correct>> time=440000 a= 9681 b=62560 cin=0 | DUT Total sum =  72241, REF= 72241
+<<Correct>> time=450000 a=30805 b=31210 cin=1 | DUT Total sum =  62016, REF= 62016
+<<Correct>> time=460000 a=58119 b=40891 cin=1 | DUT Total sum =  99011, REF= 99011
+<<Correct>> time=470000 a=27997 b= 6161 cin=1 | DUT Total sum =  34159, REF= 34159
+<<Correct>> time=480000 a=53374 b=64280 cin=1 | DUT Total sum = 117655, REF=117655
+<<Correct>> time=490000 a=10239 b=26741 cin=0 | DUT Total sum =  36980, REF= 36980
+<<Correct>> time=500000 a=63851 b=14579 cin=0 | DUT Total sum =  78430, REF= 78430
+<<Correct>> time=510000 a=27282 b=24818 cin=1 | DUT Total sum =  52101, REF= 52101
+<<Correct>> time=520000 a=62410 b=23133 cin=0 | DUT Total sum =  85543, REF= 85543
+<<Correct>> time=530000 a=30746 b=50415 cin=0 | DUT Total sum =  81161, REF= 81161
+<<Correct>> time=540000 a=25823 b=47289 cin=0 | DUT Total sum =  73112, REF= 73112
+<<Correct>> time=550000 a=35479 b=12499 cin=1 | DUT Total sum =  47979, REF= 47979
+<<Correct>> time=560000 a= 4417 b=38322 cin=1 | DUT Total sum =  42740, REF= 42740
+<<Correct>> time=570000 a=62025 b= 8265 cin=0 | DUT Total sum =  70290, REF= 70290
+<<Correct>> time=580000 a=38977 b=12683 cin=1 | DUT Total sum =  51661, REF= 51661
+<<Correct>> time=590000 a=63218 b= 9172 cin=0 | DUT Total sum =  72390, REF= 72390
+<<Correct>> time=600000 a=34422 b=48149 cin=1 | DUT Total sum =  82572, REF= 82572
+<<Correct>> time=610000 a=43949 b=45831 cin=0 | DUT Total sum =  89780, REF= 89780
+<<Correct>> time=620000 a=61742 b=14718 cin=1 | DUT Total sum =  76461, REF= 76461
+<<Correct>> time=630000 a=26681 b=58667 cin=1 | DUT Total sum =  85349, REF= 85349
+<<Correct>> time=640000 a=  793 b=54873 cin=1 | DUT Total sum =  55667, REF= 55667
+<<Correct>> time=650000 a=23055 b=16019 cin=0 | DUT Total sum =  39074, REF= 39074
+<<Correct>> time=660000 a=25612 b=16812 cin=0 | DUT Total sum =  42424, REF= 42424
+<<Correct>> time=670000 a=42887 b=39867 cin=1 | DUT Total sum =  82755, REF= 82755
+<<Correct>> time=680000 a=53293 b=65479 cin=1 | DUT Total sum = 118773, REF=118773
+<<Correct>> time=690000 a=53037 b=42830 cin=1 | DUT Total sum =  95868, REF= 95868
+<<Correct>> time=700000 a= 3264 b=30588 cin=0 | DUT Total sum =  33852, REF= 33852
+<<Correct>> time=710000 a=35840 b=18089 cin=1 | DUT Total sum =  53930, REF= 53930
+<<Correct>> time=720000 a=42747 b=21354 cin=1 | DUT Total sum =  64102, REF= 64102
+<<Correct>> time=730000 a=49597 b=57194 cin=0 | DUT Total sum = 106791, REF=106791
+<<Correct>> time=740000 a=33742 b=34405 cin=0 | DUT Total sum =  68147, REF= 68147
+<<Correct>> time=750000 a=48475 b=18466 cin=0 | DUT Total sum =  66941, REF= 66941
+<<Correct>> time=760000 a=15762 b=52209 cin=1 | DUT Total sum =  67972, REF= 67972
+<<Correct>> time=770000 a= 4402 b=35148 cin=0 | DUT Total sum =  39550, REF= 39550
+<<Correct>> time=780000 a=50237 b=50910 cin=1 | DUT Total sum = 101148, REF=101148
+<<Correct>> time=790000 a=64940 b=55313 cin=1 | DUT Total sum = 120254, REF=120254
+<<Correct>> time=800000 a=32574 b=40014 cin=0 | DUT Total sum =  72588, REF= 72588
+<<Correct>> time=810000 a=52417 b=39418 cin=1 | DUT Total sum =  91836, REF= 91836
+<<Correct>> time=820000 a=41873 b= 6457 cin=1 | DUT Total sum =  48331, REF= 48331
+<<Correct>> time=830000 a=16703 b=58874 cin=1 | DUT Total sum =  75578, REF= 75578
+<<Correct>> time=840000 a=46846 b=35211 cin=0 | DUT Total sum =  82057, REF= 82057
+<<Correct>> time=850000 a=51467 b=51914 cin=1 | DUT Total sum = 103382, REF=103382
+<<Correct>> time=860000 a=29970 b=33224 cin=0 | DUT Total sum =  63194, REF= 63194
+<<Correct>> time=870000 a=14931 b=19155 cin=1 | DUT Total sum =  34087, REF= 34087
+<<Correct>> time=880000 a=58766 b=49126 cin=1 | DUT Total sum = 107893, REF=107893
+<<Correct>> time=890000 a= 6740 b=64057 cin=1 | DUT Total sum =  70798, REF= 70798
+<<Correct>> time=900000 a= 6629 b=57287 cin=1 | DUT Total sum =  63917, REF= 63917
+<<Correct>> time=910000 a=39743 b=64027 cin=0 | DUT Total sum = 103770, REF=103770
+<<Correct>> time=920000 a=26476 b= 5121 cin=1 | DUT Total sum =  31598, REF= 31598
+<<Correct>> time=930000 a=62335 b=44864 cin=0 | DUT Total sum = 107199, REF=107199
+<<Correct>> time=940000 a=31179 b= 5804 cin=1 | DUT Total sum =  36984, REF= 36984
+<<Correct>> time=950000 a=57310 b= 2603 cin=1 | DUT Total sum =  59914, REF= 59914
+<<Correct>> time=960000 a=16396 b=33782 cin=1 | DUT Total sum =  50179, REF= 50179
+<<Correct>> time=970000 a=46140 b=25556 cin=0 | DUT Total sum =  71696, REF= 71696
+<<Correct>> time=980000 a=55211 b=41952 cin=0 | DUT Total sum =  97163, REF= 97163
+<<Correct>> time=99

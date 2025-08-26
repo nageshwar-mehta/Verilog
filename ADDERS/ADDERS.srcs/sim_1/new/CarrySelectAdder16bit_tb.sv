@@ -47,7 +47,7 @@ module CarrySelectAdder16bit_tb;
     initial begin
 
         // Random tests
-        repeat (20) begin
+        repeat (100) begin
             apply_and_check($urandom, $urandom, $urandom_range(0,1));
         end
 

@@ -1,0 +1,13 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sim_1/new/FFT_IFFT_64pt_tb.v,1756551492,verilog,,,,FFT_IFFT_64pt_tb,,,,,,,,
+C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/FFT_IFFT_64pt_top.v,1756550049,verilog,,C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/bit_reversal.v,,FFT_IFFT_64pt_top,,,,,,,,
+C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/bit_reversal.v,1756549995,verilog,,C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/butterfly_unit.v,,bit_reversal,,,,,,,,
+C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/butterfly_unit.v,1756548796,verilog,,C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/complex_mult.v,,butterfly_unit,,,,,,,,
+C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/complex_mult.v,1756548710,verilog,,C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/fft_stage.v,,complex_mult,,,,,,,,
+C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/fft_stage.v,1756549854,verilog,,C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/ifft_scaler.v,,fft_stage,,,,,,,,
+C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/ifft_scaler.v,1756550020,verilog,,C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/twiddle_rom.v,,ifft_scaler,,,,,,,,
+C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sources_1/new/twiddle_rom.v,1756550410,verilog,,C:/Users/nages/verilog_projects/FFT_IFFT_Calculator/FFT_IFFT_Calculator.srcs/sim_1/new/FFT_IFFT_64pt_tb.v,,twiddle_rom,,,,,,,,

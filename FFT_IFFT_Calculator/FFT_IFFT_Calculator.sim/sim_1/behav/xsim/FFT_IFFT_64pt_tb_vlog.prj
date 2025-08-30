@@ -1,0 +1,16 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../FFT_IFFT_Calculator.srcs/sources_1/new/FFT_IFFT_64pt_top.v" \
+"../../../../FFT_IFFT_Calculator.srcs/sources_1/new/bit_reversal.v" \
+"../../../../FFT_IFFT_Calculator.srcs/sources_1/new/butterfly_unit.v" \
+"../../../../FFT_IFFT_Calculator.srcs/sources_1/new/complex_mult.v" \
+"../../../../FFT_IFFT_Calculator.srcs/sources_1/new/fft_stage.v" \
+"../../../../FFT_IFFT_Calculator.srcs/sources_1/new/ifft_scaler.v" \
+"../../../../FFT_IFFT_Calculator.srcs/sources_1/new/twiddle_rom.v" \
+"../../../../FFT_IFFT_Calculator.srcs/sim_1/new/FFT_IFFT_64pt_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

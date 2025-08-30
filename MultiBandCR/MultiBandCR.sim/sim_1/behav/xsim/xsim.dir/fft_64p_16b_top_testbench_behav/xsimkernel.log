@@ -1,4 +1,7 @@
-Running: xsim.dir/fft_64p_16b_top_testbench_behav/xsimk.exe -simmode gui -wdb fft_64p_16b_top_testbench_behav.wdb -simrunnum 0 -socket 52495
+Running: xsim.dir/fft_64p_16b_top_testbench_behav/xsimk.exe -simmode gui -wdb fft_64p_16b_top_testbench_behav.wdb -simrunnum 0 -socket 55337
 Design successfully loaded
-Design Loading Memory Usage: 102924 KB (Peak: 102924 KB)
-Design Loading CPU Usage: 217 ms
+Design Loading Memory Usage: 55604 KB (Peak: 55604 KB)
+Design Loading CPU Usage: 311 ms
+Simulation completed
+Simulation Memory Usage: 71596 KB (Peak: 71596 KB)
+Simulation CPU Usage: 1265 ms

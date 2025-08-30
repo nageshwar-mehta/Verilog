@@ -1,0 +1,65 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../../FFT64ptRef/bit_adj_32b_to_16b.v" \
+"../../../../../FFT64ptRef/black_cell.v" \
+"../../../../../FFT64ptRef/bypass_32b.v" \
+"../../../../../FFT64ptRef/cb_circuit.v" \
+"../../../../../FFT64ptRef/complex_adder_ksa_32b.v" \
+"../../../../../FFT64ptRef/complex_mult_twiddle_wn0_32b.v" \
+"../../../../../FFT64ptRef/complex_mult_twiddle_wn1_32b.v" \
+"../../../../../FFT64ptRef/complex_mult_twiddle_wn2_32b.v" \
+"../../../../../FFT64ptRef/complex_mult_twiddle_wn3_32b.v" \
+"../../../../../FFT64ptRef/complex_subst_ksa_32b.v" \
+"../../../../../FFT64ptRef/const_mult_ksa_16b_halfsqrt2.v" \
+"../../../../../FFT64ptRef/const_mult_ksa_16b_sqrt2.v" \
+"../../../../../FFT64ptRef/dff_hold_sync_high_reset.v" \
+"../../../../../FFT64ptRef/dff_inputsel_hold_sync_high_reset.v" \
+"../../../../../FFT64ptRef/dff_segment_for_cb.v" \
+"../../../../../FFT64ptRef/dff_segment_for_input.v" \
+"../../../../../FFT64ptRef/dff_segment_for_output.v" \
+"../../../../../FFT64ptRef/dff_sync_high_reset.v" \
+"../../../../../FFT64ptRef/fft_64p_16b_top.v" \
+"../../../../../FFT64ptRef/fft_8p_16b_top.v" \
+"../../../../../FFT64ptRef/generic_complex_mult_16b.v" \
+"../../../../../FFT64ptRef/generic_complex_mult_block.v" \
+"../../../../../FFT64ptRef/generic_mult_16b.v" \
+"../../../../../FFT64ptRef/grey_cell.v" \
+"../../../../../FFT64ptRef/input_circuit.v" \
+"../../../../../FFT64ptRef/input_counter.v" \
+"../../../../../FFT64ptRef/interdimensional_multiplier.v" \
+"../../../../../FFT64ptRef/intermediate_circuit.v" \
+"../../../../../FFT64ptRef/ks_1_16b.v" \
+"../../../../../FFT64ptRef/ks_1_32b.v" \
+"../../../../../FFT64ptRef/ks_2_16b.v" \
+"../../../../../FFT64ptRef/ks_2_32b.v" \
+"../../../../../FFT64ptRef/ks_3_16b.v" \
+"../../../../../FFT64ptRef/ks_3_32b.v" \
+"../../../../../FFT64ptRef/ks_4_16b.v" \
+"../../../../../FFT64ptRef/ks_4_32b.v" \
+"../../../../../FFT64ptRef/ks_5_16b.v" \
+"../../../../../FFT64ptRef/ks_5_32b.v" \
+"../../../../../FFT64ptRef/ks_6_32b.v" \
+"../../../../../FFT64ptRef/ks_7_16b.v" \
+"../../../../../FFT64ptRef/ks_7_32b.v" \
+"../../../../../FFT64ptRef/ksa_top_16b.v" \
+"../../../../../FFT64ptRef/ksa_top_32b.v" \
+"../../../../../FFT64ptRef/lshifter.v" \
+"../../../../../FFT64ptRef/master_control.v" \
+"../../../../../FFT64ptRef/mux_2_to_1.v" \
+"../../../../../FFT64ptRef/mux_8_to_1.v" \
+"../../../../../FFT64ptRef/notgate.v" \
+"../../../../../FFT64ptRef/output_circuit.v" \
+"../../../../../FFT64ptRef/output_counter.v" \
+"../../../../../FFT64ptRef/pg.v" \
+"../../../../../FFT64ptRef/real_imaginary_interchange.v" \
+"../../../../../FFT64ptRef/rshift_6_16b_to_16b.v" \
+"../../../../../FFT64ptRef/scalling_out.v" \
+"../../../../../FFT64ptRef/sgninv_16b.v" \
+"../../../../../FFT64ptRef/sub_ksa_16b.v" \
+"../../../../../FFT64ptRef/fft_64p_16b_top_testbench.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

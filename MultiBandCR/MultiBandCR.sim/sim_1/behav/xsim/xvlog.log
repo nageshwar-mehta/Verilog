@@ -1,0 +1,114 @@
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/bit_adj_32b_to_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bit_adj_32b_to_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/black_cell.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module black_cell
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/bypass_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module bypass_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/cb_circuit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module cb_circuit
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/complex_adder_ksa_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_adder_ksa_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/complex_mult_twiddle_wn0_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_mult_twiddle_wn0_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/complex_mult_twiddle_wn1_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_mult_twiddle_wn1_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/complex_mult_twiddle_wn2_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_mult_twiddle_wn2_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/complex_mult_twiddle_wn3_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_mult_twiddle_wn3_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/complex_subst_ksa_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module complex_subst_ksa_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/const_mult_ksa_16b_halfsqrt2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module const_mult_ksa_16b_halfsqrt2
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/const_mult_ksa_16b_sqrt2.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module const_mult_ksa_16b_sqrt2
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/dff_hold_sync_high_reset.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dff_hold_sync_high_reset
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/dff_inputsel_hold_sync_high_reset.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dff_inputsel_hold_sync_high_reset
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/dff_segment_for_cb.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dff_segment_for_cb
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/dff_segment_for_input.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dff_segment_for_input
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/dff_segment_for_output.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dff_segment_for_output
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/dff_sync_high_reset.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module dff_sync_high_reset
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/fft_64p_16b_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fft_64p_16b_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/fft_8p_16b_top.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fft_8p_16b_top
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/generic_complex_mult_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module generic_complex_mult_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/generic_complex_mult_block.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module generic_complex_mult_block
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/generic_mult_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module generic_mult_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/grey_cell.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module grey_cell
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/input_circuit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_circuit
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/input_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module input_counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/interdimensional_multiplier.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module interdimensional_multiplier
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/intermediate_circuit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module intermediate_circuit
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_1_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_1_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_1_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_1_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_2_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_2_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_2_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_2_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_3_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_3_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_3_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_3_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_4_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_4_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_4_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_4_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_5_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_5_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_5_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_5_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_6_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_6_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_7_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_7_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ks_7_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ks_7_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ksa_top_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ksa_top_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/ksa_top_32b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ksa_top_32b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/lshifter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module lshifter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/master_control.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module master_control
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/mux_2_to_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux_2_to_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/mux_8_to_1.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module mux_8_to_1
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/notgate.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module notgate
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/output_circuit.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module output_circuit
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/output_counter.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module output_counter
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/pg.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module pg
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/real_imaginary_interchange.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module real_imaginary_interchange
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/rshift_6_16b_to_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module rshift_6_16b_to_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/scalling_out.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module scalling_out
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/sgninv_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sgninv_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/sub_ksa_16b.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module sub_ksa_16b
+INFO: [VRFC 10-2263] Analyzing Verilog file "C:/Users/nages/verilog_projects/FFT64ptRef/fft_64p_16b_top_testbench.v" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module fft_64p_16b_top_testbench

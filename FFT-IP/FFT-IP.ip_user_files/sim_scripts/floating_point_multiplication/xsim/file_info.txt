@@ -1,0 +1,2 @@
+floating_point_multiplication.v,verilog,xil_defaultlib,../../../../FFT-IP.gen/sources_1/ip/floating_point_multiplication/sim/floating_point_multiplication.v,
+glbl.v,Verilog,xil_defaultlib,glbl.v

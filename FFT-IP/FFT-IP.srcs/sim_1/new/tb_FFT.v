@@ -150,8 +150,8 @@ module tb_FFT();
     
     // Open output files
     initial begin
-        f_real = $fopen("fft64pt_out_real.txt", "w");
-        f_imag = $fopen("fft64pt_out_imag.txt", "w");
+        f_real = $fopen("fft_out_real.txt", "w");
+        f_imag = $fopen("fft_out_imag.txt", "w");
         if (f_real == 0 || f_imag == 0) begin
             $display("Error: Could not open output files.");
             $finish;
@@ -181,11 +181,11 @@ module tb_FFT();
         #20;
         in_data_imag = 32'd0;
         
-        for (i = 0; i < 64; i = i + 1) begin
+        for (i = 63; i >= 0; i = i - 1) begin
             @(posedge aclk);
             in_data_real <= input_data[i];
             in_valid <= 1'b1;
-            in_last  <= (i == 63);
+            in_last  <= (i == 0);
             wait (in_ready == 1'b1);
             @(posedge aclk);
         end

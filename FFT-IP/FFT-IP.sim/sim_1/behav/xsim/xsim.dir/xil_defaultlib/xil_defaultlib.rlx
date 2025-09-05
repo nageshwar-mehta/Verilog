@@ -5,7 +5,7 @@ Nov 18 2020
 C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.gen/sources_1/ip/fft_64/sim/fft_64.vhd,1757040107,vhdl,,,,fft_64,,,,,,,,
 C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.gen/sources_1/ip/floating_point_multiplication/sim/floating_point_multiplication.v,1757060120,verilog,,C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sources_1/new/Complex_conjugate.v,,floating_point_multiplication,,,,,,,,
 C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
-C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sim_1/new/IFFT_tb.v,1757060062,verilog,,,,IFFT_tb,,,,,,,,
+C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sim_1/new/IFFT_tb.v,1757060538,verilog,,,,IFFT_tb,,,,,,,,
 C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sim_1/new/tb_FFT.v,1757049155,verilog,,,,tb_FFT,,,,,,,,
 C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sources_1/new/Complex_conjugate.v,1757054570,verilog,,C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sources_1/new/IFFT.v,,Complex_conjugate,,,,,,,,
 C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sources_1/new/IFFT.v,1757059224,verilog,,C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sim_1/new/IFFT_tb.v,,IFFT,,,,,,,,

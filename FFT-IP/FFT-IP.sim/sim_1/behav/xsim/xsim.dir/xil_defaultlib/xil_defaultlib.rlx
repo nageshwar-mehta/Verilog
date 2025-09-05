@@ -1,0 +1,8 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.gen/sources_1/ip/fft_64/sim/fft_64.vhd,1757040107,vhdl,,,,fft_64,,,,,,,,
+C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sim_1/new/tb_FFT.v,1757043642,verilog,,,,tb_FFT,,,,,,,,
+C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sources_1/new/top_wrapper.v,1757035611,verilog,,C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.srcs/sim_1/new/tb_FFT.v,,top_wrapper,,,,,,,,

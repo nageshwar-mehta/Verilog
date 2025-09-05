@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Fri Sep  5 08:11:54 2025
+# Process ID: 55800
+# Current directory: C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.runs/fft_64_synth_1
+# Command line: vivado.exe -log fft_64.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source fft_64.tcl
+# Log file: C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.runs/fft_64_synth_1/fft_64.vds
+# Journal file: C:/Users/nages/verilog_projects/FFT-IP/FFT-IP.runs/fft_64_synth_1\vivado.jou
+#-----------------------------------------------------------
+source fft_64.tcl -notrace

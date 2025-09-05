@@ -1,0 +1,4 @@
+vhdl xil_defaultlib  \
+"../../../../FFT-IP.gen/sources_1/ip/fft_64/sim/fft_64.vhd" \
+
+nosort

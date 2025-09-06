@@ -3,8 +3,8 @@
 module FFT_wrapper(
     input aclk,
     input aresetn,
-    input [31:0] in_data_real,
-    input [31:0] in_data_imag,
+    input [15:0] in_data_real,
+    input [15:0] in_data_imag,
     input in_valid,
     input in_last,
     output in_ready,
@@ -13,16 +13,16 @@ module FFT_wrapper(
     input config_valid,
     output config_ready,
     
-    output [31:0] out_data_real,
-    output [31:0] out_data_imag,
+    output [15:0] out_data_real,
+    output [15:0] out_data_imag,
     output out_valid,
     output  out_last,
     input  out_ready
     );
     
     
-    wire [63:0] data_fft;
-    wire [63:0] out_fft;
+    wire [15:0] data_fft;
+    wire [15:0] out_fft;
     //concatanating real and imaginary values to insert in FFT IP
     assign data_fft = {in_data_imag, in_data_real};
     
@@ -61,8 +61,8 @@ module FFT_wrapper(
   .event_data_out_channel_halt(event_data_out_channel_halt)  // output wire event_data_out_channel_halt
 );
 
-assign out_data_real = out_fft[31:0];
-assign out_data_imag = out_fft[63:32];
+assign out_data_real = out_fft[15:0];
+assign out_data_imag = out_fft[31:16];
 
 
 endmodule

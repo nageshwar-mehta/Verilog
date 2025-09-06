@@ -1,0 +1,10 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../FFT64pt_fixed_point.srcs/sources_1/new/FFT_wrapper.v" \
+"../../../../FFT64pt_fixed_point.srcs/sim_1/new/FFT_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

@@ -31,6 +31,7 @@ always@(posedge clk or posedge reset)begin
         xn3<=0;
     end
     else begin
+    //Concept of Non-blocking Assignment
         xn1<=x_in;//x_in = x[n] and xn1 = x[n-1]
         xn2<=xn1;//xn2 = x[n-2] 
         xn3<=xn2;//xn3 = x[n-3] 
@@ -51,7 +52,7 @@ always@(posedge clk or posedge reset)begin
         p3<=h3*xn3;
     end
 end
-//stage 3  sum
+//stage 3  sum : compression == 4:2
 always@(posedge clk or posedge reset)begin
     if(reset)begin
         out_sum1<=0;

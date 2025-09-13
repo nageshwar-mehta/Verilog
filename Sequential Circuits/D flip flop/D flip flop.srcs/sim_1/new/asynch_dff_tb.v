@@ -38,7 +38,7 @@ asynch_dffs df2(
         #10 d = 32; areset = 1;
         #10 d = 33; areset = 0;
         #10 d = 12;
-        #10 $finish;
+//        #10 $finish;
         
     end
     

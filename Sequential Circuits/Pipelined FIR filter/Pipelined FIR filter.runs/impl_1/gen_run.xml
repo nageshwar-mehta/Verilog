@@ -16,6 +16,7 @@
   <File Type="BITSTR-SYSDEF" Name="stage_4_FIR_Filter_tb.sysdef"/>
   <File Type="BITSTR-LTX" Name="debug_nets.ltx"/>
   <File Type="BITSTR-LTX" Name="stage_4_FIR_Filter_tb.ltx"/>
+  <File Type="RCFI_FILE" Name="stage_4_FIR_Filter_tb.rcfi"/>
   <File Type="WBT-USG" Name="usage_statistics_webtalk.html"/>
   <File Type="OPT-DRC" Name="stage_4_FIR_Filter_tb_drc_opted.rpt"/>
   <File Type="OPT-HWDEF" Name="stage_4_FIR_Filter_tb.hwdef"/>
@@ -32,7 +33,6 @@
   <File Type="POSTROUTE-PHYSOPT-DCP" Name="stage_4_FIR_Filter_tb_postroute_physopt.dcp"/>
   <File Type="POSTROUTE-PHYSOPT-BLACKBOX-DCP" Name="stage_4_FIR_Filter_tb_postroute_physopt_bb.dcp"/>
   <File Type="PDI-FILE" Name="stage_4_FIR_Filter_tb.pdi"/>
-  <File Type="RCFI_FILE" Name="stage_4_FIR_Filter_tb.rcfi"/>
   <File Type="CFI_FILE" Name="stage_4_FIR_Filter_tb.cfi"/>
   <File Type="RNPI_FILE" Name="stage_4_FIR_Filter_tb.rnpi"/>
   <File Type="NPI_FILE" Name="stage_4_FIR_Filter_tb.npi"/>
@@ -90,5 +90,6 @@
     <Step Id="route_design"/>
     <Step Id="post_route_phys_opt_design"/>
     <Step Id="write_bitstream"/>
+    <Step Id="write_device_image"/>
   </Strategy>
 </GenRun>

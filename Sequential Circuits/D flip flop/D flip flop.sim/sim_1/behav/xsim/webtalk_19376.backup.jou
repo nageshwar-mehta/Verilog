@@ -2,10 +2,10 @@
 # Webtalk v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Thu Aug 14 17:07:32 2025
-# Process ID: 21148
+# Start of session at: Thu Aug 14 17:53:16 2025
+# Process ID: 19376
 # Current directory: C:/Users/nages/verilog_projects/Sequential Circuits/D flip flop/D flip flop.sim/sim_1/behav/xsim
-# Command line: wbtcv.exe -mode batch -source C:/Users/nages/verilog_projects/Sequential Circuits/D flip flop/D flip flop.sim/sim_1/behav/xsim/xsim.dir/dff_behav/webtalk/xsim_webtalk.tcl -notrace
+# Command line: wbtcv.exe -mode batch -source C:/Users/nages/verilog_projects/Sequential Circuits/D flip flop/D flip flop.sim/sim_1/behav/xsim/xsim.dir/asynch_dffs_tb_behav/webtalk/xsim_webtalk.tcl -notrace
 # Log file: C:/Users/nages/verilog_projects/Sequential Circuits/D flip flop/D flip flop.sim/sim_1/behav/xsim/webtalk.log
 # Journal file: C:/Users/nages/verilog_projects/Sequential Circuits/D flip flop/D flip flop.sim/sim_1/behav/xsim\webtalk.jou
 #-----------------------------------------------------------

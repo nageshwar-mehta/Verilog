@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Sep 13 02:10:44 2025
+# Process ID: 16400
+# Current directory: C:/Users/nages/verilog_projects/Sequential Circuits/clock dividers/clock dividers.runs/impl_1
+# Command line: vivado.exe -log Fby2divider.vdi -applog -product Vivado -messageDb vivado.pb -mode batch -source Fby2divider.tcl -notrace
+# Log file: C:/Users/nages/verilog_projects/Sequential Circuits/clock dividers/clock dividers.runs/impl_1/Fby2divider.vdi
+# Journal file: C:/Users/nages/verilog_projects/Sequential Circuits/clock dividers/clock dividers.runs/impl_1\vivado.jou
+#-----------------------------------------------------------
+source Fby2divider.tcl -notrace

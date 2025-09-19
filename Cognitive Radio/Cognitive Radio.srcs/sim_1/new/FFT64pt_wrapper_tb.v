@@ -32,7 +32,7 @@ module FFT64pt_wrapper_tb();
     reg config_valid;
     wire config_ready;
     
-    wire [15:0] out_data_real;  // assuming your FFT IP output still 32-bit
+    wire [15:0] out_data_real;  // unpacked from 32-bit FFT output bus
     wire [15:0] out_data_imag;
     wire out_valid;
     wire out_last;
@@ -75,7 +75,7 @@ module FFT64pt_wrapper_tb();
         in_last = 0;
         in_data_real = 0;
         in_data_imag = 0;
-        config_data = 0;
+        config_data = 0; //reset
         config_valid = 0;
         out_ready = 1;  // always ready
 
@@ -94,11 +94,12 @@ module FFT64pt_wrapper_tb();
     // Configuration block
     initial begin
         #20;
-        config_data = 8'd1;
+        config_data  = 8'd1;  // FFT
         config_valid = 1'b1;
-        wait(config_ready == 1'b1);
         @(posedge aclk);
-        config_valid = 0;
+        while (!config_ready) @(posedge aclk);
+        config_valid = 1'b0;
+
     end
     
     // Open output files
@@ -114,8 +115,8 @@ module FFT64pt_wrapper_tb();
     // Capture FFT outputs
     always @(posedge aclk) begin
         if (out_valid && out_ready) begin
-            $fwrite(f_real, "%032b\n", out_data_real);
-            $fwrite(f_imag, "%032b\n", out_data_imag);
+            $fwrite(f_real, "%016b\n", out_data_real);
+            $fwrite(f_imag, "%016b\n", out_data_imag);
         end
     end
     
@@ -134,16 +135,19 @@ module FFT64pt_wrapper_tb();
         #10;
         for (i = 0; i < 64; i = i + 1) begin
             @(posedge aclk);
+            while (!in_ready) @(posedge aclk);  // stall until core ready
             in_data_real <= input_real[i];
             in_data_imag <= input_imag[i];
             in_valid <= 1;
             in_last  <= (i == 63);
-            wait(in_ready == 1);
         end
         @(posedge aclk);
         in_valid <= 0;
-        in_last <= 0;
+        in_last  <= 0;
+
     end
+    
+    
 
 endmodule
 

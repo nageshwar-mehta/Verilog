@@ -1,6 +1,26 @@
 `timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 20.09.2025 04:07:18
+// Design Name: 
+// Module Name: IFFT_wrapper
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
 
-module FFT64pt_wrapper(
+
+module IFFT_wrapper(
     input aclk,
     input aresetn,
     input [15:0] in_data_real,
@@ -9,7 +29,7 @@ module FFT64pt_wrapper(
     input in_last,
     output in_ready,
     
-    input [7:0] config_data,
+    input [7:0] config_data,//set config_data = 1'd0 for IFFT
     input config_valid,
     output config_ready,
     
@@ -23,10 +43,9 @@ module FFT64pt_wrapper(
     
     wire [31:0] data_fft;
     wire [31:0] out_fft;
+    wire in_data_imag_conjugate = ~in_data_imag + 1'b1;
     //concatanating real and imaginary values to insert in FFT IP
-    assign data_fft = {in_data_imag, in_data_real};
-//    assign config_data[0] = 1'b1 for FFT calculation 
-//    assign config_data[0] = 1'b0 for IFFT calculation 
+    assign data_fft = {in_data_imag_conjugate, in_data_real};
     
     
     wire 
@@ -45,12 +64,12 @@ module FFT64pt_wrapper(
   .s_axis_config_tvalid(config_valid),                // input wire s_axis_config_tvalid
   .s_axis_config_tready(config_ready),                // output wire s_axis_config_tready
   
-  .s_axis_data_tdata(data_fft),                      // input wire [31 : 0] s_axis_data_tdata
+  .s_axis_data_tdata(data_fft),                      // input wire [63 : 0] s_axis_data_tdata
   .s_axis_data_tvalid(in_valid),                    // input wire s_axis_data_tvalid
   .s_axis_data_tready(in_ready),                    // output wire s_axis_data_tready
   .s_axis_data_tlast(in_last),                      // input wire s_axis_data_tlast
   
-  .m_axis_data_tdata(out_fft),                      // output wire [31 : 0] m_axis_data_tdata
+  .m_axis_data_tdata(out_fft),                      // output wire [63 : 0] m_axis_data_tdata
   .m_axis_data_tvalid(out_valid),                    // output wire m_axis_data_tvalid
   .m_axis_data_tready(out_ready),                    // input wire m_axis_data_tready
   .m_axis_data_tlast(out_last),                      // output wire m_axis_data_tlast
@@ -68,3 +87,4 @@ assign out_data_imag = out_fft[31:16];
 
 
 endmodule
+

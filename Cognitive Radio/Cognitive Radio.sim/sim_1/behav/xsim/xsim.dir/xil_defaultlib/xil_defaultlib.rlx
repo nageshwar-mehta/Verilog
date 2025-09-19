@@ -1,0 +1,8 @@
+0.7
+2020.2
+Nov 18 2020
+09:47:47
+C:/Users/nages/verilog_projects/Cognitive Radio/Cognitive Radio.gen/sources_1/ip/xfft_0/sim/xfft_0.vhd,1758319503,vhdl,,,,xfft_0,,,,,,,,
+C:/Users/nages/verilog_projects/Cognitive Radio/Cognitive Radio.sim/sim_1/behav/xsim/glbl.v,1605673889,verilog,,,,glbl,,,,,,,,
+C:/Users/nages/verilog_projects/Cognitive Radio/Cognitive Radio.srcs/sim_1/new/FFT64pt_wrapper_tb.v,1758320238,verilog,,,,FFT64pt_wrapper_tb,,,,,,,,
+C:/Users/nages/verilog_projects/Cognitive Radio/Cognitive Radio.srcs/sources_1/new/FFT-64pt-fixed-pt-32bit_REAL_IMAG.v,1758319619,verilog,,C:/Users/nages/verilog_projects/Cognitive Radio/Cognitive Radio.srcs/sim_1/new/FFT64pt_wrapper_tb.v,,FFT64pt_wrapper,,,,,,,,

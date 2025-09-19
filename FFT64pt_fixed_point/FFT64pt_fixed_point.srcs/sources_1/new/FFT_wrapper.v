@@ -21,8 +21,8 @@ module FFT_wrapper(
     );
     
     
-    wire [15:0] data_fft;
-    wire [15:0] out_fft;
+    wire [31:0] data_fft;
+    wire [31:0] out_fft;
     //concatanating real and imaginary values to insert in FFT IP
     assign data_fft = {in_data_imag, in_data_real};
     
@@ -35,7 +35,7 @@ module FFT_wrapper(
     event_data_in_channel_halt,
     event_data_out_channel_halt ;//additional event signals
     
-  xfft_0 FFT_fixed_pt1 (
+  xfft_1_new FFT_fixed_pt1 (
   .aclk(aclk),                                                // input wire aclk
   .aresetn(aresetn),                                          // input wire aresetn
   

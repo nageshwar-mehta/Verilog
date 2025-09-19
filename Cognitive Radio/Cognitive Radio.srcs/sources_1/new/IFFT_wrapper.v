@@ -43,9 +43,9 @@ module IFFT_wrapper(
     
     wire [31:0] data_fft;
     wire [31:0] out_fft;
-    wire in_data_imag_conjugate = ~in_data_imag + 1'b1;
+//    wire in_data_imag_conjugate = ~in_data_imag + 1'b1;  //Not needed because IP itself has two mmodes of operation
     //concatanating real and imaginary values to insert in FFT IP
-    assign data_fft = {in_data_imag_conjugate, in_data_real};
+    assign data_fft = {in_data_imag, in_data_real};
     
     
     wire 

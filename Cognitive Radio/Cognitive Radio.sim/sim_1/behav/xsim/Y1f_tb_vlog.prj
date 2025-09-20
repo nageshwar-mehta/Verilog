@@ -1,0 +1,13 @@
+# compile verilog/system verilog design source files
+verilog xil_defaultlib  \
+"../../../../Cognitive Radio.srcs/sources_1/new/Complex_adder.v" \
+"../../../../Cognitive Radio.srcs/sources_1/new/FFT-64pt-fixed-pt-32bit_REAL_IMAG.v" \
+"../../../../Cognitive Radio.srcs/sources_1/new/Y1f_recieved_signal_fft.v" \
+"../../../../Cognitive Radio.srcs/sources_1/new/complex_multiplier.v" \
+"../../../../Cognitive Radio.srcs/sim_1/new/Y1f_tb.v" \
+
+# compile glbl module
+verilog xil_defaultlib "glbl.v"
+
+# Do not sort compile order
+nosort

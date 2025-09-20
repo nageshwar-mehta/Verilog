@@ -34,7 +34,11 @@ module Y1f_recieved_signal_fft (
     output        in_ready,
     // Output: Y1(f)
     output [15:0] Y_re, Y_im,
-    output        Y_valid, Y_last
+    output        Y_valid, Y_last,
+    // config ports 
+    input [7:0] config_data,//set 1'd1 for calculation of fft
+    input       config_valid,
+    output      config_ready
 );
 
     wire [15:0] S_re, S_im;
@@ -42,15 +46,21 @@ module Y1f_recieved_signal_fft (
     wire [15:0] W_re, W_im;
     wire        S_valid, H_valid, W_valid;
     wire        S_last, H_last, W_last;
-
+    
+    
+    // per-FFT ready/ready signals (internal)
+    wire in_ready_s, in_ready_h, in_ready_w;
+    wire cfg_ready_s, cfg_ready_h, cfg_ready_w;
+    
     // FFT instances
     FFT64pt_wrapper fft_s (
         .aclk(aclk), .aresetn(aresetn),
         .in_data_real(s_re), .in_data_imag(s_im),
         .in_valid(in_valid), .in_last(in_last),
-        .in_ready(),
+        .in_ready(in_ready_s),
         //config_data = 1 for fft calculation and 0 for IFFT calculation
-        .config_data(8'd1), .config_valid(1'b1), .config_ready(),
+        .config_data(config_data),.config_valid(config_valid),.config_ready(cfg_ready_s),
+
         .out_data_real(S_re), .out_data_imag(S_im),
         .out_valid(S_valid), .out_last(S_last), .out_ready(1'b1)
     );
@@ -59,9 +69,9 @@ module Y1f_recieved_signal_fft (
         .aclk(aclk), .aresetn(aresetn),
         .in_data_real(h_re), .in_data_imag(h_im),
         .in_valid(in_valid), .in_last(in_last),
-        .in_ready(),
+        .in_ready(in_ready_h),
         //config_data = 1 for fft calculation and 0 for IFFT calculation
-        .config_data(8'd1), .config_valid(1'b1), .config_ready(),
+        .config_data(config_data),.config_valid(config_valid),.config_ready(cfg_ready_h),
         .out_data_real(H_re), .out_data_imag(H_im),
         .out_valid(H_valid), .out_last(H_last), .out_ready(1'b1)
     );
@@ -70,13 +80,19 @@ module Y1f_recieved_signal_fft (
         .aclk(aclk), .aresetn(aresetn),
         .in_data_real(w_re), .in_data_imag(w_im),
         .in_valid(in_valid), .in_last(in_last),
-        .in_ready(),
+        .in_ready(in_ready_w),
         //config_data = 1 for fft calculation and 0 for IFFT calculation
-        .config_data(8'd1), .config_valid(1'b1), .config_ready(),
+        .config_data(config_data),.config_valid(config_valid),.config_ready(cfg_ready_w),
         .out_data_real(W_re), .out_data_imag(W_im),
         .out_valid(W_valid), .out_last(W_last), .out_ready(1'b1)
     );
-
+    
+    // drive top-level in_ready only when ALL FFT cores can accept data
+    assign in_ready = in_ready_s & in_ready_h & in_ready_w;
+    
+    // drive top-level config_ready only when ALL FFT cores signalled ready
+    assign config_ready = cfg_ready_s & cfg_ready_h & cfg_ready_w;
+    
     // Multiply S(f)*H(f)
     wire [15:0] SH_re, SH_im;
     complex_multiplier mult_u (
@@ -94,7 +110,8 @@ module Y1f_recieved_signal_fft (
 
     // Control signals (simplified: assume all FFTs aligned)
     assign Y_valid = S_valid & H_valid & W_valid;
-    assign Y_last  = S_last;
+    assign Y_last = S_last & H_last & W_last;
+
 
 endmodule
 

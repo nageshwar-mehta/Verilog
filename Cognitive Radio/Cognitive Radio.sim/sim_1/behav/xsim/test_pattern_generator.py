@@ -12,7 +12,7 @@ h = np.random.uniform(-1, 1, N)   # channel impulse response
 sigma = 0.05   # std dev of noise, ~5% of full scale
 w = np.random.normal(0, sigma, N)
 
-# Convert all to Q1.15 integers
+# Convert all to Q1.15 integers (signed 16-bit)
 s_q15 = np.round(s * (scale-1)).astype(np.int16)
 h_q15 = np.round(h * (scale-1)).astype(np.int16)
 w_q15 = np.round(w * (scale-1)).astype(np.int16)
@@ -20,15 +20,22 @@ w_q15 = np.round(w * (scale-1)).astype(np.int16)
 # --- Save path: directory where this script is located ---
 script_dir = os.path.dirname(os.path.abspath(__file__))
 
-# Save to files (decimal format for Verilog $readmemh/$readmemb)
-np.savetxt(os.path.join(script_dir, "s_real.txt"), s_q15, fmt="%d")
-np.savetxt(os.path.join(script_dir, "s_imag.txt"), np.zeros(N, dtype=np.int16), fmt="%d")
-print("Signal s(n) samples saved to", script_dir)
+def save_binary(filename, data):
+    """Save int16 array as 16-bit binary strings for $readmemb."""
+    with open(os.path.join(script_dir, filename), "w") as f:
+        for val in data:
+            # Convert to unsigned 16-bit, format as binary
+            f.write("{:016b}\n".format(np.uint16(val)))
 
-np.savetxt(os.path.join(script_dir, "h_real.txt"), h_q15, fmt="%d")
-np.savetxt(os.path.join(script_dir, "h_imag.txt"), np.zeros(N, dtype=np.int16), fmt="%d")
-print("Channel h(n) samples saved to", script_dir)
+# Save binary Q1.15 files
+save_binary("s_real.txt", s_q15)
+save_binary("s_imag.txt", np.zeros(N, dtype=np.int16))
+print("Signal s(n) samples saved in binary to", script_dir)
 
-np.savetxt(os.path.join(script_dir, "w_real.txt"), w_q15, fmt="%d")
-np.savetxt(os.path.join(script_dir, "w_imag.txt"), np.zeros(N, dtype=np.int16), fmt="%d")
-print("AWGN w(n) samples saved to", script_dir)
+save_binary("h_real.txt", h_q15)
+save_binary("h_imag.txt", np.zeros(N, dtype=np.int16))
+print("Channel h(n) samples saved in binary to", script_dir)
+
+save_binary("w_real.txt", w_q15)
+save_binary("w_imag.txt", np.zeros(N, dtype=np.int16))
+print("AWGN w(n) samples saved in binary to", script_dir)

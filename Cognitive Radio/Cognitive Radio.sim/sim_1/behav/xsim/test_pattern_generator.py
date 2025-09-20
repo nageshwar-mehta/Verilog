@@ -1,0 +1,34 @@
+import numpy as np
+import os
+
+N = 64
+scale = 2**15
+
+# Example signals in [-1, 1)
+s = np.random.uniform(-1, 1, N)   # time-domain signal s(n)
+h = np.random.uniform(-1, 1, N)   # channel impulse response
+
+# AWGN generation: mean=0, variance controlled by sigma
+sigma = 0.05   # std dev of noise, ~5% of full scale
+w = np.random.normal(0, sigma, N)
+
+# Convert all to Q1.15 integers
+s_q15 = np.round(s * (scale-1)).astype(np.int16)
+h_q15 = np.round(h * (scale-1)).astype(np.int16)
+w_q15 = np.round(w * (scale-1)).astype(np.int16)
+
+# --- Save path: directory where this script is located ---
+script_dir = os.path.dirname(os.path.abspath(__file__))
+
+# Save to files (decimal format for Verilog $readmemh/$readmemb)
+np.savetxt(os.path.join(script_dir, "s_real.txt"), s_q15, fmt="%d")
+np.savetxt(os.path.join(script_dir, "s_imag.txt"), np.zeros(N, dtype=np.int16), fmt="%d")
+print("Signal s(n) samples saved to", script_dir)
+
+np.savetxt(os.path.join(script_dir, "h_real.txt"), h_q15, fmt="%d")
+np.savetxt(os.path.join(script_dir, "h_imag.txt"), np.zeros(N, dtype=np.int16), fmt="%d")
+print("Channel h(n) samples saved to", script_dir)
+
+np.savetxt(os.path.join(script_dir, "w_real.txt"), w_q15, fmt="%d")
+np.savetxt(os.path.join(script_dir, "w_imag.txt"), np.zeros(N, dtype=np.int16), fmt="%d")
+print("AWGN w(n) samples saved to", script_dir)

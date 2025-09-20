@@ -27,13 +27,13 @@ module Y1f_recieved_signal_fft (
     input  aclk,
     input  aresetn,
     // Inputs: s(n), h(n), w(n)
-    input  [15:0] s_re, s_im,
-    input  [15:0] h_re, h_im,
-    input  [15:0] w_re, w_im,
+    input  signed [15:0] s_re, s_im,
+    input  signed [15:0] h_re, h_im,
+    input  signed [15:0] w_re, w_im,
     input         in_valid, in_last,
     output        in_ready,
     // Output: Y1(f)
-    output [15:0] Y_re, Y_im,
+    output signed [15:0] Y_re, Y_im,
     output        Y_valid, Y_last,
     // config ports 
     input [7:0] config_data,//set 1'd1 for calculation of fft
@@ -41,9 +41,9 @@ module Y1f_recieved_signal_fft (
     output      config_ready
 );
 
-    wire [15:0] S_re, S_im;
-    wire [15:0] H_re, H_im;
-    wire [15:0] W_re, W_im;
+    wire signed [15:0] S_re, S_im;
+    wire signed [15:0] H_re, H_im;
+    wire signed [15:0] W_re, W_im;
     wire        S_valid, H_valid, W_valid;
     wire        S_last, H_last, W_last;
     
@@ -94,7 +94,7 @@ module Y1f_recieved_signal_fft (
     assign config_ready = cfg_ready_s & cfg_ready_h & cfg_ready_w;
     
     // Multiply S(f)*H(f)
-    wire [15:0] SH_re, SH_im;
+    wire signed [15:0] SH_re, SH_im;
     complex_multiplier mult_u (
         .a_re(S_re), .a_im(S_im),
         .b_re(H_re), .b_im(H_im),

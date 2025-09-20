@@ -9,14 +9,14 @@ module Y1f_tb;
     reg aresetn;
 
     // DUT inputs
-    reg [15:0] s_re, s_im;
-    reg [15:0] h_re, h_im;
-    reg [15:0] w_re, w_im;
+    reg signed [15:0] s_re, s_im;
+    reg signed [15:0] h_re, h_im;
+    reg signed [15:0] w_re, w_im;
     reg        in_valid, in_last;
     wire       in_ready;
 
     // DUT outputs
-    wire [15:0] Y_re, Y_im;
+    wire signed [15:0] Y_re, Y_im;
     wire        Y_valid, Y_last;
     
     // config ports 

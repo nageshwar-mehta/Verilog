@@ -22,8 +22,8 @@ module FFT64pt_wrapper_tb();
 
     reg aclk;
     reg aresetn;
-    reg [15:0] in_data_real;
-    reg [15:0] in_data_imag;
+    reg signed [15:0] in_data_real;
+    reg signed [15:0] in_data_imag;
     reg in_valid;
     reg in_last;
     wire in_ready;
@@ -32,8 +32,8 @@ module FFT64pt_wrapper_tb();
     reg config_valid;
     wire config_ready;
     
-    wire [15:0] out_data_real;  // unpacked from 32-bit FFT output bus
-    wire [15:0] out_data_imag;
+    wire signed [15:0] out_data_real;  // unpacked from 32-bit FFT output bus
+    wire signed [15:0] out_data_imag;
     wire out_valid;
     wire out_last;
     reg  out_ready;

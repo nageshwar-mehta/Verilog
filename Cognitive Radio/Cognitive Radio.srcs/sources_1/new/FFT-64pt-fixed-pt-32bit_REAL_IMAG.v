@@ -3,8 +3,8 @@
 module FFT64pt_wrapper(
     input aclk,
     input aresetn,
-    input [15:0] in_data_real,
-    input [15:0] in_data_imag,
+    input signed [15:0] in_data_real,
+    input signed [15:0] in_data_imag,
     input in_valid,
     input in_last,
     output in_ready,
@@ -13,8 +13,8 @@ module FFT64pt_wrapper(
     input config_valid,
     output config_ready,
     
-    output [15:0] out_data_real,
-    output [15:0] out_data_imag,
+    output signed [15:0] out_data_real,
+    output signed [15:0] out_data_imag,
     output out_valid,
     output  out_last,
     input  out_ready

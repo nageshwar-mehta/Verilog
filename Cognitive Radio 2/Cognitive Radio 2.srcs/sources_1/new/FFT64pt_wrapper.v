@@ -63,8 +63,8 @@ module FFT64pt_wrapper(
   .event_data_out_channel_halt(event_data_out_channel_halt)  // output wire event_data_out_channel_halt
 );
 
-assign out_data_real = out_fft[15:0]<<<6;
-assign out_data_imag = out_fft[31:16]<<<6;
+assign out_data_real = out_fft[15:0];
+assign out_data_imag = out_fft[31:16];
 
 
 endmodule

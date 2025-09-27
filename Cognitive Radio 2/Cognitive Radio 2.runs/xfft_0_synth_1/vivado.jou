@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Sep 27 21:19:50 2025
+# Process ID: 31968
+# Current directory: C:/Users/nages/verilog_projects/Cognitive Radio 2/Cognitive Radio 2.runs/xfft_0_synth_1
+# Command line: vivado.exe -log xfft_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source xfft_0.tcl
+# Log file: C:/Users/nages/verilog_projects/Cognitive Radio 2/Cognitive Radio 2.runs/xfft_0_synth_1/xfft_0.vds
+# Journal file: C:/Users/nages/verilog_projects/Cognitive Radio 2/Cognitive Radio 2.runs/xfft_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source xfft_0.tcl -notrace

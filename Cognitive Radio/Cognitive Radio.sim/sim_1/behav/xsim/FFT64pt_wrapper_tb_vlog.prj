@@ -1,6 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  \
 "../../../../Cognitive Radio.srcs/sources_1/new/FFT-64pt-fixed-pt-32bit_REAL_IMAG.v" \
+"../../../../Cognitive Radio.srcs/sources_1/new/xfft_0_stub.v" \
 "../../../../Cognitive Radio.srcs/sim_1/new/FFT64pt_wrapper_tb.v" \
 
 # compile glbl module

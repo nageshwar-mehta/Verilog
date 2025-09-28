@@ -1,64 +1,42 @@
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-time: 0 | reset : 1  data_in :  x  r_in : x  w_in : x  d_out :  x  full : x  empty : x
-time: 10000 | reset : 0  data_in :  x  r_in : x  w_in : x  d_out :  0  full : 0  empty : 1
-time: 20000 | reset : 1  data_in :  5  r_in : x  w_in : 1  d_out :  0  full : 0  empty : 1
-time: 25000 | reset : 1  data_in :  5  r_in : x  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 30000 | reset : 1  data_in :  7  r_in : x  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 40000 | reset : 1  data_in :  0  r_in : x  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 50000 | reset : 1  data_in :  2  r_in : x  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 60000 | reset : 1  data_in :  3  r_in : x  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 70000 | reset : 1  data_in :  3  r_in : x  w_in : 0  d_out :  0  full : 0  empty : 0
-time: 100000 | reset : 1  data_in :  3  r_in : 1  w_in : 0  d_out :  0  full : 0  empty : 0
-time: 105000 | reset : 1  data_in :  3  r_in : 1  w_in : 0  d_out :  5  full : 0  empty : 0
-time: 115000 | reset : 1  data_in :  3  r_in : 1  w_in : 0  d_out :  7  full : 0  empty : 0
-time: 125000 | reset : 1  data_in :  3  r_in : 1  w_in : 0  d_out :  0  full : 0  empty : 0
-time: 130000 | reset : 1  data_in :  3  r_in : 0  w_in : 0  d_out :  0  full : 0  empty : 0
-time: 150000 | reset : 1  data_in :  0  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 160000 | reset : 1  data_in :  1  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 170000 | reset : 1  data_in :  2  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 180000 | reset : 1  data_in :  3  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 190000 | reset : 1  data_in :  4  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 200000 | reset : 1  data_in :  5  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 205000 | reset : 1  data_in :  5  r_in : 0  w_in : 1  d_out :  0  full : 1  empty : 0
-time: 210000 | reset : 1  data_in :  6  r_in : 0  w_in : 1  d_out :  0  full : 1  empty : 0
-time: 220000 | reset : 1  data_in :  7  r_in : 0  w_in : 1  d_out :  0  full : 1  empty : 0
-time: 230000 | reset : 1  data_in :  3  r_in : 0  w_in : 1  d_out :  0  full : 1  empty : 0
-time: 240000 | reset : 1  data_in :  2  r_in : 0  w_in : 1  d_out :  0  full : 1  empty : 0
-time: 250000 | reset : 1  data_in :  2  r_in : 0  w_in : 0  d_out :  0  full : 1  empty : 0
-time: 280000 | reset : 1  data_in :  2  r_in : 1  w_in : 0  d_out :  0  full : 1  empty : 0
-time: 285000 | reset : 1  data_in :  2  r_in : 1  w_in : 0  d_out :  2  full : 0  empty : 0
-time: 295000 | reset : 1  data_in :  2  r_in : 1  w_in : 0  d_out :  3  full : 0  empty : 0
-time: 305000 | reset : 1  data_in :  2  r_in : 1  w_in : 0  d_out :  0  full : 0  empty : 0
-time: 315000 | reset : 1  data_in :  2  r_in : 1  w_in : 0  d_out :  1  full : 0  empty : 0
-time: 325000 | reset : 1  data_in :  2  r_in : 1  w_in : 0  d_out :  2  full : 0  empty : 0
-time: 335000 | reset : 1  data_in :  2  r_in : 1  w_in : 0  d_out :  3  full : 0  empty : 0
-time: 345000 | reset : 1  data_in :  2  r_in : 1  w_in : 0  d_out :  4  full : 0  empty : 0
-time: 355000 | reset : 1  data_in :  2  r_in : 1  w_in : 0  d_out :  5  full : 0  empty : 1
-time: 400000 | reset : 1  data_in :  2  r_in : 0  w_in : 0  d_out :  5  full : 0  empty : 1
-time: 420000 | reset : 1  data_in :  0  r_in : 0  w_in : 1  d_out :  5  full : 0  empty : 1
-time: 425000 | reset : 1  data_in :  0  r_in : 0  w_in : 1  d_out :  5  full : 0  empty : 0
-time: 430000 | reset : 1  data_in :  1  r_in : 0  w_in : 1  d_out :  5  full : 0  empty : 0
-time: 440000 | reset : 1  data_in :  2  r_in : 1  w_in : 1  d_out :  5  full : 0  empty : 0
-time: 445000 | reset : 1  data_in :  2  r_in : 1  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 450000 | reset : 1  data_in :  3  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 460000 | reset : 1  data_in :  4  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 470000 | reset : 1  data_in :  5  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 480000 | reset : 1  data_in :  6  r_in : 1  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 485000 | reset : 1  data_in :  6  r_in : 1  w_in : 1  d_out :  1  full : 0  empty : 0
-time: 490000 | reset : 1  data_in :  7  r_in : 0  w_in : 1  d_out :  1  full : 0  empty : 0
-time: 500000 | reset : 1  data_in :  6  r_in : 0  w_in : 1  d_out :  1  full : 0  empty : 0
-time: 510000 | reset : 1  data_in :  5  r_in : 0  w_in : 1  d_out :  1  full : 0  empty : 0
-time: 520000 | reset : 1  data_in :  4  r_in : 1  w_in : 1  d_out :  1  full : 0  empty : 0
-time: 525000 | reset : 1  data_in :  4  r_in : 1  w_in : 1  d_out :  2  full : 0  empty : 0
-time: 530000 | reset : 1  data_in :  3  r_in : 0  w_in : 1  d_out :  2  full : 0  empty : 0
-time: 540000 | reset : 1  data_in :  2  r_in : 1  w_in : 1  d_out :  2  full : 0  empty : 0
-time: 545000 | reset : 1  data_in :  2  r_in : 1  w_in : 1  d_out :  3  full : 0  empty : 0
-time: 550000 | reset : 1  data_in :  1  r_in : 0  w_in : 1  d_out :  3  full : 0  empty : 0
-time: 560000 | reset : 1  data_in :  0  r_in : 1  w_in : 1  d_out :  3  full : 0  empty : 0
-time: 565000 | reset : 1  data_in :  0  r_in : 1  w_in : 1  d_out :  2  full : 0  empty : 0
-time: 570000 | reset : 1  data_in :  1  r_in : 0  w_in : 1  d_out :  2  full : 0  empty : 0
-time: 580000 | reset : 1  data_in :  1  r_in : 1  w_in : 1  d_out :  2  full : 0  empty : 0
-time: 585000 | reset : 1  data_in :  1  r_in : 1  w_in : 1  d_out :  1  full : 0  empty : 0
-time: 595000 | reset : 1  data_in :  1  r_in : 1  w_in : 1  d_out :  0  full : 0  empty : 0
-$finish called at time : 600 ns : File "C:/Users/nages/verilog_projects/FIFO/FIFO.srcs/sim_1/new/Synchronous_FIFO_tb.v" Line 180
+                   0 wr_en=0 rd_en=0 din=  0 dout=  x full=0 empty=1
+                  35 wr_en=1 rd_en=0 din=  0 dout=  x full=0 empty=1
+                  45 wr_en=0 rd_en=0 din=  0 dout=  x full=0 empty=1
+                  55 wr_en=1 rd_en=0 din=  1 dout=  x full=0 empty=1
+                  56 wr_en=1 rd_en=0 din=  1 dout=  x full=0 empty=0
+                  65 wr_en=0 rd_en=0 din=  1 dout=  x full=0 empty=0
+                  75 wr_en=1 rd_en=0 din=  2 dout=  x full=0 empty=0
+                  85 wr_en=0 rd_en=0 din=  2 dout=  x full=0 empty=0
+                  95 wr_en=1 rd_en=0 din=  3 dout=  x full=0 empty=0
+                 105 wr_en=0 rd_en=0 din=  3 dout=  x full=0 empty=0
+                 115 wr_en=1 rd_en=0 din=  4 dout=  x full=0 empty=0
+                 125 wr_en=0 rd_en=0 din=  4 dout=  x full=0 empty=0
+                 135 wr_en=1 rd_en=0 din=  5 dout=  x full=0 empty=0
+                 145 wr_en=0 rd_en=0 din=  5 dout=  x full=0 empty=0
+                 155 wr_en=1 rd_en=0 din=  6 dout=  x full=0 empty=0
+                 165 wr_en=0 rd_en=0 din=  6 dout=  x full=0 empty=0
+                 175 wr_en=1 rd_en=0 din=  7 dout=  x full=0 empty=0
+                 185 wr_en=0 rd_en=0 din=  7 dout=  x full=0 empty=0
+                 195 wr_en=1 rd_en=0 din=  8 dout=  x full=0 empty=0
+                 205 wr_en=0 rd_en=0 din=  8 dout=  x full=0 empty=0
+                 215 wr_en=1 rd_en=0 din=  9 dout=  x full=0 empty=0
+                 225 wr_en=0 rd_en=0 din=  9 dout=  x full=0 empty=0
+                 296 wr_en=0 rd_en=1 din=  9 dout=  x full=0 empty=0
+                 312 wr_en=0 rd_en=0 din=  9 dout=  0 full=0 empty=0
+                 328 wr_en=0 rd_en=1 din=  9 dout=  0 full=0 empty=0
+                 344 wr_en=0 rd_en=0 din=  9 dout=  1 full=0 empty=0
+                 360 wr_en=0 rd_en=1 din=  9 dout=  1 full=0 empty=0
+                 376 wr_en=0 rd_en=0 din=  9 dout=  2 full=0 empty=0
+                 392 wr_en=0 rd_en=1 din=  9 dout=  2 full=0 empty=0
+                 408 wr_en=0 rd_en=0 din=  9 dout=  3 full=0 empty=0
+                 424 wr_en=0 rd_en=1 din=  9 dout=  3 full=0 empty=0
+                 440 wr_en=0 rd_en=0 din=  9 dout=  4 full=0 empty=0
+                 456 wr_en=0 rd_en=1 din=  9 dout=  4 full=0 empty=0
+                 472 wr_en=0 rd_en=0 din=  9 dout=  5 full=0 empty=0
+                 488 wr_en=0 rd_en=1 din=  9 dout=  5 full=0 empty=0
+                 504 wr_en=0 rd_en=0 din=  9 dout=  6 full=0 empty=0
+                 520 wr_en=0 rd_en=1 din=  9 dout=  6 full=0 empty=0
+                 536 wr_en=0 rd_en=0 din=  9 dout=  7 full=0 empty=0
+                 552 wr_en=0 rd_en=1 din=  9 dout=  7 full=0 empty=0
+                 568 wr_en=0 rd_en=0 din=  9 dout=  8 full=0 empty=0

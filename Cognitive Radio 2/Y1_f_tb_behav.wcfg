@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="Y1_f_tb_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="Y1_f_tb" />
+            <top_module name="glbl" />
+            <top_module name="vcomponents" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="2169484fs"></ZoomStartTime>
+      <ZoomEndTime time="2176625fs"></ZoomEndTime>
+      <Cursor1Time time="2042839fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="171"></NameColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="27" />
+   <wvobject fp_name="/Y1_f_tb/aclk" type="logic">
+      <obj_property name="ElementShortName">aclk</obj_property>
+      <obj_property name="ObjectShortName">aclk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/aresetn" type="logic">
+      <obj_property name="ElementShortName">aresetn</obj_property>
+      <obj_property name="ObjectShortName">aresetn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/s_re" type="array">
+      <obj_property name="ElementShortName">s_re[15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_re[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/s_im" type="array">
+      <obj_property name="ElementShortName">s_im[15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_im[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/h_re" type="array">
+      <obj_property name="ElementShortName">h_re[15:0]</obj_property>
+      <obj_property name="ObjectShortName">h_re[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/h_im" type="array">
+      <obj_property name="ElementShortName">h_im[15:0]</obj_property>
+      <obj_property name="ObjectShortName">h_im[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/w_re" type="array">
+      <obj_property name="ElementShortName">w_re[15:0]</obj_property>
+      <obj_property name="ObjectShortName">w_re[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/w_im" type="array">
+      <obj_property name="ElementShortName">w_im[15:0]</obj_property>
+      <obj_property name="ObjectShortName">w_im[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/in_valid" type="logic">
+      <obj_property name="ElementShortName">in_valid</obj_property>
+      <obj_property name="ObjectShortName">in_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/in_last" type="logic">
+      <obj_property name="ElementShortName">in_last</obj_property>
+      <obj_property name="ObjectShortName">in_last</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/in_ready" type="logic">
+      <obj_property name="ElementShortName">in_ready</obj_property>
+      <obj_property name="ObjectShortName">in_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/Y_re" type="array">
+      <obj_property name="ElementShortName">Y_re[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Y_re[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/Y_im" type="array">
+      <obj_property name="ElementShortName">Y_im[15:0]</obj_property>
+      <obj_property name="ObjectShortName">Y_im[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/Y_valid" type="logic">
+      <obj_property name="ElementShortName">Y_valid</obj_property>
+      <obj_property name="ObjectShortName">Y_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/Y_last" type="logic">
+      <obj_property name="ElementShortName">Y_last</obj_property>
+      <obj_property name="ObjectShortName">Y_last</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/config_data" type="array">
+      <obj_property name="ElementShortName">config_data[7:0]</obj_property>
+      <obj_property name="ObjectShortName">config_data[7:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/config_valid" type="logic">
+      <obj_property name="ElementShortName">config_valid</obj_property>
+      <obj_property name="ObjectShortName">config_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/config_ready" type="logic">
+      <obj_property name="ElementShortName">config_ready</obj_property>
+      <obj_property name="ObjectShortName">config_ready</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/s_real_mem" type="array">
+      <obj_property name="ElementShortName">s_real_mem[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_real_mem[0:63][15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/s_imag_mem" type="array">
+      <obj_property name="ElementShortName">s_imag_mem[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">s_imag_mem[0:63][15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/h_real_mem" type="array">
+      <obj_property name="ElementShortName">h_real_mem[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">h_real_mem[0:63][15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/h_imag_mem" type="array">
+      <obj_property name="ElementShortName">h_imag_mem[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">h_imag_mem[0:63][15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/w_real_mem" type="array">
+      <obj_property name="ElementShortName">w_real_mem[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">w_real_mem[0:63][15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/w_imag_mem" type="array">
+      <obj_property name="ElementShortName">w_imag_mem[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">w_imag_mem[0:63][15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/f_re" type="array">
+      <obj_property name="ElementShortName">f_re[31:0]</obj_property>
+      <obj_property name="ObjectShortName">f_re[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/Y1_f_tb/f_im" type="array">
+      <obj_property name="ElementShortName">f_im[31:0]</obj_property>
+      <obj_property name="ObjectShortName">f_im[31:0]</obj_property>
+   </wvobject>
+</wave_config>

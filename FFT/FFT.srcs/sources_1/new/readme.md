@@ -13,13 +13,13 @@ Each module performs fixed-point arithmetic with **ROM-based twiddle factors (Q2
 
 The **Fast Fourier Transform (FFT)** efficiently computes the **Discrete Fourier Transform (DFT)**, which converts discrete time-domain signals into their frequency components.
 
-The DFT for an *N*-point signal `x[n]` is given by:
+The DFT for an N-point signal `x[n]` is given by:
 
-<img src="https://latex.codecogs.com/svg.image?X[k]=\sum_{n=0}^{N-1}x[n]\cdot e^{-j2\pi kn/N}" />
+```
+X[k] = Σ (n=0 to N-1) [ x[n] * e^(-j * 2πkn / N) ]
+```
 
-The **Cooley–Tukey algorithm** reduces computation from <img src="https://latex.codecogs.com/svg.image?O(N^2)" />
-to <img src="https://latex.codecogs.com/svg.image?O(N\log_2N)" />
-using recursive decomposition.
+The **Cooley–Tukey algorithm** reduces computation from `O(N²)` to `O(N log₂N)` using recursive decomposition.
 
 ---
 
@@ -27,13 +27,16 @@ using recursive decomposition.
 
 For a radix-2 DIT FFT:
 
-<img src="https://latex.codecogs.com/svg.image?X[k]=E[k]+W_N^k\cdot O[k]" /><br/> <img src="https://latex.codecogs.com/svg.image?X[k+\frac{N}{2}]=E[k]-W_N^k\cdot O[k]" />
+```
+X[k]       = E[k] + W_N^k * O[k]
+X[k + N/2] = E[k] - W_N^k * O[k]
+```
 
 Where:
 
-* **E[k]** → FFT of even-indexed samples
-* **O[k]** → FFT of odd-indexed samples
-* **W<sub>N</sub><sup>k</sup> = e<sup>-j2πk/N</sup>** → twiddle factor
+* `E[k]` → FFT of even-indexed samples
+* `O[k]` → FFT of odd-indexed samples
+* `W_N^k = e^(-j * 2πk / N)` → twiddle factor
 
 This recursive process continues until **2-point butterflies**.
 
@@ -124,19 +127,24 @@ endfunction
 
 ### 6.3 Scaling and Normalization
 
-Each multiplication produces a **Q(WIDTH + TW_WIDTH)** intermediate result, then right-shifted:
+Each multiplication produces an extended precision result in
+`Q(WIDTH + TW_WIDTH)` format. It is then normalized back to the working format using right shifts:
 
-<img src="https://latex.codecogs.com/svg.image?\text{scaled}=\frac{\text{product}}{2^{(TW\_WIDTH-2)}}" />
+```
+scaled = product / 2^(TW_WIDTH - 2)
+```
 
-ensuring normalized outputs in the same Q-format.
+This ensures normalized outputs within the same Q-format.
 
 ---
 
 ## 7. Butterfly Computation
 
-For complex inputs `(a + jb)` and twiddle `(c - jd)`:
+For complex numbers:
 
-<img src="https://latex.codecogs.com/svg.image?(a+jb)(c-jd)=(ac+bd)+j(bc-ad)" />
+```
+(a + jb) * (c - jd) = (ac + bd) + j(bc - ad)
+```
 
 In Verilog:
 
@@ -145,23 +153,30 @@ mult_r = a * c + b * d;  // Real part
 mult_i = b * c - a * d;  // Imaginary part
 ```
 
+Each butterfly stage combines results as:
+
+```
+X[k]       = E[k] + Twiddle * O[k]
+X[k + N/2] = E[k] - Twiddle * O[k]
+```
+
 ---
 
 ## 8. Verification and Simulation
 
-Each FFT module has a dedicated **testbench** with:
+Each FFT module includes a dedicated **testbench** featuring:
 
-* Input feed (`in_valid`)
-* Output monitoring (`out_valid`, `out_last`)
-* MATLAB reference comparison
+* `in_valid` → Input enable signal
+* `out_valid` & `out_last` → Output monitoring
+* MATLAB-based reference comparison
 
-Simulation tools used:
+**Tools Used:**
 
 * Xilinx Vivado 2023.1
 * ModelSim PE Student Edition
 * MATLAB Fixed-Point Toolbox
 
-### 8.1 Example Output (16-pt FFT)
+### Example 16-point FFT Output
 
 ```
 t=1050 | out_real=256 | out_imag=512
@@ -169,7 +184,7 @@ t=1060 | out_real=128 | out_imag=-640
 ...
 ```
 
-Outputs were matched to within ±1 LSB of MATLAB FFT results.
+Outputs were matched within ±1 LSB of MATLAB FFT results.
 
 ---
 
@@ -189,9 +204,9 @@ Outputs were matched to within ±1 LSB of MATLAB FFT results.
 
 * Cognitive Radio Spectrum Analysis
 * FPGA-based Signal Processing
-* SDR (Software Defined Radio) Front-ends
-* Digital Modulation/Demodulation
-* VLSI DSP and Hardware Accelerator Research
+* SDR (Software Defined Radio) Systems
+* Digital Modulation & Demodulation
+* VLSI DSP Hardware Accelerator Research
 
 ---
 
@@ -215,6 +230,4 @@ Outputs were matched to within ±1 LSB of MATLAB FFT results.
 
 > 🧠 *“Divide and conquer — the essence of the Cooley–Tukey FFT — powers not just algorithms, but scalable hardware design.”*
 > ⭐ *If this project adds value to your DSP learning, consider starring it on GitHub!*
-
----
 

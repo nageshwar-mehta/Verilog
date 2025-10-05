@@ -1,4 +1,5 @@
 
+
 # ⚡ Hierarchical Fixed-Point FFT System (Verilog HDL)
 
 ## 1. Abstract
@@ -13,13 +14,12 @@ Each module performs fixed-point arithmetic with **ROM-based twiddle factors (Q2
 
 The **Fast Fourier Transform (FFT)** efficiently computes the **Discrete Fourier Transform (DFT)**, which converts discrete time-domain signals into their frequency components.
 
-The DFT for an N-point signal `x[n]` is given by:
+The DFT for an *N*-point signal `x[n]` is given by:
 
-```
-X[k] = Σ (n=0 to N-1) [ x[n] * e^(-j * 2πkn / N) ]
-```
+    X[k] = Σ (n = 0 → N - 1) [ x[n] · e<sup>-j2πkn/N</sup> ]
 
-The **Cooley–Tukey algorithm** reduces computation from `O(N²)` to `O(N log₂N)` using recursive decomposition.
+
+The **Cooley–Tukey algorithm** reduces computation from **O(N²)** to **O(N log₂N)** using recursive decomposition.
 
 ---
 
@@ -27,16 +27,16 @@ The **Cooley–Tukey algorithm** reduces computation from `O(N²)` to `O(N log�
 
 For a radix-2 DIT FFT:
 
-```
-X[k]       = E[k] + W_N^k * O[k]
-X[k + N/2] = E[k] - W_N^k * O[k]
-```
+
+    X[k]       = E[k] + W<sub>N</sub><sup>k</sup> · O[k]
+    X[k + N/2] = E[k] - W<sub>N</sub><sup>k</sup> · O[k]
+
 
 Where:
 
-* `E[k]` → FFT of even-indexed samples
-* `O[k]` → FFT of odd-indexed samples
-* `W_N^k = e^(-j * 2πk / N)` → twiddle factor
+* **E[k]** → FFT of even-indexed samples
+* **O[k]** → FFT of odd-indexed samples
+* **W<sub>N</sub><sup>k</sup> = e<sup>-j2πk/N</sup>** → twiddle factor
 
 This recursive process continues until **2-point butterflies**.
 
@@ -61,10 +61,10 @@ FFT64pt Processor
 
 ```
           ┌─────────────────────────────────────────────┐
-          │                  FFT64pt                   │
+          │                  FFT64pt                    │
           │                                             │
           │   ┌───────────────┐     ┌───────────────┐   │
- Input →──▶──▶│ Even 32-pt FFT│     │ Odd  32-pt FFT│───┤
+ Input →──▶  │ Even 32-pt FFT │  ─▶│ Odd  32-pt FFT│   |
           │   └───────────────┘     └───────────────┘   │
           │              │             │                │
           │              ▼             ▼                │
@@ -73,13 +73,14 @@ FFT64pt Processor
           │         └─────────────────────────────┘     │
           │                    │                        │
           │                    ▼                        │
-          │           ┌────────────────────┐             │
-          │           │  Butterfly Combine │             │
-          │           └────────────────────┘             │
+          │           ┌────────────────────┐            │
+          │           │  Butterfly Combine │            │
+          │           └────────────────────┘            │
           │                    │                        │
           │                    ▼                        │
-          │                Frequency Output              │
-          └─────────────────────────────────────────────┘
+          │                Frequency Output             │
+          │                    │                        │
+          └────────────────────▼────────────────────────┘
 ```
 
 This structure repeats for all FFT stages (2 → 4 → 8 → 16 → 32 → 64).
@@ -117,33 +118,33 @@ function signed [15:0] W16_COS;
   input [2:0] idx;
   case (idx)
     3'd0: W16_COS = 16'sd16384;  // cos(0)
-    3'd1: W16_COS = 16'sd15137;  // cos(pi/8)
-    3'd2: W16_COS = 16'sd11585;  // cos(pi/4)
-    3'd3: W16_COS = 16'sd6269;   // cos(3pi/8)
-    3'd4: W16_COS = 16'sd0;      // cos(pi/2)
+    3'd1: W16_COS = 16'sd15137;  // cos(π/8)
+    3'd2: W16_COS = 16'sd11585;  // cos(π/4)
+    3'd3: W16_COS = 16'sd6269;   // cos(3π/8)
+    3'd4: W16_COS = 16'sd0;      // cos(π/2)
   endcase
 endfunction
 ```
 
 ### 6.3 Scaling and Normalization
 
-Each multiplication produces an extended precision result in
-`Q(WIDTH + TW_WIDTH)` format. It is then normalized back to the working format using right shifts:
+Each multiplication produces an extended-precision result in
+`Q(WIDTH + TW_WIDTH)` format. It is then normalized using right-shifting:
 
 ```
 scaled = product / 2^(TW_WIDTH - 2)
 ```
 
-This ensures normalized outputs within the same Q-format.
+This maintains consistent scaling across all FFT stages.
 
 ---
 
 ## 7. Butterfly Computation
 
-For complex numbers:
+For complex multiplication:
 
 ```
-(a + jb) * (c - jd) = (ac + bd) + j(bc - ad)
+(a + jb) · (c - jd) = (ac + bd) + j(bc - ad)
 ```
 
 In Verilog:
@@ -156,8 +157,8 @@ mult_i = b * c - a * d;  // Imaginary part
 Each butterfly stage combines results as:
 
 ```
-X[k]       = E[k] + Twiddle * O[k]
-X[k + N/2] = E[k] - Twiddle * O[k]
+X[k]       = E[k] + W<sub>N</sub><sup>k</sup> · O[k]
+X[k + N/2] = E[k] - W<sub>N</sub><sup>k</sup> · O[k]
 ```
 
 ---
@@ -230,4 +231,5 @@ Outputs were matched within ±1 LSB of MATLAB FFT results.
 
 > 🧠 *“Divide and conquer — the essence of the Cooley–Tukey FFT — powers not just algorithms, but scalable hardware design.”*
 > ⭐ *If this project adds value to your DSP learning, consider starring it on GitHub!*
+
 

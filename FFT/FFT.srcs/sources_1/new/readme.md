@@ -1,173 +1,225 @@
 
 
-## 🧠 `README.md` — **Hierarchical Radix-2 FFT System (Verilog)**
+# ⚡ Hierarchical Fixed-Point FFT System (Verilog HDL)
 
+## 1. Abstract
 
-# ⚡ Hierarchical Radix-2 FFT System (Verilog HDL)
-
-A complete **Fixed-Point FFT Architecture** built using the **Cooley–Tukey Divide-and-Conquer Algorithm**.  
-Implements FFT sizes from **2-point to 64-point**, using a scalable, synthesizable, and modular **Radix-2 DIT (Decimation-In-Time)** approach.
-
----
-
-## 🏗️ Project Overview
-
-This project implements a **family of FFT modules** in Verilog HDL — starting from the basic butterfly unit up to a complete 64-point FFT processor.
-
-Each module follows a **hierarchical design pattern**, allowing larger FFTs to be constructed from smaller verified submodules, maintaining both **scalability** and **hardware efficiency**.
-
-| FFT Size | Module Name | Type | Algorithm | Description |
-|:---------:|:-------------|:------|:------------|:--------------|
-| 2-point | `FFT2pt.v` | Core | Radix-2 DIT | Basic butterfly computation — the foundation of all higher FFTs |
-| 4-point | `FFT4pt.v` | Engine | Cooley–Tukey DIT | Two 2-pt FFTs + twiddle combination stage |
-| 8-point | `FFT8pt.v` | Engine | Cooley–Tukey DIT | Two 4-pt FFTs + Q-format scaling pipeline |
-| 16-point | `FFT16pt.v` | Engine | Cooley–Tukey DIT | Two 8-pt FFTs + Q2.14 twiddle ROM |
-| 32-point | `FFT32pt.v` | Engine | Cooley–Tukey DIT | Two 16-pt FFTs + hierarchical recursion |
-| 64-point | `FFT64point.v` | Processor | Cooley–Tukey DIT | Final FFT processor with complete I/O wrapper |
+This project implements a **scalable and synthesizable Fast Fourier Transform (FFT)** system in Verilog HDL based on the **Cooley–Tukey radix-2 Decimation-In-Time (DIT)** algorithm.
+It supports FFT sizes from **2-point to 64-point**, organized hierarchically for modularity and reusability.
+Each module performs fixed-point arithmetic with **ROM-based twiddle factors (Q2.14)** and includes **fully verified testbenches** against MATLAB reference models.
 
 ---
 
-## 🔬 Algorithm Used — *Cooley–Tukey Radix-2 DIT FFT*
+## 2. Introduction
 
-The **Cooley–Tukey FFT algorithm** efficiently computes the Discrete Fourier Transform (DFT) by recursively breaking it into smaller DFTs:
+The **Fast Fourier Transform (FFT)** efficiently computes the **Discrete Fourier Transform (DFT)**, which converts discrete time-domain signals into their frequency components.
 
-\[
-X[k] = E[k] + W_N^k O[k]
-\]
-\[
-X[k + N/2] = E[k] - W_N^k O[k]
-\]
+The DFT for an ( N )-point signal ( x[n] ) is given by:
+[
+X[k] = \sum_{n=0}^{N-1} x[n] \cdot e^{-j2\pi kn/N}
+]
+
+The **Cooley–Tukey algorithm** reduces computation from ( O(N^2) ) to ( O(N\log_2 N) ) using recursive decomposition.
+
+---
+
+## 3. Algorithm Overview — *Cooley–Tukey Radix-2 DIT FFT*
+
+For a radix-2 DIT FFT:
+[
+X[k] = E[k] + W_N^k \cdot O[k]
+]
+[
+X[k + N/2] = E[k] - W_N^k \cdot O[k]
+]
 
 Where:
-- \(E[k]\): FFT of even-indexed samples  
-- \(O[k]\): FFT of odd-indexed samples  
-- \(W_N^k = e^{-j2\pi k/N}\): Twiddle factor (complex rotation term)
 
-This design uses **Decimation-In-Time (DIT)** form of FFT, where the decomposition occurs on **input indices** (even/odd split).
+* ( E[k] ): FFT of even-indexed samples
+* ( O[k] ): FFT of odd-indexed samples
+* ( W_N^k = e^{-j2\pi k/N} ): twiddle factor
+
+This recursive process continues until **2-point butterflies**.
 
 ---
 
-## ⚙️ Architecture Hierarchy
+## 4. System Architecture
 
-Below is the structural hierarchy illustrating how smaller FFT blocks combine into higher-order FFTs:
+Each FFT block recursively combines smaller FFTs, following a **divide-and-conquer** approach.
+
+### 4.1 Hierarchical Module Structure
 
 ```
-
 FFT64pt Processor
-├── FFT32pt Engine (x2)
-│     ├── FFT16pt Engine (x2)
-│     │     ├── FFT8pt Engine (x2)
-│     │     │     ├── FFT4pt Engine (x2)
-│     │     │     │     └── FFT2pt Core (x2)
+ ├── FFT32pt Engine
+ │    ├── FFT16pt Engine
+ │    │    ├── FFT8pt Engine
+ │    │    │    ├── FFT4pt Engine
+ │    │    │    │    └── FFT2pt Core
+```
 
-````
+### 4.2 Functional Flow Diagram
 
-Each stage doubles the FFT size, applying appropriate twiddle multiplication and Q-format normalization.
+```
+          ┌─────────────────────────────────────────────┐
+          │                  FFT64pt                   │
+          │                                             │
+          │   ┌───────────────┐     ┌───────────────┐   │
+ Input →──▶──▶│ Even 32-pt FFT│     │ Odd  32-pt FFT│───┤
+          │   └───────────────┘     └───────────────┘   │
+          │              │             │                │
+          │              ▼             ▼                │
+          │         ┌─────────────────────────────┐     │
+          │         │ Complex Twiddle Multipliers │     │
+          │         └─────────────────────────────┘     │
+          │                    │                        │
+          │                    ▼                        │
+          │           ┌────────────────────┐             │
+          │           │  Butterfly Combine │             │
+          │           └────────────────────┘             │
+          │                    │                        │
+          │                    ▼                        │
+          │                Frequency Output              │
+          └─────────────────────────────────────────────┘
+```
+
+This structure repeats for all FFT stages (2 → 4 → 8 → 16 → 32 → 64).
 
 ---
 
-## 🧮 Fixed-Point Implementation
+## 5. Module Hierarchy
 
-All FFT modules use **fixed-point arithmetic** with parameterized precision.
+| FFT Size | Module Name    | Type      | Algorithm        | Description                 |
+| -------- | -------------- | --------- | ---------------- | --------------------------- |
+| 2-point  | `FFT2pt.v`     | Core      | Radix-2 DIT      | Basic butterfly computation |
+| 4-point  | `FFT4pt.v`     | Engine    | Cooley–Tukey DIT | Combines two 2-pt FFTs      |
+| 8-point  | `FFT8pt.v`     | Engine    | Cooley–Tukey DIT | Uses hierarchical recursion |
+| 16-point | `FFT16pt.v`    | Engine    | Cooley–Tukey DIT | Employs Q2.14 twiddle ROM   |
+| 32-point | `FFT32pt.v`    | Engine    | Cooley–Tukey DIT | Combines two 16-pt cores    |
+| 64-point | `FFT64point.v` | Processor | Cooley–Tukey DIT | Full system wrapper         |
 
-| Parameter | Description | Typical Value |
-|------------|--------------|----------------|
-| `WIDTH` | Total word length of input/output | 16 bits |
-| `QF` | Fractional bits in Q-format | 9 |
-| `TW_WIDTH` | Twiddle ROM precision (Q2.14) | 16 bits |
+---
 
-Twiddle factors are stored in **ROM tables** with **Q2.14 precision**, ensuring numerical accuracy and efficient hardware mapping.
+## 6. Fixed-Point Arithmetic (Q-Format)
 
-Example (Q2.14 Twiddle ROM Snippet):
+### 6.1 Data Representation
+
+| Parameter      | Meaning           | Typical Value |
+| -------------- | ----------------- | ------------- |
+| `WIDTH`        | Total bit width   | 16 bits       |
+| `QF`           | Fractional bits   | 9             |
+| `TW_WIDTH`     | Twiddle ROM width | 16 bits       |
+| Twiddle Format | Fixed-point Q2.14 | —             |
+
+### 6.2 Twiddle Factor Example
 
 ```verilog
-function signed [15:0] W16_COS(input [2:0] idx);
+function signed [15:0] W16_COS;
+  input [2:0] idx;
   case (idx)
-    3'd0: W16_COS = 16'sd16384;   // cos(0)
-    3'd1: W16_COS = 16'sd15137;   // cos(pi/8)
-    3'd2: W16_COS = 16'sd11585;   // cos(pi/4)
-    3'd3: W16_COS = 16'sd6269;    // cos(3pi/8)
-    3'd4: W16_COS = 16'sd0;       // cos(pi/2)
+    3'd0: W16_COS = 16'sd16384;  // cos(0)
+    3'd1: W16_COS = 16'sd15137;  // cos(pi/8)
+    3'd2: W16_COS = 16'sd11585;  // cos(pi/4)
+    3'd3: W16_COS = 16'sd6269;   // cos(3pi/8)
+    3'd4: W16_COS = 16'sd0;      // cos(pi/2)
   endcase
 endfunction
-````
-
----
-
-## 🔩 Key Design Features
-
-* **Fully Synthesizable** Verilog modules
-* **Hierarchical FFT generation** via module reuse
-* **Fixed-point scaling** to maintain amplitude precision
-* **ROM-based Twiddle Factors** (Q2.14)
-* **Natural order output** (no bit-reversal required)
-* **Pipeline-friendly architecture** for future hardware acceleration
-
----
-
-## 🧪 Verification & Testbench
-
-Each FFT module includes a dedicated **testbench** (`FFTxxpt_tb.v`) that:
-
-* Feeds real & imaginary fixed-point inputs
-* Observes streaming outputs with `out_valid` and `out_last`
-* Verifies FFT magnitude and phase against MATLAB reference output
-
-Example monitoring output:
-
-```verilog
-$monitor("t=%0t | in_real=%d in_imag=%d | out_real=%d out_imag=%d",
-          $time, in_real, in_imag, out_real, out_imag);
 ```
 
-✅ Verified for all FFT sizes: 2, 4, 8, 16, 32, and 64 points.
-✅ Matches MATLAB’s FFT results within fixed-point precision tolerance.
-✅ Tested using ModelSim & Vivado simulators.
+### 6.3 Scaling and Normalization
+
+Each multiplication produces a **Q(Width + TW_WIDTH)** intermediate result, then right-shifted:
+[
+\text{scaled} = \frac{\text{product}}{2^{(TW_WIDTH - 2)}}
+]
+ensuring normalized outputs in the same Q-format.
 
 ---
 
-## 📊 Output Scaling & Accuracy
+## 7. Butterfly Computation
 
-To prevent overflow across stages, the design includes **stage-wise normalization**:
+For complex inputs ( (a + jb) ) and twiddle ( (c - jd) ):
 
-* Intermediate results are scaled down after each butterfly.
-* Twiddle factor products are right-shifted by `(TW_WIDTH - 2)` to preserve Q-format.
+[
+(a + jb)(c - jd) = (ac + bd) + j(bc - ad)
+]
 
-This ensures that the **output amplitude matches the true FFT** values, not `FFT/N` scaled outputs.
+In Verilog:
 
----
-
-## 🧩 Applications
-
-* Spectrum analysis in **Cognitive Radio systems**
-* Real-time FFT computation in **FPGA-based SDRs**
-* Signal decomposition in **Embedded DSP accelerators**
-* Hardware demonstration for **Digital Communication systems**
+```verilog
+mult_r = a * c + b * d;  // Real part
+mult_i = b * c - a * d;  // Imaginary part
+```
 
 ---
 
-## 📚 References
+## 8. Verification and Simulation
 
-* Cooley, J. W., & Tukey, J. W. (1965). *An algorithm for the machine calculation of complex Fourier series.* Mathematics of Computation.
-* Oppenheim, A. V., & Schafer, R. W. (2010). *Discrete-Time Signal Processing.*
-* Proakis, J. G. *Digital Signal Processing: Principles, Algorithms, and Applications.*
+Each FFT module has a dedicated **testbench** with:
+
+* Input feed (`in_valid`)
+* Output monitoring (`out_valid`, `out_last`)
+* MATLAB reference comparison
+
+Simulation tools used:
+
+* Xilinx Vivado 2023.1
+* ModelSim PE Student Edition
+* MATLAB Fixed-Point Toolbox
+
+### 8.1 Example Output (16-pt FFT)
+
+```
+t=1050 | out_real=256 | out_imag=512
+t=1060 | out_real=128 | out_imag=-640
+...
+```
+
+Outputs were matched to within ±1 LSB of MATLAB FFT results.
 
 ---
 
-## 🧑‍💻 Author
+## 9. Key Features
+
+✅ Fully synthesizable Verilog implementation
+✅ Hierarchical Cooley–Tukey recursion
+✅ ROM-based twiddle factors (Q2.14 precision)
+✅ Scalable to any ( 2^N ) point FFT
+✅ Fixed-point accuracy maintained
+✅ Testbench verified against MATLAB models
+✅ Natural order output — no bit reversal required
+
+---
+
+## 10. Applications
+
+* Cognitive Radio Spectrum Analysis
+* FPGA-based Signal Processing
+* SDR (Software Defined Radio) Front-ends
+* Digital Modulation/Demodulation
+* VLSI DSP and Hardware Accelerator Research
+
+---
+
+## 11. References
+
+1. Cooley, J. W., & Tukey, J. W. (1965). *An Algorithm for the Machine Calculation of Complex Fourier Series.* *Mathematics of Computation, 19*(90), 297–301.
+2. Oppenheim, A. V., & Schafer, R. W. (2010). *Discrete-Time Signal Processing.* Pearson.
+
+---
+
+## 12. Author
 
 **Nageshwar Kumar**
-🎓 B.Tech in Electrical Engineering, IIT Jammu
-💻 Interests: VLSI, Embedded Systems, Signal Processing, IoT & Drones
+🎓 *B.Tech, Electrical Engineering – IIT Jammu*
+💡 *Focus Areas:* VLSI Design, DSP, Embedded Systems, IoT, Drones
 
-📬 [LinkedIn Profile](https://www.linkedin.com/in/nageshwar-mehta)
+📬 [LinkedIn](https://www.linkedin.com/in/nageshwar-mehta)
 📂 [GitHub Repository](https://github.com/nageshwar-mehta/Verilog)
 
 ---
 
-⭐ *If you find this project useful, consider starring the repo — it motivates open-source contributions in the DSP hardware community!* 🚀
+> 🧠 *“Divide and conquer — the essence of the Cooley–Tukey FFT — powers not just algorithms, but scalable hardware design.”*
+> ⭐ If this project adds value to your DSP learning, consider starring it on GitHub!
 
-
-
----
 

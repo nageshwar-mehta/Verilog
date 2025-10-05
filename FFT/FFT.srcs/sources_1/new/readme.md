@@ -158,7 +158,6 @@ This ensures that the **output amplitude matches the true FFT** values, not `FFT
 
 **Nageshwar Kumar**
 🎓 B.Tech in Electrical Engineering, IIT Jammu
-🔧 Tech Secretary, Robotics & Academic Council Member
 💻 Interests: VLSI, Embedded Systems, Signal Processing, IoT & Drones
 
 📬 [LinkedIn Profile](https://www.linkedin.com/in/nageshwar-mehta)

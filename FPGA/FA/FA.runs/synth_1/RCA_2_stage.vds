@@ -2,47 +2,47 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:45 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun Sep 14 22:32:28 2025
-# Process ID: 27216
+# Start of session at: Thu Oct  2 01:31:52 2025
+# Process ID: 28936
 # Current directory: C:/Users/nages/verilog_projects/FPGA/FA/FA.runs/synth_1
 # Command line: vivado.exe -log RCA_2_stage.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source RCA_2_stage.tcl
 # Log file: C:/Users/nages/verilog_projects/FPGA/FA/FA.runs/synth_1/RCA_2_stage.vds
 # Journal file: C:/Users/nages/verilog_projects/FPGA/FA/FA.runs/synth_1\vivado.jou
 #-----------------------------------------------------------
 source RCA_2_stage.tcl -notrace
-create_project: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 1088.973 ; gain = 0.000
+create_project: Time (s): cpu = 00:00:04 ; elapsed = 00:00:05 . Memory (MB): peak = 1079.594 ; gain = 0.000
 Command: synth_design -top RCA_2_stage -part xc7a35tcpg236-3
 Starting synth_design
 Attempting to get a license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7a35t'
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 2 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
-INFO: [Synth 8-7075] Helper process launched with PID 20452
+INFO: [Synth 8-7075] Helper process launched with PID 26824
 ---------------------------------------------------------------------------------
-Starting Synthesize : Time (s): cpu = 00:00:07 ; elapsed = 00:00:09 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Starting Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
-INFO: [Synth 8-6157] synthesizing module 'RCA_2_stage' [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/RCA_2_stage.v:23]
-INFO: [Synth 8-6157] synthesizing module 'Full_adder' [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/Full_adder.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'Full_adder' (1#1) [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/Full_adder.v:23]
+INFO: [Synth 8-6157] synthesizing module 'RCA_2_stage' [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/RCA_2_stage.v:53]
 INFO: [Synth 8-6157] synthesizing module 'DFF' [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/DFF.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'DFF' (2#1) [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/DFF.v:23]
-INFO: [Synth 8-6155] done synthesizing module 'RCA_2_stage' (3#1) [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/RCA_2_stage.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'DFF' (1#1) [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/DFF.v:23]
+INFO: [Synth 8-6157] synthesizing module 'Full_adder' [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/Full_adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'Full_adder' (2#1) [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/Full_adder.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'RCA_2_stage' (3#1) [C:/Users/nages/verilog_projects/FPGA/FA/FA.srcs/sources_1/new/RCA_2_stage.v:53]
 ---------------------------------------------------------------------------------
-Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:16 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Synthesize : Time (s): cpu = 00:00:08 ; elapsed = 00:00:11 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:16 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Constraint Validation : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Loading Part and Timing Information
 ---------------------------------------------------------------------------------
 Loading part: xc7a35tcpg236-3
 ---------------------------------------------------------------------------------
-Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:16 . Memory (MB): peak = 1088.973 ; gain = 0.000
----------------------------------------------------------------------------------
 INFO: [Device 21-403] Loading part xc7a35tcpg236-3
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
-Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:17 . Memory (MB): peak = 1088.973 ; gain = 0.000
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:09 ; elapsed = 00:00:12 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
@@ -70,20 +70,20 @@ No constraint files found.
 Start Cross Boundary and Area Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:00:17 ; elapsed = 00:00:40 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 No constraint files found.
 ---------------------------------------------------------------------------------
 Start Timing Optimization
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Timing Optimization : Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Timing Optimization : Time (s): cpu = 00:00:18 ; elapsed = 00:00:40 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Technology Mapping
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Technology Mapping : Time (s): cpu = 00:00:16 ; elapsed = 00:00:26 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Technology Mapping : Time (s): cpu = 00:00:18 ; elapsed = 00:00:40 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start IO Insertion
@@ -101,37 +101,37 @@ Start Final Netlist Cleanup
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished IO Insertion : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished IO Insertion : Time (s): cpu = 00:00:24 ; elapsed = 00:00:47 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Instances
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Instances : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:24 ; elapsed = 00:00:47 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Rebuilding User Hierarchy
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:21 ; elapsed = 00:00:32 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:24 ; elapsed = 00:00:47 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Ports
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Ports : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:24 ; elapsed = 00:00:47 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Handling Custom Attributes
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Handling Custom Attributes : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:24 ; elapsed = 00:00:47 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Renaming Generated Nets
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
-Finished Renaming Generated Nets : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:24 ; elapsed = 00:00:47 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 ---------------------------------------------------------------------------------
 Start Writing Synthesis Report
@@ -173,23 +173,23 @@ Report Instance Areas:
 |12    |  FA4    |Full_adder_2 |     2|
 +------+---------+-------------+------+
 ---------------------------------------------------------------------------------
-Finished Writing Synthesis Report : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:24 ; elapsed = 00:00:47 . Memory (MB): peak = 1079.594 ; gain = 0.000
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
-Synthesis Optimization Runtime : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1088.973 ; gain = 0.000
-Synthesis Optimization Complete : Time (s): cpu = 00:00:22 ; elapsed = 00:00:32 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:24 ; elapsed = 00:00:47 . Memory (MB): peak = 1079.594 ; gain = 0.000
+Synthesis Optimization Complete : Time (s): cpu = 00:00:24 ; elapsed = 00:00:47 . Memory (MB): peak = 1079.594 ; gain = 0.000
 INFO: [Project 1-571] Translating synthesized netlist
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1088.973 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.001 . Memory (MB): peak = 1079.594 ; gain = 0.000
 INFO: [Project 1-570] Preparing netlist for logic optimization
 INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
-Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1159.305 ; gain = 0.000
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 1156.918 ; gain = 0.000
 INFO: [Project 1-111] Unisim Transformation Summary:
 No Unisim elements were transformed.
 
 INFO: [Common 17-83] Releasing license: Synthesis
 16 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
 synth_design completed successfully
-synth_design: Time (s): cpu = 00:00:28 ; elapsed = 00:00:41 . Memory (MB): peak = 1159.305 ; gain = 70.332
+synth_design: Time (s): cpu = 00:00:31 ; elapsed = 00:00:57 . Memory (MB): peak = 1156.918 ; gain = 77.324
 INFO: [Common 17-1381] The checkpoint 'C:/Users/nages/verilog_projects/FPGA/FA/FA.runs/synth_1/RCA_2_stage.dcp' has been generated.
 INFO: [runtcl-4] Executing : report_utilization -file RCA_2_stage_utilization_synth.rpt -pb RCA_2_stage_utilization_synth.pb
-INFO: [Common 17-206] Exiting Vivado at Sun Sep 14 22:33:31 2025...
+INFO: [Common 17-206] Exiting Vivado at Thu Oct  2 01:33:11 2025...

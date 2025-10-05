@@ -1,5 +1,4 @@
 
-
 # ⚡ Hierarchical Fixed-Point FFT System (Verilog HDL)
 
 ## 1. Abstract
@@ -14,30 +13,27 @@ Each module performs fixed-point arithmetic with **ROM-based twiddle factors (Q2
 
 The **Fast Fourier Transform (FFT)** efficiently computes the **Discrete Fourier Transform (DFT)**, which converts discrete time-domain signals into their frequency components.
 
-The DFT for an ( N )-point signal ( x[n] ) is given by:
-[
-X[k] = \sum_{n=0}^{N-1} x[n] \cdot e^{-j2\pi kn/N}
-]
+The DFT for an *N*-point signal `x[n]` is given by:
 
-The **Cooley–Tukey algorithm** reduces computation from ( O(N^2) ) to ( O(N\log_2 N) ) using recursive decomposition.
+<img src="https://latex.codecogs.com/svg.image?X[k]=\sum_{n=0}^{N-1}x[n]\cdot e^{-j2\pi kn/N}" />
+
+The **Cooley–Tukey algorithm** reduces computation from <img src="https://latex.codecogs.com/svg.image?O(N^2)" />
+to <img src="https://latex.codecogs.com/svg.image?O(N\log_2N)" />
+using recursive decomposition.
 
 ---
 
 ## 3. Algorithm Overview — *Cooley–Tukey Radix-2 DIT FFT*
 
 For a radix-2 DIT FFT:
-[
-X[k] = E[k] + W_N^k \cdot O[k]
-]
-[
-X[k + N/2] = E[k] - W_N^k \cdot O[k]
-]
+
+<img src="https://latex.codecogs.com/svg.image?X[k]=E[k]+W_N^k\cdot O[k]" /><br/> <img src="https://latex.codecogs.com/svg.image?X[k+\frac{N}{2}]=E[k]-W_N^k\cdot O[k]" />
 
 Where:
 
-* ( E[k] ): FFT of even-indexed samples
-* ( O[k] ): FFT of odd-indexed samples
-* ( W_N^k = e^{-j2\pi k/N} ): twiddle factor
+* **E[k]** → FFT of even-indexed samples
+* **O[k]** → FFT of odd-indexed samples
+* **W<sub>N</sub><sup>k</sup> = e<sup>-j2πk/N</sup>** → twiddle factor
 
 This recursive process continues until **2-point butterflies**.
 
@@ -128,21 +124,19 @@ endfunction
 
 ### 6.3 Scaling and Normalization
 
-Each multiplication produces a **Q(Width + TW_WIDTH)** intermediate result, then right-shifted:
-[
-\text{scaled} = \frac{\text{product}}{2^{(TW_WIDTH - 2)}}
-]
+Each multiplication produces a **Q(WIDTH + TW_WIDTH)** intermediate result, then right-shifted:
+
+<img src="https://latex.codecogs.com/svg.image?\text{scaled}=\frac{\text{product}}{2^{(TW\_WIDTH-2)}}" />
+
 ensuring normalized outputs in the same Q-format.
 
 ---
 
 ## 7. Butterfly Computation
 
-For complex inputs ( (a + jb) ) and twiddle ( (c - jd) ):
+For complex inputs `(a + jb)` and twiddle `(c - jd)`:
 
-[
-(a + jb)(c - jd) = (ac + bd) + j(bc - ad)
-]
+<img src="https://latex.codecogs.com/svg.image?(a+jb)(c-jd)=(ac+bd)+j(bc-ad)" />
 
 In Verilog:
 
@@ -184,7 +178,7 @@ Outputs were matched to within ±1 LSB of MATLAB FFT results.
 ✅ Fully synthesizable Verilog implementation
 ✅ Hierarchical Cooley–Tukey recursion
 ✅ ROM-based twiddle factors (Q2.14 precision)
-✅ Scalable to any ( 2^N ) point FFT
+✅ Scalable to any 2ⁿ-point FFT
 ✅ Fixed-point accuracy maintained
 ✅ Testbench verified against MATLAB models
 ✅ Natural order output — no bit reversal required
@@ -220,6 +214,7 @@ Outputs were matched to within ±1 LSB of MATLAB FFT results.
 ---
 
 > 🧠 *“Divide and conquer — the essence of the Cooley–Tukey FFT — powers not just algorithms, but scalable hardware design.”*
-> ⭐ If this project adds value to your DSP learning, consider starring it on GitHub!
+> ⭐ *If this project adds value to your DSP learning, consider starring it on GitHub!*
 
+---
 

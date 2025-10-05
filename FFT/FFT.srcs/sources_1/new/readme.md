@@ -2,7 +2,7 @@
 
 ## 🧠 `README.md` — **Hierarchical Radix-2 FFT System (Verilog)**
 
-```markdown
+
 # ⚡ Hierarchical Radix-2 FFT System (Verilog HDL)
 
 A complete **Fixed-Point FFT Architecture** built using the **Cooley–Tukey Divide-and-Conquer Algorithm**.  
@@ -167,7 +167,7 @@ This ensures that the **output amplitude matches the true FFT** values, not `FFT
 
 ⭐ *If you find this project useful, consider starring the repo — it motivates open-source contributions in the DSP hardware community!* 🚀
 
-```
+
 
 ---
 

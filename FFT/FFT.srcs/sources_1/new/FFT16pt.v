@@ -107,7 +107,7 @@ module FFT16pt
   endfunction
 
   // ---------------- temporaries -----------------
-  reg [TW_WIDTH-1:0] W16_SIN_scaled[7:0],W16_COS_scaled[7:0];
+//  reg [TW_WIDTH-1:0] W16_SIN_scaled[7:0],W16_COS_scaled[7:0];
   reg signed [WIDTH+TW_WIDTH:0] mult_r, mult_i;
   reg signed [WIDTH+TW_WIDTH-QF:0] scaled_r, scaled_i;
 

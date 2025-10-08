@@ -2,7 +2,7 @@
 //// 32-point DIT FFT (Verilog)
 //// - Uses FFT16pt module (must be defined as you already have)
 //// - Natural order input/output
-
+//THIS is comment in the optimized code part
 
 `timescale 1ns / 1ps
 module FFT64point

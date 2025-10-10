@@ -32,16 +32,23 @@ module FFT2pt
     
     //Store two inputs : 
     reg signed[WIDTH-1:0] x_real[0:1], x_imag[0:1];
-    reg [1:0]state ;
+    reg state ;
     
     //states
+//    localparam IDLE =   2'd0;
+//    localparam IN_COLLECT = 2'd1;
+//    localparam OUT_0 = 2'd2;
+//    localparam OUT_1 = 2'd3;
     localparam IDLE =   2'd0;
-    localparam IN_COLLECT = 2'd1;
-    localparam OUT_0 = 2'd2;
-    localparam OUT_1 = 2'd3;
+    localparam OUT_add = 2'd1;
+    localparam OUT_sub = 2'd2;
+//    localparam OUT_0 = 2'd2;
+//    localparam OUT_1 = 2'd3;
+reg [1:0] k;
     
     always @(posedge clk or negedge rstn) begin
         if(!rstn)begin
+            k <= 2'b0;
             state <= IDLE;
             out_valid <= 1'b0;
             out_last <= 1'b0;
@@ -58,25 +65,27 @@ module FFT2pt
             case(state)
                 IDLE : begin
                     if(in_valid)begin
-                        x_real[0]<=in_real;
-                        x_imag[0]<=in_imag;
-                        state <= IN_COLLECT;
+                        x_real[k]<=in_real;
+                        x_imag[k]<=in_imag;
+//                        state <= IN_COLLECT;
+                        k = k + 1;
                     end
+                    if(k==2)state <= OUT_add;
                 end
-                IN_COLLECT : begin
-                    if(in_valid)begin
-                        x_real[1]<=in_real;
-                        x_imag[1]<=in_imag;
-                        state <= OUT_0;
-                    end
-                end
-                OUT_0 : begin
+//                IN_COLLECT : begin
+//                    if(in_valid)begin
+//                        x_real[1]<=in_real;
+//                        x_imag[1]<=in_imag;
+//                        state <= OUT_0;
+//                    end
+//                end
+                OUT_add : begin
                     out_real<=x_real[0]+x_real[1];
                     out_imag<=x_imag[0]+x_imag[1];
                     out_valid<=1'b1;
-                    state <= OUT_1;
+                    state <= OUT_sub;
                 end
-                OUT_1 : begin
+                OUT_sub : begin
                     out_real<=x_real[0]-x_real[1];
                     out_imag<=x_imag[0]-x_imag[1];
                     out_valid<=1'b1;

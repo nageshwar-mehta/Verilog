@@ -3,7 +3,7 @@
 // complex_divider_stream.v
 // Fully synthesizable complex divider for FFT streaming outputs
 // Computes (A + jB) / (C + jD)
-// Fixed version - properly handles fixed-point arithmetic
+// CORRECTED scaling version
 //////////////////////////////////////////////////////////////////////////////////
 
 module complex_divider_stream #(
@@ -36,7 +36,7 @@ module complex_divider_stream #(
 );
 
     localparam integer W2 = 2*IN_W;
-    localparam integer RECIP_LAT = RECIP_FRAC; // latency = OUT_FRAC stages of reciprocal pipeline
+    localparam integer RECIP_LAT = RECIP_FRAC;
 
     // === Stage 0: Direct combinatorial multipliers ===
     wire signed [W2-1:0] ac = a_real * b_real;
@@ -64,7 +64,7 @@ module complex_divider_stream #(
             if (in_valid) begin
                 num_real_s1 <= num_real_comb;
                 num_imag_s1 <= num_imag_comb;
-                denom_s1    <= (denom_comb == 0) ? {{(W2-1){1'b0}}, 1'b1} : denom_comb; // avoid /0
+                denom_s1    <= (denom_comb == 0) ? {{(W2-1){1'b0}}, 1'b1} : denom_comb;
             end
         end
     end
@@ -102,12 +102,11 @@ module complex_divider_stream #(
                 last_pipe[i]     <= 0;
             end
         end else begin
-            // stage 0
             num_real_pipe[0] <= num_real_s1;
             num_imag_pipe[0] <= num_imag_s1;
             valid_pipe[0]    <= v_s1;
             last_pipe[0]     <= last_s1;
-            // shift
+            
             for (i=1;i<RECIP_LAT;i=i+1) begin
                 num_real_pipe[i] <= num_real_pipe[i-1];
                 num_imag_pipe[i] <= num_imag_pipe[i-1];
@@ -118,10 +117,11 @@ module complex_divider_stream #(
     end
 
     // === Stage 2: Multiply Numerators × Reciprocal ===
+    localparam integer PROD_W = (W2+1) + RECIP_W;
+    
     // Convert reciprocal to signed
     wire signed [RECIP_W-1:0] recip_signed = $signed(recip_out);
-
-    localparam integer PROD_W = (W2+1) + RECIP_W;
+    
     reg signed [PROD_W-1:0] prod_real, prod_imag;
     reg prod_valid, prod_last;
 
@@ -138,65 +138,63 @@ module complex_divider_stream #(
         end
     end
 
-    // === Stage 3: Scale and truncate back to IN_W ===
-    // Fixed-point analysis:
-    // Inputs: Q(FRAC)
-    // Numerators: Q(2*FRAC) [after multiplication]
-    // Reciprocal: Q(RECIP_FRAC) [reciprocal of Q(2*FRAC)]
-    // Product: Q(2*FRAC + RECIP_FRAC)
-    // Output: Q(FRAC) [so we need to shift right by (FRAC + RECIP_FRAC)]
+    // === Stage 3: CORRECTED Scaling and truncation ===
+    // FIXED SCALING ANALYSIS:
+    // Inputs: Q12
+    // Numerators: Q24 (after multiplication of two Q12 numbers)
+    // Denominator: Q24 (after multiplication)
+    // Reciprocal: Q28 (reciprocal of Q24 number)
+    // Product: Q24 * Q28 = Q52
+    // But we need output in Q12 format
+    // So we shift right by: 52 - 12 = 40 bits? NO - this is wrong!
     
-    localparam integer TOTAL_FRAC_BITS = 2*FRAC + RECIP_FRAC;
-    localparam integer SHIFT_AMOUNT = TOTAL_FRAC_BITS - FRAC; // = FRAC + RECIP_FRAC
+    // CORRECT ANALYSIS:
+    // We're computing: (A/B) where A and B are Q12
+    // Reciprocal gives us: 1/B in Q28 format (reciprocal of Q24 denominator)
+    // When we multiply A (Q12) × (1/B) (Q28), we get result in Q40 format
+    // To convert Q40 to Q12 output, we shift right by 28 bits
     
-    // Simple right shift (remove complex rounding that was causing zeros)
-    wire signed [PROD_W-1:0] scaled_real = prod_real >>> SHIFT_AMOUNT;
-    wire signed [PROD_W-1:0] scaled_imag = prod_imag >>> SHIFT_AMOUNT;
+    localparam integer CORRECT_SHIFT = RECIP_FRAC; // 28 bits, not 40!
+    
+    // Apply scaling with rounding
+    wire signed [PROD_W-1:0] scaled_real = (prod_real + (1 << (CORRECT_SHIFT-1))) >>> CORRECT_SHIFT;
+    wire signed [PROD_W-1:0] scaled_imag = (prod_imag + (1 << (CORRECT_SHIFT-1))) >>> CORRECT_SHIFT;
 
-    // Simple saturation function
-    function signed [IN_W-1:0] saturate;
-        input signed [PROD_W-1:0] value;
-        reg signed [IN_W:0] max_positive;
-        reg signed [IN_W:0] max_negative;
-        begin
-            max_positive = (1 << (IN_W-1)) - 1;  // 2^(IN_W-1)-1
-            max_negative = -(1 << (IN_W-1));     // -2^(IN_W-1)
-            
-            if (value > max_positive)
-                saturate = max_positive[IN_W-1:0];
-            else if (value < max_negative)
-                saturate = max_negative[IN_W-1:0];
+    // Simple saturation logic
+    always @(*) begin
+        out_real = scaled_real[IN_W-1:0];
+        out_imag = scaled_imag[IN_W-1:0];
+        
+        // Basic overflow detection
+        real_overflow = (scaled_real > ((1 << (IN_W-1)) - 1)) || (scaled_real < -(1 << (IN_W-1)));
+        imag_overflow = (scaled_imag > ((1 << (IN_W-1)) - 1)) || (scaled_imag < -(1 << (IN_W-1)));
+        
+        // Handle overflow by saturation
+        if (real_overflow) begin
+            if (scaled_real > 0)
+                out_real = (1 << (IN_W-1)) - 1;
             else
-                saturate = value[IN_W-1:0];
+                out_real = -(1 << (IN_W-1));
         end
-    endfunction
+        
+        if (imag_overflow) begin
+            if (scaled_imag > 0)
+                out_imag = (1 << (IN_W-1)) - 1;
+            else
+                out_imag = -(1 << (IN_W-1));
+        end
+    end
 
     // Output registers
     always @(posedge clk or negedge rstn) begin
         if (!rstn) begin
-            out_real <= 0; 
-            out_imag <= 0; 
             out_valid <= 0; 
             out_last <= 0;
-            real_overflow <= 0;
-            imag_overflow <= 0;
             bypass_active <= 0;
         end else begin
             out_valid <= prod_valid;
-            out_last  <= prod_last;
-            bypass_active <= 1'b0; // Simple version - no bypass
-            
-            if (prod_valid) begin
-                out_real <= saturate(scaled_real);
-                out_imag <= saturate(scaled_imag);
-                
-                // Simple overflow detection
-                real_overflow <= (scaled_real > ((1 << (IN_W-1)) - 1)) || (scaled_real < -(1 << (IN_W-1)));
-                imag_overflow <= (scaled_imag > ((1 << (IN_W-1)) - 1)) || (scaled_imag < -(1 << (IN_W-1)));
-            end else begin
-                real_overflow <= 1'b0;
-                imag_overflow <= 1'b0;
-            end
+            out_last <= prod_last;
+            bypass_active <= 1'b0;
         end
     end
 

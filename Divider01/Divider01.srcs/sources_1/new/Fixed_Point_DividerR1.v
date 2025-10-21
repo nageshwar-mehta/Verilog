@@ -19,39 +19,33 @@ module Fixed_Point_DividerR1 #(
     output reg  out_valid
 );
 
-    // Internal parameters
-    localparam integer ITER = N + Q; // Total iterations
+    localparam integer ITER = N + Q;
 
-    // Internal signals
     reg busy;
     reg [$clog2(ITER+1)-1:0] cnt;
 
-    // Sign detection
     wire sign_divisor  = divisor[N-1];
     wire sign_divident = divident[N-1];
     wire result_sign   = sign_divisor ^ sign_divident;
 
-    // Absolute values
     wire [N-1:0] abs_divisor  = sign_divisor  ? (~divisor  + 1'b1) : divisor;
     wire [N-1:0] abs_divident = sign_divident ? (~divident + 1'b1) : divident;
 
-    // Extended operands
-    reg  [N+Q-1:0] dividend_ext;     // dividend shifted by Q bits
-    reg  [N+Q:0]   rem;              // remainder register
-    reg  [N+Q-1:0] quotient_full;    // full precision quotient (N+Q bits)
-    wire [N+Q:0]   divisor_ext;      // extended divisor
+    reg  [N+Q-1:0] dividend_ext;
+    reg  [N+Q:0]   rem;
+    reg  [N+Q-1:0] quotient_full;
+    wire [N+Q:0]   divisor_ext;
 
-    // Temporary working regs (must be declared outside procedural block)
-    reg  [N+Q:0] rem_shift;
-    reg  next_bit;
+    // Temporaries: we want combinational/instant values inside the clocked block
+    reg  [N+Q:0] rem_shift;   // temp; computed with blocking so comparison uses current value
+    reg  next_bit;            // temp; computed with blocking
+
     reg  [N-1:0] neg_out;
 
     assign divisor_ext = { {(Q+1){1'b0}}, abs_divisor };
 
-    // Start condition (auto start if not busy and divisor ? 0)
     wire start_condition = (!busy) && (divisor != 0);
 
-    // Sequential logic
     always @(posedge clk or negedge rstn) begin
         if (!rstn) begin
             busy          <= 1'b0;
@@ -63,13 +57,13 @@ module Fixed_Point_DividerR1 #(
             overflow      <= 0;
             out_valid     <= 0;
         end else begin
-            out_valid <= 1'b0; // Default
+            out_valid <= 1'b0; // default low each cycle unless finished
 
-            // Start division
+            // Start division (capture inputs)
             if (start_condition) begin
                 busy          <= 1'b1;
                 cnt           <= ITER;
-                dividend_ext  <= {abs_divident, {Q{1'b0}}}; // shift left by Q bits
+                dividend_ext  <= {abs_divident, {Q{1'b0}}};
                 rem           <= 0;
                 quotient_full <= 0;
                 overflow      <= 0;
@@ -77,9 +71,12 @@ module Fixed_Point_DividerR1 #(
 
             // Iterative division
             else if (busy) begin
-                next_bit  <= dividend_ext[cnt-1];
-                rem_shift <= {rem[N+Q-1:0], next_bit};
+                // IMPORTANT: blocking assignments for temps used *this cycle*
+                // so comparison is using current values (no non-blocking delay).
+                next_bit  = dividend_ext[cnt-1]; // blocking
+                rem_shift = { rem[N+Q-1:0], next_bit }; // blocking shift-left and append
 
+                // Use non-blocking to update registers that persist to next cycle
                 if (rem_shift >= divisor_ext) begin
                     rem           <= rem_shift - divisor_ext;
                     quotient_full <= (quotient_full << 1) | 1'b1;
@@ -93,14 +90,14 @@ module Fixed_Point_DividerR1 #(
                     busy <= 1'b0;
                     cnt  <= 0;
 
-                    // Overflow detection
+                    // Overflow detection: top N bits (integer+sign) exceed range
                     if ((quotient_full >> Q) >= (1 << (N-1))) begin
                         overflow <= 1'b1;
                     end else begin
                         overflow <= 1'b0;
                     end
 
-                    // Sign correction
+                    // Sign correction (2's complement) for the N-bit output
                     if (result_sign) begin
                         neg_out  <= (~(quotient_full[N+Q-1 -: N])) + 1'b1;
                         quotient <= neg_out;
@@ -108,13 +105,13 @@ module Fixed_Point_DividerR1 #(
                         quotient <= quotient_full[N+Q-1 -: N];
                     end
 
-                    out_valid <= 1'b1; // Output ready
+                    out_valid <= 1'b1;
                 end else begin
                     cnt <= cnt - 1;
                 end
             end
 
-            // Divide-by-zero handling
+            // Divide-by-zero handling (explicit)
             if (divisor == 0) begin
                 busy      <= 1'b0;
                 cnt       <= 0;

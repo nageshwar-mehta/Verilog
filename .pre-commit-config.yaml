@@ -1,8 +1,8 @@
-﻿repos:
-  - repo: local
-    hooks:
-      - id: update-requirements
-        name: Update requirements.txt with pipreqs
-        entry: pipreqs . --force
-        language: system
-        pass_filenames: false
+﻿# - repo: local
+#   hooks:
+#     - id: update-requirements
+#       name: Update requirements.txt with pipreqs
+#       entry: pipreqs .
+#       language: system
+#       pass_filenames: false
+#       stages: [commit]

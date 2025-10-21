@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="complex_divide_cordic_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="complex_divide_cordic" />
+            <top_module name="glbl" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="28016666fs"></ZoomStartTime>
+      <ZoomEndTime time="33996667fs"></ZoomEndTime>
+      <Cursor1Time time="33000000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="181"></NameColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="23" />
+   <wvobject fp_name="/complex_divide_cordic/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/validIn" type="logic">
+      <obj_property name="ElementShortName">validIn</obj_property>
+      <obj_property name="ObjectShortName">validIn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/num_re" type="array">
+      <obj_property name="ElementShortName">num_re[31:0]</obj_property>
+      <obj_property name="ObjectShortName">num_re[31:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">16</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/num_im" type="array">
+      <obj_property name="ElementShortName">num_im[31:0]</obj_property>
+      <obj_property name="ObjectShortName">num_im[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/den_re" type="array">
+      <obj_property name="ElementShortName">den_re[31:0]</obj_property>
+      <obj_property name="ObjectShortName">den_re[31:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">16</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/den_im" type="array">
+      <obj_property name="ElementShortName">den_im[31:0]</obj_property>
+      <obj_property name="ObjectShortName">den_im[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/out_re" type="array">
+      <obj_property name="ElementShortName">out_re[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_re[31:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">16</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/out_im" type="array">
+      <obj_property name="ElementShortName">out_im[31:0]</obj_property>
+      <obj_property name="ObjectShortName">out_im[31:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">16</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/dbz" type="logic">
+      <obj_property name="ElementShortName">dbz</obj_property>
+      <obj_property name="ObjectShortName">dbz</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/validOut" type="logic">
+      <obj_property name="ElementShortName">validOut</obj_property>
+      <obj_property name="ObjectShortName">validOut</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/den_real_rot" type="array">
+      <obj_property name="ElementShortName">den_real_rot[31:0]</obj_property>
+      <obj_property name="ObjectShortName">den_real_rot[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/num_re_rot" type="array">
+      <obj_property name="ElementShortName">num_re_rot[31:0]</obj_property>
+      <obj_property name="ObjectShortName">num_re_rot[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/num_im_rot" type="array">
+      <obj_property name="ElementShortName">num_im_rot[31:0]</obj_property>
+      <obj_property name="ObjectShortName">num_im_rot[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/cordic_valid" type="logic">
+      <obj_property name="ElementShortName">cordic_valid</obj_property>
+      <obj_property name="ObjectShortName">cordic_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/quot_re" type="array">
+      <obj_property name="ElementShortName">quot_re[31:0]</obj_property>
+      <obj_property name="ObjectShortName">quot_re[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/quot_im" type="array">
+      <obj_property name="ElementShortName">quot_im[31:0]</obj_property>
+      <obj_property name="ObjectShortName">quot_im[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/div_valid" type="logic">
+      <obj_property name="ElementShortName">div_valid</obj_property>
+      <obj_property name="ObjectShortName">div_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/den_is_zero" type="logic">
+      <obj_property name="ElementShortName">den_is_zero</obj_property>
+      <obj_property name="ObjectShortName">den_is_zero</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/div_valid_d" type="logic">
+      <obj_property name="ElementShortName">div_valid_d</obj_property>
+      <obj_property name="ObjectShortName">div_valid_d</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/WL" type="array">
+      <obj_property name="ElementShortName">WL[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WL[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/FL" type="array">
+      <obj_property name="ElementShortName">FL[31:0]</obj_property>
+      <obj_property name="ObjectShortName">FL[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/complex_divide_cordic/CORDIC_ITERS" type="array">
+      <obj_property name="ElementShortName">CORDIC_ITERS[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CORDIC_ITERS[31:0]</obj_property>
+   </wvobject>
+</wave_config>

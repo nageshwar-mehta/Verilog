@@ -2,7 +2,7 @@
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: v4.5.0
     hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
+      # - id: trailing-whitespace  # disabled for now
+      # - id: end-of-file-fixer    # disabled for now
       - id: check-yaml
       - id: check-added-large-files

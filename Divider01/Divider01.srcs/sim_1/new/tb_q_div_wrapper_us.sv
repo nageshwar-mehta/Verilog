@@ -1,18 +1,11 @@
 `timescale 1ns / 1ps
 ////////////////////////////////////////////////////////////////////////////////
-// Engineer:        Nageshwar Kumar
-// Create Date:     22 Oct 2025
-// Design Name:     q_div_wrapper_us
-// Module Name:     tb_q_div_wrapper_us
-// Project Name:    Fixed-point Divider (Signed Wrapper)
+// Engineer:  Nageshwar Kumar
+// Date:      22 Oct 2025
+// Design:    Signed Fixed-Point Divider Wrapper Testbench (Q7.9)
 // Description:
-//   Testbench for signed Q7.9 fixed-point divider wrapper.
-//   Tests all four sign combinations of (3.75 / 1.75):
-//       1. +3.75 / +1.75
-//       2. -3.75 / +1.75
-//       3. +3.75 / -1.75
-//       4. -3.75 / -1.75
-//
+//   Tests multiple signed divisions in a loop.
+//   Automatically converts real test values to Q-format and runs each test.
 ////////////////////////////////////////////////////////////////////////////////
 
 module tb_q_div_wrapper_us;
@@ -20,107 +13,142 @@ module tb_q_div_wrapper_us;
     // Parameters
     parameter Q = 9;
     parameter N = 16;
+    localparam SCALE = 1 << Q;
 
     // Inputs
     reg  [N-1:0] i_dividend_s;
     reg  [N-1:0] i_divisor_s;
-    reg           i_start;
-    reg           i_clk;
+    reg          i_start;
+    reg          i_clk;
+    reg          i_rst;
 
     // Outputs
     wire [N-1:0] o_quotient_out_s;
-    wire          o_complete;
-    wire          o_overflow;
+    wire         o_complete;
+    wire         o_overflow;
 
-    // Instantiate Unit Under Test (UUT)
+    // Instantiate DUT
     q_div_wrapper_us #(.Q(Q), .N(N)) uut (
         .i_dividend_s(i_dividend_s),
         .i_divisor_s(i_divisor_s),
         .i_start(i_start),
         .i_clk(i_clk),
+        .i_rstn(i_rst),
         .o_quotient_out_s(o_quotient_out_s),
         .o_complete(o_complete),
         .o_overflow(o_overflow)
     );
 
-    // Clock generation (4 ns period ? 250 MHz)
+    // Clock generation
     initial begin
         i_clk = 0;
-        forever #2 i_clk = ~i_clk;
+        forever #2 i_clk = ~i_clk;  // 250 MHz
     end
 
-    // ------------------------------------------------------------
-    // Test stimulus
-    // ------------------------------------------------------------
-    reg [N-1:0] POS_3_75, POS_1_75, NEG_3_75, NEG_1_75;
+    // ---------------------------------------------------------------------
+    // Helper functions
+    // ---------------------------------------------------------------------
+
+    // Convert real ? Q-format (signed)
+    function [N-1:0] toQ;
+        input real value;
+        begin
+            toQ = $rtoi(value * SCALE);
+        end
+    endfunction
+
+    // Convert Q-format ? real
+    function real fromQ;
+        input [N-1:0] qval;
+        begin
+            fromQ = $itor($signed(qval)) / SCALE;
+        end
+    endfunction
+
+    // ---------------------------------------------------------------------
+    // Test array setup
+    // ---------------------------------------------------------------------
+    integer i;
+    real dividend_list [0:7];
+    real divisor_list  [0:7];
+    integer num_tests;
 
     initial begin
-        // Initialize values
-        i_start      = 0;
-        i_dividend_s = 0;
-        i_divisor_s  = 0;
+        // === Reset ===
+        i_rst   = 0;
+        i_start = 0;
+        #10 i_rst = 1;  // active-high reset
 
-        // Encoded Q7.9 constants
-        POS_3_75 = 16'b0000011110000000; // +3.75
-        POS_1_75 = 16'b0000011100000000; // +1.75
-        NEG_3_75 = 16'b1111100010000000; // -3.75
-        NEG_1_75 = 16'b1111100100000000; // -1.75
+        // === Define test list ===
+        num_tests = 8;
+        dividend_list[0] =  3.75; divisor_list[0] =  1.75;
+        dividend_list[1] = -3.75; divisor_list[1] =  1.75;
+        dividend_list[2] =  3.75; divisor_list[2] = -1.75;
+        dividend_list[3] = -3.75; divisor_list[3] = -1.75;
+        dividend_list[4] =  4.25; divisor_list[4] =  2.00;
+        dividend_list[5] = -4.25; divisor_list[5] =  2.00;
+        dividend_list[6] =  1.50; divisor_list[6] =  3.00;
+        dividend_list[7] =  5.00; divisor_list[7] =  0.00; // divide-by-zero case
 
-        #10;
-        $display("==================================================");
-        $display("     Signed Fixed-Point Division Testbench (Q7.9)");
+        // === Run tests ===
+        $display("\n==================================================");
+        $display("   Signed Fixed-Point Division Multi-Test (Q7.%0d)", Q);
         $display("==================================================\n");
 
-        // Run all four test cases
-        run_case(POS_3_75, POS_1_75, "Test 1: +3.75 / +1.75");
-        run_case(NEG_3_75, POS_1_75, "Test 2: -3.75 / +1.75");
-        run_case(POS_3_75, NEG_1_75, "Test 3: +3.75 / -1.75");
-        run_case(NEG_3_75, NEG_1_75, "Test 4: -3.75 / -1.75");
+        for (i = 0; i < num_tests; i = i + 1) begin
+            run_case(toQ(dividend_list[i]), toQ(divisor_list[i]),
+                     dividend_list[i], divisor_list[i], i);
+        end
 
         $display("\n==================================================");
-        $display(" All Signed Division Tests Completed Successfully ");
-        $display("==================================================");
-
-        #50 $finish;
+        $display("        All %0d Signed Division Tests Complete", num_tests);
+        $display("==================================================\n");
+        #100 $finish;
     end
 
-    // ------------------------------------------------------------
+    // ---------------------------------------------------------------------
     // Task: Run a single division and display results
-    // ------------------------------------------------------------
+    // ---------------------------------------------------------------------
     task automatic run_case(
-        input [N-1:0] dividend,
-        input [N-1:0] divisor,
-        input [127:0] label
+        input [N-1:0] dividend_q,
+        input [N-1:0] divisor_q,
+        input real dividend_real,
+        input real divisor_real,
+        input integer idx
     );
-        real dividend_val, divisor_val, quotient_val;
+        real quotient_real;
     begin
         $display("--------------------------------------------------");
-        $display("%s", label);
+        $display("Test #%0d: %f / %f", idx, dividend_real, divisor_real);
         $display("--------------------------------------------------");
 
-        i_dividend_s = dividend;
-        i_divisor_s  = divisor;
+        i_dividend_s = dividend_q;
+        i_divisor_s  = divisor_q;
 
-        // Generate start pulse
-        #5 i_start = 1;
-        #5 i_start = 0;
+        // Start pulse
+        @(posedge i_clk);
+        i_start = 1;
+        @(posedge i_clk);
+        i_start = 0;
 
         // Wait for completion
         wait(o_complete);
 
-        // Convert Q7.9 binary to decimal
-        dividend_val = $itor($signed(dividend)) / (1 << Q);
-        divisor_val  = $itor($signed(divisor))  / (1 << Q);
-        quotient_val = $itor($signed(o_quotient_out_s)) / (1 << Q);
+        quotient_real = fromQ(o_quotient_out_s);
 
         // Display results
-        $display("Dividend = %f   (%b)", dividend_val, dividend);
-        $display("Divisor  = %f   (%b)", divisor_val, divisor);
-        $display("Quotient = %f   (%b)", quotient_val, o_quotient_out_s);
+        $display("Dividend = %f   (%b)", dividend_real, i_dividend_s);
+        $display("Divisor  = %f   (%b)", divisor_real,  i_divisor_s);
+        $display("Quotient = %f   (%b)", quotient_real, o_quotient_out_s);
         $display("Overflow = %b", o_overflow);
+        if (divisor_real != 0.0)
+            $display("Expected ? %f", dividend_real / divisor_real);
+        else
+            $display("Expected : Divide-by-zero");
         $display("--------------------------------------------------\n");
 
-        #20;
+        // Wait a few clocks before next test
+        repeat (5) @(posedge i_clk);
     end
     endtask
 

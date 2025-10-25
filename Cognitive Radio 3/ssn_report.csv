@@ -1,0 +1,53 @@
+# Simultaneously Switching Noise (SSN) Report
+# Version: 1.0
+# Created on: Sun Oct 26 02:47:07 2025
+# Result Name: ssn_1
+# Project Name: Cognitive Radio 3
+# Project Family: Artix-7
+# Part: xc7a200tfbg676
+# Temperature Grade: commercial
+# SSN Data Version: Production
+# Package Version: FINAL 2012-06-20
+# Package Pin Delay Version: FINAL VERS. 2.0 2012-06-20
+
+IO Bank,VCCO,Signal Name,Pin Number,IO Standard,Drive (mA),Slew Rate,OFFCHIP_TERM,Remaining Margin (%),Result, Notes
+,1.8,out_imag[0],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[1],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[2],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[3],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[4],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[5],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[6],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[7],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[8],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[9],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[10],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[11],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[12],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[13],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[14],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_imag[15],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_last,,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[0],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[1],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[2],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[3],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[4],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[5],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[6],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[7],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[8],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[9],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[10],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[11],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[12],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[13],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[14],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_real[15],,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+,1.8,out_valid,,LVCMOS18,12,SLOW,FP_VTT_50,,FAIL,CRITICAL WARNING - Unplaced port
+
+
+# Reference Links
+# Safe to Ignore SSN Failure on MIG Designs - http://www.xilinx.com/support/answers/36141.htm
+# SSN Mitigation Strategy - http://www.xilinx.com/support/documentation/user_guides/ug471_7Series_SelectIO.pdf#search=%22Mitigate%22
+# Off-chip Terminations - http://www.xilinx.com/support/documentation/user_guides/ug471_7Series_SelectIO.pdf#search=%22terminated%22

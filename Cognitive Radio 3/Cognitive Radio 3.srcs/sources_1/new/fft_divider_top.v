@@ -1,8 +1,8 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Engineer:  Nageshwar Kumar (edited)
+// Engineer:  Nageshwar Kumar 
 // Date:      27 Oct 2025
-// Design:    fft_divider_top (Corrected)
+// Design:    fft_divider_top (not optimized to provide output per cycle)
 // Description:
 //   Integrates FFT-A and FFT-B complex outputs into arrays
 //   and drives the existing complex_divider_s sequentially.

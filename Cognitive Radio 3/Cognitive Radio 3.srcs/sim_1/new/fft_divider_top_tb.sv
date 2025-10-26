@@ -91,7 +91,7 @@ module fft_divider_top_tb;
         @(posedge clk);
         in_valid_a <= 0;
         in_valid_b <= 0;
-        $display("[TB] ? All 64 inputs fed. Waiting for divider outputs...");
+        $display("[TB] All 64 inputs fed. Waiting for divider outputs...");
     end
 
     // ---- Output Logging ----
@@ -107,7 +107,7 @@ module fft_divider_top_tb;
         end
 
         if (out_last) begin
-            $display("[TB] ? All outputs received at t=%0t ns", $time);
+            $display("[TB] All outputs received at t=%0t ns", $time);
             $fclose(outfile);
             #(10*CLK_PERIOD);
             $finish;
@@ -117,7 +117,7 @@ module fft_divider_top_tb;
     // ---- Timeout Protection ----
     initial begin
         #(1_000_000);
-        $display("[TB] ? Timeout! Divider did not finish in time.");
+        $display("[TB] Timeout! Divider did not finish in time.");
         $finish;
     end
 

@@ -44,4 +44,21 @@ time: 445000 | reset : 1  data_in :  2  r_in : 1  w_in : 1  d_out :  0  full : 0
 time: 450000 | reset : 1  data_in :  3  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
 time: 460000 | reset : 1  data_in :  4  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
 time: 470000 | reset : 1  data_in :  5  r_in : 0  w_in : 1  d_out :  0  full : 0  empty : 0
-time: 480000 
+time: 480000 | reset : 1  data_in :  6  r_in : 1  w_in : 1  d_out :  0  full : 0  empty : 0
+time: 485000 | reset : 1  data_in :  6  r_in : 1  w_in : 1  d_out :  1  full : 0  empty : 0
+time: 490000 | reset : 1  data_in :  7  r_in : 0  w_in : 1  d_out :  1  full : 0  empty : 0
+time: 500000 | reset : 1  data_in :  6  r_in : 0  w_in : 1  d_out :  1  full : 0  empty : 0
+time: 510000 | reset : 1  data_in :  5  r_in : 0  w_in : 1  d_out :  1  full : 0  empty : 0
+time: 520000 | reset : 1  data_in :  4  r_in : 1  w_in : 1  d_out :  1  full : 0  empty : 0
+time: 525000 | reset : 1  data_in :  4  r_in : 1  w_in : 1  d_out :  2  full : 0  empty : 0
+time: 530000 | reset : 1  data_in :  3  r_in : 0  w_in : 1  d_out :  2  full : 0  empty : 0
+time: 540000 | reset : 1  data_in :  2  r_in : 1  w_in : 1  d_out :  2  full : 0  empty : 0
+time: 545000 | reset : 1  data_in :  2  r_in : 1  w_in : 1  d_out :  3  full : 0  empty : 0
+time: 550000 | reset : 1  data_in :  1  r_in : 0  w_in : 1  d_out :  3  full : 0  empty : 0
+time: 560000 | reset : 1  data_in :  0  r_in : 1  w_in : 1  d_out :  3  full : 0  empty : 0
+time: 565000 | reset : 1  data_in :  0  r_in : 1  w_in : 1  d_out :  2  full : 0  empty : 0
+time: 570000 | reset : 1  data_in :  1  r_in : 0  w_in : 1  d_out :  2  full : 0  empty : 0
+time: 580000 | reset : 1  data_in :  1  r_in : 1  w_in : 1  d_out :  2  full : 0  empty : 0
+time: 585000 | reset : 1  data_in :  1  r_in : 1  w_in : 1  d_out :  1  full : 0  empty : 0
+time: 595000 | reset : 1  data_in :  1  r_in : 1  w_in : 1  d_out :  0  full : 0  empty : 0
+$finish called at time : 600 ns : File "C:/Users/nages/verilog_projects/FIFO/FIFO.srcs/sim_1/new/Synchronous_FIFO_tb.v" Line 180

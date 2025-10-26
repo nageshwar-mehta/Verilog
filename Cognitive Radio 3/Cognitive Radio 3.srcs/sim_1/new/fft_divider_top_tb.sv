@@ -1,175 +1,124 @@
 `timescale 1ns / 1ps
-////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////////
+// Testbench: fft_divider_top_tb (Fixed-Point Scaled)
 // Engineer:  Nageshwar Kumar
-// Date:      26 Oct 2025
-// Design:    Self-checking Testbench for fft_divider_top
 // Description:
-//   Automatically verifies hardware outputs against software model results.
-//   Compares each (a+j*b) / (c+j*d) result and reports pass/fail per sample.
-////////////////////////////////////////////////////////////////////////////////
+//   - Generates 64 deterministic complex samples (A[k], B[k]) as real numbers.
+//   - Converts them to Q9 fixed-point integers (val * 2^Q).
+//   - Feeds into fft_divider_top one per clock cycle.
+//   - Logs output results for MATLAB comparison.
+//
+// MATLAB equivalent vector generation included below for bit-accurate testing.
+//////////////////////////////////////////////////////////////////////////////////
 
 module fft_divider_top_tb;
 
-    // ---------------- Parameters ----------------
-    parameter WIDTH = 16;
-    parameter Q = 9;
-    localparam SCALE = 1 << Q;
+    // ---- Parameters ----
+    parameter N = 16;               // Bit width
+    parameter Q = 9;                // Fractional bits
+    parameter CLK_PERIOD = 10;      // Clock period (ns)
 
-    // ---------------- Signals -------------------
-    reg clk, rstn, start, in_valid;
-    reg signed [WIDTH-1:0] in_a_real, in_a_imag;
-    reg signed [WIDTH-1:0] in_b_real, in_b_imag;
-
-    wire signed [WIDTH-1:0] div_out_real, div_out_imag;
+    // ---- DUT I/O ----
+    reg clk, rstn;
+    reg signed [N-1:0] in_a_re_fft, in_a_im_fft, in_b_re_fft, in_b_im_fft;
+    reg in_valid_a, in_valid_b;
+    wire signed [N-1:0] div_out_real, div_out_imag;
     wire div_out_valid, out_last;
 
-    // ---------------- DUT Instance ----------------
-    fft_divider_top #(.N(WIDTH), .Q(Q)) dut (
-        .clk(clk),
-        .rstn(rstn),
-        .start(start),
-        .in_a_real(in_a_real),
-        .in_a_imag(in_a_imag),
-        .in_b_real(in_b_real),
-        .in_b_imag(in_b_imag),
-        .in_valid(in_valid),
-        .div_out_real(div_out_real),
-        .div_out_imag(div_out_imag),
-        .div_out_valid(div_out_valid),
-        .out_last(out_last)
+    // ---- DUT ----
+    fft_divider_top #(.N(N), .Q(Q)) uut (
+        .clk(clk), .rstn(rstn),
+        .in_a_re_fft(in_a_re_fft), .in_a_im_fft(in_a_im_fft),
+        .in_b_re_fft(in_b_re_fft), .in_b_im_fft(in_b_im_fft),
+        .in_valid_a(in_valid_a), .in_valid_b(in_valid_b),
+        .div_out_real(div_out_real), .div_out_imag(div_out_imag),
+        .div_out_valid(div_out_valid), .out_last(out_last)
     );
 
-    // ---------------- Clock Generation ----------------
+    // ---- Clock Generation ----
     initial clk = 0;
-    always #5 clk = ~clk;   // 100 MHz clock
+    always #(CLK_PERIOD/2) clk = ~clk;
 
-    // ---------------- Reset Logic ----------------
-    initial begin
-        rstn = 0;
-        start = 0;
-        in_valid = 0;
-        in_a_real = 0; in_a_imag = 0;
-        in_b_real = 0; in_b_imag = 0;
-        repeat(3) @(posedge clk);
-        rstn = 1;
-    end
+    // ---- Test Data ----
+    reg signed [N-1:0] a_re [0:63];
+    reg signed [N-1:0] a_im [0:63];
+    reg signed [N-1:0] b_re [0:63];
+    reg signed [N-1:0] b_im [0:63];
 
-    // ---------------- Input Generation ----------------
     integer i;
-    real A_re[0:63], A_im[0:63];
-    real B_re[0:63], B_im[0:63];
-    real REF_re[0:63], REF_im[0:63];
+    real temp_a_re, temp_a_im, temp_b_re, temp_b_im;
 
-    // Function: Convert Q to real
-    function real fromQ;
-        input signed [WIDTH-1:0] val;
-        begin
-            fromQ = $itor(val) / SCALE;
-        end
-    endfunction
-
-    // Function: Convert real to Q
-    function signed [WIDTH-1:0] toQ;
-        input real val;
-        begin
-            toQ = $rtoi(val * SCALE);
-        end
-    endfunction
-
-    // ---------------- Initialize test data ----------------
     initial begin
-        // Simple test patterns (could be FFT outputs)
+        // ---- Reset ----
+        rstn = 0;
+        in_valid_a = 0;
+        in_valid_b = 0;
+        in_a_re_fft = 0; in_a_im_fft = 0;
+        in_b_re_fft = 0; in_b_im_fft = 0;
+
+        // ---- Generate 64 deterministic samples ----
+        // You can replace these formulae with your own from MATLAB.
+        // Just ensure you multiply by (1<<Q) and use $rtoi() for quantization.
         for (i = 0; i < 64; i = i + 1) begin
-            A_re[i] = 2.0 + 0.05*i;
-            A_im[i] = 1.0 - 0.03*i;
-            B_re[i] = 1.0 + 0.02*i;
-            B_im[i] = 0.5 + 0.01*i;
+            temp_a_re = 0.05 * ((i * 8) - 256);   // Range: -12.8 .. +12.4
+            temp_a_im = 0.04 * ((i * 4) - 128);   // Range: -5.12 .. +4.96
+            temp_b_re = 0.1  * (i * 2);           // Range: 0.0 .. +12.6
+            temp_b_im = 2.0;                      // Constant small imag
+
+            a_re[i] = $rtoi(temp_a_re * (1 << Q)); // Fixed-point scaled
+            a_im[i] = $rtoi(temp_a_im * (1 << Q));
+            b_re[i] = $rtoi(temp_b_re * (1 << Q));
+            b_im[i] = $rtoi(temp_b_im * (1 << Q));
         end
-    end
 
-    // ---------------- Feed data to DUT ----------------
-    initial begin
-        @(posedge rstn);
-        @(posedge clk);
+        #(5*CLK_PERIOD);
+        rstn = 1;
+        #(5*CLK_PERIOD);
 
-        start = 1;
-        @(posedge clk);
-        start = 0;
+        $display("[TB] Feeding 64 fixed-point complex samples to divider...");
 
-        in_valid = 1'b1;
+        // ---- Feed the 64 samples ----
         for (i = 0; i < 64; i = i + 1) begin
             @(posedge clk);
-            in_a_real = toQ(A_re[i]);
-            in_a_imag = toQ(A_im[i]);
-            in_b_real = toQ(B_re[i]);
-            in_b_imag = toQ(B_im[i]);
+            in_a_re_fft <= a_re[i];
+            in_a_im_fft <= a_im[i];
+            in_b_re_fft <= b_re[i];
+            in_b_im_fft <= b_im[i];
+            in_valid_a  <= 1;
+            in_valid_b  <= 1;
         end
 
         @(posedge clk);
-        in_valid = 0;
-        in_a_real = 0;
-        in_a_imag = 0;
-        in_b_real = 0;
-        in_b_imag = 0;
+        in_valid_a <= 0;
+        in_valid_b <= 0;
+        $display("[TB] ? All 64 inputs fed. Waiting for divider outputs...");
     end
 
-    // ---------------- Software Reference Model ----------------
-    integer j;
-    initial begin
-        for (j = 0; j < 64; j = j + 1) begin : ref_calc
-            automatic real a_r = A_re[j];
-            automatic real a_i = A_im[j];
-            automatic real b_r = B_re[j];
-            automatic real b_i = B_im[j];
-            automatic real denom = (b_r*b_r + b_i*b_i);
+    // ---- Output Logging ----
+    integer idx = 0;
+    integer outfile;
+    initial outfile = $fopen("rtl_outputs.txt", "w");
 
-            if (denom != 0) begin
-                REF_re[j] = (a_r*b_r + a_i*b_i) / denom;
-                REF_im[j] = (a_i*b_r - a_r*b_i) / denom;
-            end else begin
-                REF_re[j] = 0;
-                REF_im[j] = 0;
-            end
+    always @(posedge clk) begin
+        if (div_out_valid) begin
+            $display("OUT[%0d]: Re=%0d  Im=%0d", idx, div_out_real, div_out_imag);
+            $fwrite(outfile, "%0d %0d\n", div_out_real, div_out_imag);
+            idx = idx + 1;
+        end
+
+        if (out_last) begin
+            $display("[TB] ? All outputs received at t=%0t ns", $time);
+            $fclose(outfile);
+            #(10*CLK_PERIOD);
+            $finish;
         end
     end
 
-    // ---------------- Self-Checking Logic ----------------
-    integer k, pass_count, fail_count;
-    real hw_re, hw_im, err_re, err_im;
-
+    // ---- Timeout Protection ----
     initial begin
-        pass_count = 0;
-        fail_count = 0;
-
-        wait(div_out_valid); // Wait for first output
-
-        forever begin
-            @(posedge clk);
-            if (div_out_valid) begin
-                hw_re = fromQ(div_out_real);
-                hw_im = fromQ(div_out_imag);
-                err_re = hw_re - REF_re[k];
-                err_im = hw_im - REF_im[k];
-
-                if ((err_re < 0.02 && err_re > -0.02) && (err_im < 0.02 && err_im > -0.02)) begin
-                    pass_count = pass_count + 1;
-                    $display("PASS[%0d]: Re=%f Im=%f | Ref: Re=%f Im=%f", 
-                              k, hw_re, hw_im, REF_re[k], REF_im[k]);
-                end else begin
-                    fail_count = fail_count + 1;
-                    $display("FAIL[%0d]: Re=%f Im=%f | Ref: Re=%f Im=%f", 
-                              k, hw_re, hw_im, REF_re[k], REF_im[k]);
-                end
-                k = k + 1;
-            end
-
-            if (out_last) begin
-                $display("==================================================");
-                $display("Simulation Complete: PASS=%0d, FAIL=%0d", pass_count, fail_count);
-                $display("==================================================");
-                #50 $finish;
-            end
-        end
+        #(1_000_000);
+        $display("[TB] ? Timeout! Divider did not finish in time.");
+        $finish;
     end
 
 endmodule

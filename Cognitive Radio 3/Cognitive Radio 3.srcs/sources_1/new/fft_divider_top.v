@@ -1,240 +1,216 @@
 `timescale 1ns / 1ps
 //////////////////////////////////////////////////////////////////////////////////
-// Engineer:  (provided)
-// Date:      26 Oct 2025
-// Module:    fft_divider_top
-// Purpose:   Integrate two FFT64pt outputs through FIFOs into a complex divider.
-//            Uses a 2-cycle handshake (issue FIFO read, then start divider next cycle)
-//            to avoid read/data race. Produces div_out_valid for each division and
-//            out_last pulse when 64 divisions completed.
+// Engineer:  Nageshwar Kumar (edited)
+// Date:      27 Oct 2025
+// Design:    fft_divider_top (Corrected)
+// Description:
+//   Integrates FFT-A and FFT-B complex outputs into arrays
+//   and drives the existing complex_divider_s sequentially.
+//   This version fixes state encoding, counters, handshakes, signedness,
+//   instance naming, and small typos/bugs in the original code.
 //////////////////////////////////////////////////////////////////////////////////
 
 module fft_divider_top #(
-    parameter integer N = 16, // width of complex samples
-    parameter integer Q = 9   // fractional bits (Q format)
+    parameter integer N = 16,
+    parameter integer Q = 9
 )(
     input  wire                     clk,
-    input  wire                     rstn,        // active-low reset
-//    input  wire                     start,       // optional top-level start of 64-burst
-    // FFT A inputs (streaming into FFT blocks elsewhere)
+    input  wire                     rstn,   // active-low reset
+
     input  wire signed [N-1:0]      in_a_re_fft,
     input  wire signed [N-1:0]      in_a_im_fft,
-    // FFT B inputs
     input  wire signed [N-1:0]      in_b_re_fft,
     input  wire signed [N-1:0]      in_b_im_fft,
-    input  wire                     in_valid_a,    // connect to out_valid of ffts
+    input  wire                     in_valid_a,
     input  wire                     in_valid_b,
-    // Divider outputs
+
     output wire signed [N-1:0]      div_out_real,
     output wire signed [N-1:0]      div_out_imag,
     output wire                     div_out_valid,
-    output reg                     out_last
+    output reg                      out_last
 );
 
-    // ------------------------------------------------------------------
-    // Instantiate two FFT64pt modules (A and B)
-    // (Assumes FFT64pt module uses ports: clk, rstn, in_valid, in_real, in_imag,
-    //  out_valid, out_last, out_real, out_imag)
-    // ------------------------------------------------------------------
-//    wire fft_a_valid, fft_b_valid;
-//    wire out_last_a, out_last_b;
-//    wire signed [N-1:0] fft_a_re, fft_a_im;
-//    wire signed [N-1:0] fft_b_re, fft_b_im;
+    // ---------------- internal storage (signed) ----------------
+    reg signed [N-1:0] a_re_fft [0:63];
+    reg signed [N-1:0] a_im_fft [0:63];
+    reg signed [N-1:0] b_re_fft [0:63];
+    reg signed [N-1:0] b_im_fft [0:63];
 
-//    FFT64pt fft_A (
-//        .clk(clk),
-//        .rstn(rstn),
-//        .in_valid(in_valid),
-//        .in_real(in_a_real),
-//        .in_imag(in_a_imag),
-//        .out_valid(fft_a_valid),
-//        .out_last(out_last_a),
-//        .out_real(fft_a_re),
-//        .out_imag(fft_a_im)
-//    );
+    // ---------------- states and counters ----------------------
+    // Use same enum values for both A and B FSMs (simple and explicit)
+    localparam [1:0] S_IDLE  = 2'd0;
+    localparam [1:0] S_LOAD  = 2'd1;
+    localparam [1:0] S_DONE  = 2'd2;
 
-//    FFT64pt fft_B (
-//        .clk(clk),
-//        .rstn(rstn),
-//        .in_valid(in_valid),
-//        .in_real(in_b_real),
-//        .in_imag(in_b_imag),
-//        .out_valid(fft_b_valid),
-//        .out_last(out_last_b),
-//        .out_real(fft_b_re),
-//        .out_imag(fft_b_im)
-//    );
+    reg [1:0] state_a;
+    reg [1:0] state_b;
 
-    // ------------------------------------------------------------------
-    // FIFOs for buffering outputs of FFT A and FFT B
-    // Using your synchronous FIFO (same clock domain). Four FIFOs:
-    //   fifo_a_re, fifo_a_im, fifo_b_re, fifo_b_im
-    // FIFO interface expected:
-    // (clk, data_in, w_in, r_in, rst, data_out, fifo_empty, fifo_full)
-    // ------------------------------------------------------------------
-    wire signed [N-1:0] a_re_out, a_im_out, b_re_out, b_im_out;
-    wire fifo_a_re_empty,  fifo_a_re_full;
-    wire fifo_a_im_empty,  fifo_a_im_full;
-    wire fifo_b_re_empty,  fifo_b_re_full;
-    wire fifo_b_im_empty,  fifo_b_im_full;
-    reg r_en;         // read enable into all 4 FIFOs (single-cycle)
+    reg [5:0] counter_a;
+    reg [5:0] counter_b;
 
-    // FIFO depth 64 to buffer full FFT burst
-    Synchronous_FIFO #(.width(N), .depth(64)) fifo_a_re (
-        .clk(clk),
-        .data_in(in_a_re_fft),
-        .w_in(in_valid_a),
-        .r_in(r_en),        // r_en is the single read enable (shared for re+im)
-        .rst(rstn),
-        .data_out(a_re_out),
-        .fifo_empty(fifo_a_re_empty),
-        .fifo_full(fifo_a_re_full)
-    );
+    // flags to indicate each channel's FIFO/array is fully loaded
+    reg fifo_last_a, fifo_last_b;
 
-    Synchronous_FIFO #(.width(N), .depth(64)) fifo_a_im (
-        .clk(clk),
-        .data_in(in_a_im_fft),
-        .w_in(in_valid_a),
-        .r_in(r_en),
-        .rst(rstn),
-        .data_out(a_im_out),
-        .fifo_empty(fifo_a_im_empty),
-        .fifo_full(fifo_a_im_full)
-    );
+    // map the incoming FFT valid signals directly (original code had unused wires)
+    wire fft_a_out_valid = in_valid_a;
+    wire fft_b_out_valid = in_valid_b;
 
-    Synchronous_FIFO #(.width(N), .depth(64)) fifo_b_re (
-        .clk(clk),
-        .data_in(in_b_re_fft),
-        .w_in(in_valid_b),
-        .r_in(r_en),
-        .rst(rstn),
-        .data_out(b_re_out),
-        .fifo_empty(fifo_b_re_empty),
-        .fifo_full(fifo_b_re_full)
-    );
-
-    Synchronous_FIFO #(.width(N), .depth(64)) fifo_b_im (
-        .clk(clk),
-        .data_in(in_b_im_fft),
-        .w_in(in_valid_b),
-        .r_in(r_en),
-        .rst(rstn),
-        .data_out(b_im_out),
-        .fifo_empty(fifo_b_im_empty),
-        .fifo_full(fifo_b_im_full)
-    );
-
-    // ------------------------------------------------------------------
-    // Complex divider (parallel version): consumes one complex pair per start
-    // (Assumes complex_divider_s ports: i_clk,i_rstn,i_start,a_re,a_im,b_re,b_im,o_re,o_im,o_valid,o_busy)
-    // ------------------------------------------------------------------
-    wire busy, valid;
-    reg start_div; // asserted one cycle to start divider for current inputs
-
-    complex_divider_s #(.Q(Q), .N(N)) u_divider (
-        .i_clk(clk),
-        .i_rstn(rstn),
-        .i_start(start_div),
-        .a_re(a_re_out),
-        .a_im(a_im_out),
-        .b_re(b_re_out),
-        .b_im(b_im_out),
-        .o_re(div_out_real),
-        .o_im(div_out_imag),
-        .o_valid(valid),
-        .o_busy(busy)
-    );
-
-    assign div_out_valid = valid;
-
-    // ------------------------------------------------------------------
-    // Control FSM:
-    //  IDLE    -> ISSUE_RD  (assert r_en to read FIFO outputs)
-    //  ISSUE_RD-> START_DIV (next cycle assert start_div; FIFO outputs stable)
-    //  START_DIV-> wait for valid from divider -> back to IDLE
-    // ------------------------------------------------------------------
-    
-    reg [1:0] state;
-    localparam IDLE     = 2'd0;
-    localparam ISSUE_RD = 2'd1;
-    localparam STARTDIV = 2'd2;
-    
-    reg [6:0]counter;
-
+    // ---------------- FSM A: load A samples --------------------
     always @(posedge clk or negedge rstn) begin
         if (!rstn) begin
-            state <= IDLE;
-            r_en <= 1'b0;
-            start_div <= 1'b0;
+            state_a    <= S_IDLE;
+            counter_a  <= 6'd0;
+            fifo_last_a<= 1'b0;
         end else begin
-            // default deassert signals
-            r_en <= 1'b0;
-            start_div <= 1'b0;
-
-            case (state)
-                IDLE: begin
-                    // Request a read only when all four FIFOs have data and divider not busy
-                    // (Checking empties ensures valid pairs are available)
-                    if (!fifo_a_re_empty && !fifo_a_im_empty &&
-                        !fifo_b_re_empty && !fifo_b_im_empty && !busy) begin
-                        r_en <= 1'b1;               // issue FIFO read (data_out will be updated at posedge)
-                        state <= ISSUE_RD;
-                    end
+            case (state_a)
+                S_IDLE: begin
+                    counter_a   <= 6'd0;
+                    fifo_last_a <= 1'b0;
+                    state_a     <= S_LOAD;  // immediately start collecting
                 end
 
-                ISSUE_RD: begin
-                    // Now FIFO data_out signals are stable for this cycle - start divider
-                    // by asserting start_div for one cycle.
-                    start_div <= 1'b1;
-                    r_en <=1'b0;
-                    state <= STARTDIV;
-                end
-
-                STARTDIV: begin
-                    // Wait for divider to assert valid for this sample
-                    if (valid) begin
-                        state <= IDLE;
-                        counter <= counter + 1;
-                        if(counter == 64) begin
-                            out_last <=1;
-                            counter<=0;
+                S_LOAD: begin
+                    if (fft_a_out_valid) begin
+                        a_re_fft[counter_a] <= in_a_re_fft;
+                        a_im_fft[counter_a] <= in_a_im_fft;
+                        if (counter_a == 6'd63) begin
+                            fifo_last_a <= 1'b1;
+                            counter_a   <= 6'd0;
+                            state_a     <= S_DONE;
+                        end else begin
+                            counter_a <= counter_a + 6'd1;
                         end
                     end
                 end
 
-                default: state <= IDLE;
+                S_DONE: begin
+                    // stay in DONE until external reset or reuse (no-op)
+                    state_a <= S_DONE;
+                end
+
+                default: state_a <= S_IDLE;
             endcase
         end
     end
 
-    // ------------------------------------------------------------------
-    // Division counter & out_last generator
-    // - Clears on external 'start' signal or reset.
-    // - Increments on each divider 'valid' and pulses out_last when we reach 64.
-    // ------------------------------------------------------------------
-//    reg [6:0] div_count; // counts 0..63
-//    reg out_last_r;
+    // ---------------- FSM B: load B samples --------------------
+    always @(posedge clk or negedge rstn) begin
+        if (!rstn) begin
+            state_b    <= S_IDLE;
+            counter_b  <= 6'd0;
+            fifo_last_b<= 1'b0;
+        end else begin
+            case (state_b)
+                S_IDLE: begin
+                    counter_b   <= 6'd0;
+                    fifo_last_b <= 1'b0;
+                    state_b     <= S_LOAD;
+                end
 
-//    always @(posedge clk or negedge rstn) begin
-//        if (!rstn) begin
-//            div_count <= 7'd0;
-//            out_last_r <= 1'b0;
-//        end else begin
-//            out_last_r <= 1'b0; // default no pulse
-//            if (start) begin
-//                // external start of new 64-burst: reset counter
-//                div_count <= 7'd0;
-//            end else if (valid) begin
-//                if (div_count == 7'd63) begin
-//                    div_count <= 7'd0;
-//                    out_last_r <= 1'b1;
-//                end else begin
-//                    div_count <= div_count + 1;
-//                end
-//            end
-//        end
-//    end
+                S_LOAD: begin
+                    if (fft_b_out_valid) begin
+                        b_re_fft[counter_b] <= in_b_re_fft;
+                        b_im_fft[counter_b] <= in_b_im_fft;
+                        if (counter_b == 6'd63) begin
+                            fifo_last_b <= 1'b1;
+                            counter_b   <= 6'd0;
+                            state_b     <= S_DONE;
+                        end else begin
+                            counter_b <= counter_b + 6'd1;
+                        end
+                    end
+                end
 
-//    assign out_last = out_last_r;
+                S_DONE: begin
+                    // stay in DONE until external reset or reuse (no-op)
+                    state_b <= S_DONE;
+                end
+
+                default: state_b <= S_IDLE;
+            endcase
+        end
+    end
+
+    // ---------------- Divider interface ------------------------
+    // Pulse-based start handshake (drive i_start when we want to kick a division)
+    reg div_start_reg;
+    wire div_valid_out;
+    assign div_out_valid = div_valid_out; // forward divider's output-valid
+    wire div_start = div_start_reg;
+
+    // divider inputs (signed)
+    reg signed [N-1:0] in_a_re_div, in_a_im_div, in_b_re_div, in_b_im_div;
+    
+    wire div_busy;
+
+    // Instantiate complex_divider_s (give instance name and correct port mapping)
+    complex_divider_s #(.Q(Q), .N(N)) u_complex_div (
+        .i_clk(clk),
+        .i_rstn(rstn),
+        .i_start(div_start),
+
+        .a_re(in_a_re_div),
+        .a_im(in_a_im_div),
+        .b_re(in_b_re_div),
+        .b_im(in_b_im_div),
+
+        .o_re(div_out_real),
+        .o_im(div_out_imag),
+        .o_valid(div_valid_out),
+        .o_busy(div_busy)
+    );
+
+    // ---------------- Division controller (sequentially run through 64 samples) ----------
+    reg [5:0] counter_div;
+    localparam IDLE_div = 1'b0, WAIT_DIV = 1'b1;
+    reg state_div;
+
+    always @(posedge clk or negedge rstn) begin
+        if (!rstn) begin
+            state_div    <= IDLE_div;
+            counter_div  <= 6'd0;
+            div_start_reg<= 1'b0;
+            in_a_re_div  <= {N{1'b0}};
+            in_a_im_div  <= {N{1'b0}};
+            in_b_re_div  <= {N{1'b0}};
+            in_b_im_div  <= {N{1'b0}};
+            out_last     <= 1'b0;
+        end else begin
+            // default: deassert pulse-start unless set
+            div_start_reg <= 1'b0;
+
+            case (state_div)
+                IDLE_div: begin
+                    // start dividing only when both FIFOs/arrays are fully loaded
+                    if (fifo_last_a && fifo_last_b) begin
+                        // load current indexed sample and pulse start
+                        in_a_re_div <= a_re_fft[counter_div];
+                        in_a_im_div <= a_im_fft[counter_div];
+                        in_b_re_div <= b_re_fft[counter_div];
+                        in_b_im_div <= b_im_fft[counter_div];
+                        div_start_reg <= 1'b1;   // one-cycle start pulse
+                        state_div <= WAIT_DIV;
+                    end
+                end
+
+                WAIT_DIV: begin
+                    // Wait for divider to assert valid for this started operation
+                    if (div_valid_out) begin
+                        // sample finished - prepare next index
+                        if (counter_div == 6'd63) begin
+                            out_last    <= 1'b1;
+                            counter_div <= 6'd0;
+                            state_div   <= IDLE_div; // optionally stop or repeat
+                        end else begin
+                            counter_div <= counter_div + 6'd1;
+                            state_div   <= IDLE_div; // go back to IDLE to start next division
+                        end
+                    end
+                end
+
+                default: state_div <= IDLE_div;
+            endcase
+        end
+    end
 
 endmodule

@@ -25,16 +25,18 @@
  // therefore rx_cycles needed => 5208/16 = 325 cycles
  
 module baud_rate_generator(
-    input clk,
+    input clk, rst,
     output rx_en,
     output tx_en
     );
     
-    reg [9:0]rx_counter;
+    reg [8:0]rx_counter;
     reg [12:0]tx_counter;
     
+    //RX counter 
     always @(posedge clk) begin
-        if(rx_counter == 325)begin
+        if(rst) rx_counter <= 0;
+        else if(rx_counter == 324)begin
             rx_counter <= 0;
         end
         else begin 
@@ -43,7 +45,8 @@ module baud_rate_generator(
     end
     
     always @(posedge clk) begin
-        if(tx_counter == 5208)begin
+        if(rst) rx_counter <= 0;
+        else if(tx_counter == 5207)begin
             tx_counter <= 0;
         end
         else begin 
@@ -51,8 +54,8 @@ module baud_rate_generator(
         end
     end
     
-    assign rx_en = (rx_counter == 325) ? 1'b1 : 1'b0;
-    assign tx_en = (tx_counter == 5208) ? 1'b1 : 1'b0;
+    assign rx_en = (rx_counter == 324) ? 1'b1 : 1'b0;
+    assign tx_en = (tx_counter == 5207) ? 1'b1 : 1'b0;
     
         
 endmodule

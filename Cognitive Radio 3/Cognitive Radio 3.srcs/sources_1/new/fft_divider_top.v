@@ -7,7 +7,6 @@
 //   Integrates FFT-A and FFT-B complex outputs into arrays
 //   and drives the existing complex_divider_s sequentially.
 //   This version fixes state encoding, counters, handshakes, signedness,
-//   instance naming, and small typos/bugs in the original code.
 //////////////////////////////////////////////////////////////////////////////////
 
 module fft_divider_top #(

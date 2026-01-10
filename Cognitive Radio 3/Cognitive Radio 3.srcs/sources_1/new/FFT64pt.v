@@ -89,6 +89,7 @@ module FFT64pt
     .out_valid(odd_out_valid), .out_last(odd_out_last),
     .out_real(odd_out_real), .out_imag(odd_out_imag)
   );
+  
 
   // --------------- intermediate buffers ----------
   reg signed [WIDTH-1:0] E_real[0:31], E_imag[0:31];
@@ -207,6 +208,8 @@ module FFT64pt
           x_real[0] <= in_real;
           x_imag[0] <= in_imag;
           in_count <= 6'd1;
+//          out_valid <=0;
+//          out_last <=0;
           state <= S_COLLECT;
         end
 

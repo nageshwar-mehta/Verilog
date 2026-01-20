@@ -62,18 +62,25 @@ module cognitive_radio_top
     input  signed [2*WIDTH-1:0]       sf_in, //msb 16 bit -> real; lsb 16 bit imag (both in 7.9 format)
     input  signed [2*WIDTH-1:0]       hs1_in,
     input  signed [2*WIDTH-1:0]       w1_in,
-    output reg                      out_valid
+    output wire                      final_out_last,
+    output wire [2*WIDTH-1:0]        final_out,
+    output wire                  final_out_valid
+    
   
 
     );
     
     
     reg [3:0] state;
-    localparam  S_ffts = 3'd0,
-                S_div = 3'd1,
-                S_SIchannel = 3'd2,
-                S_ifft = 3'd3,
-                S_Di = 3'd4;
+    localparam  S_ffts = 4'd0,
+                S_div = 4'd1,
+                S_SIchannel = 4'd2,
+                S_ifft = 4'd3,
+                S_Di = 4'd4,
+                S_Collect_di = 4'd5,
+                S_median_Di = 4'd6,
+                S_Calc_sigma = 4'd7,
+                S_thresholding = 4'd8;
                 
     reg [2*WIDTH-1:0] sf_rom [63:0];
     reg [2*WIDTH-1:0] hs1_rom [63:0];
@@ -83,7 +90,7 @@ module cognitive_radio_top
     reg [2*WIDTH-1:0] hs_ifft_rom [63:0];
     reg [2*WIDTH-1:0] Di_rom [31:0]; //downsampled by 2;
     
-    reg [6:0]count_sf,count_hs1,count_w1, count_hifft;
+    reg [6:0]count_sf,count_hs1,count_w1, count_hifft,count_Di ;
     
     wire [WIDTH-1:0] sf_out_real, sf_out_imag;
     reg sf_out_valid, sf_out_last;
@@ -144,7 +151,7 @@ module cognitive_radio_top
     detail_coffn #(WIDTH) Di(
         .clk(clk),
         .rstn(rstn),
-        .h_re(Di_n_re),
+        .h_re(Di_in_re),
         .h_im(Di_in_im),
         .in_last(Di_in_last),
         .in_valid(Di_in_valid),
@@ -153,8 +160,42 @@ module cognitive_radio_top
         .out_last(Di_out_last),
         .out_valid(Di_out_valid)
     );
+    
+    reg [WIDTH-1:0] med_in_re, med_in_im, med_out;
+    reg med_in_last, med_out_valid, med_out_busy;
+    reg med_in_valid;
+    median_Di #(WIDTH) med_Di(
+        .clk(clk),
+        .rstn(rstn),
+        .Di_re(med_in_re),
+        .Di_im(med_in_im),
+        .in_last(med_in_last),
+        .in_valid(med_in_valid),
+        .med_di(med_out),
+        
+        .busy(med_out_busy),
+        .out_valid(med_out_valid)
+    );
+    
+    reg [WIDTH-1:0]sigma;
       
       
+    reg [WIDTH-1:0] thres_in_re, thres_in_im, thres_re_out, thres_im_out;
+    reg thres_in_last, thres_out_valid, thres_out_busy;
+    reg thres_in_valid;
+    thresholdig #(WIDTH) threshold(
+        .clk(clk),
+        .rstn(rstn),
+        .h_re(thres_in_re),
+        .h_im(thres_in_re),
+        .in_last(thres_in_last),
+        .in_valid(thres_in_valid),
+        .sigma(sigma),
+        .hs1_re_out(thres_re_out),
+        .hs1_im_out(thres_im_out),
+        .out_last(thres_out_last),
+        .out_valid(thres_out_valid)
+    );  
    integer i;
     
     always @(posedge clk or negedge rstn)begin
@@ -235,11 +276,87 @@ module cognitive_radio_top
             Di_in_valid <=1'b1;
             Di_in_re <= hs_ifft_rom[i][2*WIDTH-1:WIDTH];
             Di_in_im <= hs_ifft_rom[i][WIDTH-1:0];
-            if(
+            if(Di_in_last)begin
+                state <= S_Collect_di;
+            end
         end
+    end
+    else if (state == S_Collect_di) begin
+        if(Di_out_valid)begin
+            Di_rom[count_hifft][2*WIDTH-1:WIDTH] <= Di_out_re;
+            Di_rom[count_hifft][WIDTH-1:0] <= Di_out_im;
+            count_Di=count_Di+1;
+        end
+        if(Di_out_last)begin
+            count_Di = 0;
+            state <= S_median_Di;
+        end
+        
+    end
+    
+    //------------------------------
+//     median_Di #(WIDTH) med_Di(
+//        .clk(clk),
+//        .rstn(rstn),
+//        .Di_re(med_in_re),
+//        .Di_im(med_in_im),
+//        .in_last(med_in_last),
+//        .in_valid(med_in_valid),
+//        .med_di(med_out),
+        
+//        .busy(med_out_busy),
+//        .out_valid(med_out_valid)
+//    );
+    //------------------------------
+               
+    
+    else if (state == S_median_Di) begin
+        med_in_valid <=1'b1;
+        med_in_re <= Di_rom[i][2*WIDTH-1:WIDTH];
+        med_in_im <= Di_rom[i][WIDTH-1:0]; 
+        if(med_in_last)begin
+                state <= S_Calc_sigma;
+            end       
+    end
+    else if(state == S_Calc_sigma) begin
+        sigma <= med_out/0.6745;
+        count_hifft <= 0;
+        state <= S_thresholding;
+    end
+// reg [WIDTH-1:0] thres_in_re, thres_in_im, thres_re_out, thres_im_out;
+//    reg thres_in_last, thres_out_valid, thres_out_busy;
+//    reg thres_in_valid;
+//    thresholdig #(WIDTH) threshold(
+//        .clk(clk),
+//        .rstn(rstn),
+//        .h_re(thres_in_re),
+//        .h_im(thres_in_re),
+//        .in_last(thres_in_last),
+//        .in_valid(thres_in_valid),
+//        .sigma(sigma),
+//        .hs1_re_out(thres_re_out),
+//        .hs1_im_out(thres_im_out),
+//        .out_last(med_out_busy),
+//        .out_valid(med_out_valid)
+//    );  
+    else if(state == S_thresholding)begin
+        for(i=0;i<64;i=i+1)begin
+        thres_in_valid <=1'b1;
+        thres_in_re <= hs_ifft_rom[i][2*WIDTH-1:WIDTH];
+        thres_in_im <= hs_ifft_rom[i][WIDTH-1:0];
+        if(i==63)thres_in_last <=1'b1;
+        end
+        if(thres_out_last==1'b1)state <= S_ffts;
+        
     end
     
         
     end
+    
+    assign final_out[2*WIDTH-1:WIDTH] = thres_in_re;
+    assign final_out[WIDTH-1:0] = thres_in_im;
+    assign final_out_last = thres_out_last;
+    assign final_out_valid = thres_out_valid;
+    
     
 endmodule

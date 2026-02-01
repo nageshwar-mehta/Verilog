@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="tb_cognitive_radio_top_behav.wdb" id="1">
+         <top_modules>
+            <top_module name="glbl" />
+            <top_module name="tb_cognitive_radio_top" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="598806000fs"></ZoomStartTime>
+      <ZoomEndTime time="599156001fs"></ZoomEndTime>
+      <Cursor1Time time="388198fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="178"></NameColumnWidth>
+      <ValueColumnWidth column_width="88"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="27" />
+   <wvobject fp_name="/tb_cognitive_radio_top/clk" type="logic">
+      <obj_property name="ElementShortName">clk</obj_property>
+      <obj_property name="ObjectShortName">clk</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/rstn" type="logic">
+      <obj_property name="ElementShortName">rstn</obj_property>
+      <obj_property name="ObjectShortName">rstn</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/in_valid" type="logic">
+      <obj_property name="ElementShortName">in_valid</obj_property>
+      <obj_property name="ObjectShortName">in_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/sf_in_re" type="array">
+      <obj_property name="ElementShortName">sf_in_re[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sf_in_re[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/sf_in_im" type="array">
+      <obj_property name="ElementShortName">sf_in_im[15:0]</obj_property>
+      <obj_property name="ObjectShortName">sf_in_im[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/hs1_in_re" type="array">
+      <obj_property name="ElementShortName">hs1_in_re[15:0]</obj_property>
+      <obj_property name="ObjectShortName">hs1_in_re[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/hs1_in_im" type="array">
+      <obj_property name="ElementShortName">hs1_in_im[15:0]</obj_property>
+      <obj_property name="ObjectShortName">hs1_in_im[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/w1_in_re" type="array">
+      <obj_property name="ElementShortName">w1_in_re[15:0]</obj_property>
+      <obj_property name="ObjectShortName">w1_in_re[15:0]</obj_property>
+      <obj_property name="Radix">REALRADIX</obj_property>
+      <obj_property name="radix_realType">SIGNEDFIXEDPOINTRADIX</obj_property>
+      <obj_property name="radix_fractionWidth">9</obj_property>
+      <obj_property name="radix_otherWidth">0</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/w1_in_im" type="array">
+      <obj_property name="ElementShortName">w1_in_im[15:0]</obj_property>
+      <obj_property name="ObjectShortName">w1_in_im[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/final_out_re" type="array">
+      <obj_property name="ElementShortName">final_out_re[15:0]</obj_property>
+      <obj_property name="ObjectShortName">final_out_re[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/final_out_im" type="array">
+      <obj_property name="ElementShortName">final_out_im[15:0]</obj_property>
+      <obj_property name="ObjectShortName">final_out_im[15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/final_out_last" type="logic">
+      <obj_property name="ElementShortName">final_out_last</obj_property>
+      <obj_property name="ObjectShortName">final_out_last</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/final_out_valid" type="logic">
+      <obj_property name="ElementShortName">final_out_valid</obj_property>
+      <obj_property name="ObjectShortName">final_out_valid</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/sf_data_re" type="array">
+      <obj_property name="ElementShortName">sf_data_re[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">sf_data_re[0:63][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/sf_data_im" type="array">
+      <obj_property name="ElementShortName">sf_data_im[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">sf_data_im[0:63][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/hs1_data_re" type="array">
+      <obj_property name="ElementShortName">hs1_data_re[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">hs1_data_re[0:63][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/hs1_data_im" type="array">
+      <obj_property name="ElementShortName">hs1_data_im[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">hs1_data_im[0:63][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/w1_data_re" type="array">
+      <obj_property name="ElementShortName">w1_data_re[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">w1_data_re[0:63][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/w1_data_im" type="array">
+      <obj_property name="ElementShortName">w1_data_im[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">w1_data_im[0:63][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/output_data_re" type="array">
+      <obj_property name="ElementShortName">output_data_re[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">output_data_re[0:63][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/output_data_im" type="array">
+      <obj_property name="ElementShortName">output_data_im[0:63][15:0]</obj_property>
+      <obj_property name="ObjectShortName">output_data_im[0:63][15:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/output_count" type="array">
+      <obj_property name="ElementShortName">output_count[31:0]</obj_property>
+      <obj_property name="ObjectShortName">output_count[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/i" type="array">
+      <obj_property name="ElementShortName">i[31:0]</obj_property>
+      <obj_property name="ObjectShortName">i[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/WIDTH" type="array">
+      <obj_property name="ElementShortName">WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/QF" type="array">
+      <obj_property name="ElementShortName">QF[31:0]</obj_property>
+      <obj_property name="ObjectShortName">QF[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/TW_WIDTH" type="array">
+      <obj_property name="ElementShortName">TW_WIDTH[31:0]</obj_property>
+      <obj_property name="ObjectShortName">TW_WIDTH[31:0]</obj_property>
+   </wvobject>
+   <wvobject fp_name="/tb_cognitive_radio_top/CLK_PERIOD" type="array">
+      <obj_property name="ElementShortName">CLK_PERIOD[31:0]</obj_property>
+      <obj_property name="ObjectShortName">CLK_PERIOD[31:0]</obj_property>
+   </wvobject>
+</wave_config>
